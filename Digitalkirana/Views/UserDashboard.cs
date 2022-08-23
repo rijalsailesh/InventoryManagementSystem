@@ -10,18 +10,12 @@ using System.Windows.Forms;
 
 namespace Digitalkirana.Views
 {
-    public partial class Dashboard : Form
+    public partial class UserDashboard : Form
     {
-        public Dashboard()
+        public UserDashboard()
         {
             InitializeComponent();
         }
 
-        private void categoryBtn_Click(object sender, EventArgs e)
-        {
-            Category category = new Category();
-
-            category.ShowDialog();
-        }
     }
 }

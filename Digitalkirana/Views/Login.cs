@@ -1,4 +1,6 @@
-﻿using MySqlConnector;
+﻿using Digitalkirana.BusinessLogicLayer;
+using Digitalkirana.DataAccessLayer;
+using MySqlConnector;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,7 +20,8 @@ namespace Digitalkirana.Views
             InitializeComponent();
         }
 
-        MySqlConnection con = new MySqlConnection(Connection.connectionString);
+        LoginBLL login = new LoginBLL();
+        LoginDAL loginDAL = new LoginDAL();
 
         private void togglePassword_CheckedChanged(object sender, EventArgs e)
         {
@@ -54,37 +57,35 @@ namespace Digitalkirana.Views
             }
             else
             {
-                //code
-                try
+                login.Username = textBoxUsername.Text;
+                login.Password = textBoxPassword.Text;
+                bool result = loginDAL.loginCheck(login);
+                if (result)
                 {
-                    string username = textBoxUsername.Text;
-                    string password = textBoxPassword.Text;
-                    MySqlCommand cmd = con.CreateCommand();
-                    MySqlDataReader Reader;
-                    cmd.CommandText = $"SELECT * FROM login_tbl WHERE Username='{username}' AND Password='{password}'";
-                    con.Open();
-                    Reader = cmd.ExecuteReader();
-                    if (Reader.Read())
+                    login.UserType = loginDAL.getUserType(login);
+                    if (login.UserType == "Admin")
                     {
-                        Dashboard dashboard = new Dashboard();
+                        AdminDashboard adminDashboard = new AdminDashboard();
+                        adminDashboard.Show();
                         this.Hide();
-                        dashboard.Show();
                     }
                     else
                     {
-                        MessageBox.Show("Incorrect Username or Password", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        UserDashboard userDashboard = new UserDashboard();
+                        userDashboard.Show();
+                        this.Hide();
                     }
                 }
-                catch (Exception ex)
+                else
                 {
-                    con.Close();
-                    MessageBox.Show(ex.ToString());
-                }
-                finally
-                {
-                    con.Close();
+                    MessageBox.Show("Incorrect username or password");
                 }
             }
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

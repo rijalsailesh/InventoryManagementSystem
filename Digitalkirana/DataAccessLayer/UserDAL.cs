@@ -9,12 +9,10 @@ namespace Digitalkirana.DataAccessLayer
 {
     public class UserDAL
     {
-        static string connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
-
+        MySqlConnection con = new MySqlConnection(Connection.connectionString);
         #region Select Users
         public DataTable SelectAllUsers()
         {
-            MySqlConnection con = new MySqlConnection(connectionString);
             DataTable dt = new DataTable();
             try
             {
@@ -39,7 +37,6 @@ namespace Digitalkirana.DataAccessLayer
         #region Insert User
         public bool InsertUser(UserBLL user)
         {
-            MySqlConnection con = new MySqlConnection(connectionString);
             try
             {
                 string query = $"INSERT INTO user_tbl (FullName, Username, Password, Phone, Address, Gender, UserType, AddedDate, AddedBy, Active) VALUES ('{user.FullName}','{user.UserName}','{user.Password}','{user.Phone}','{user.Address}','{user.Gender}','{user.UserType}','{user.AddedDate}','{user.AddedBy}',{user.Active})";
@@ -68,7 +65,6 @@ namespace Digitalkirana.DataAccessLayer
         #region Update User
         public bool UpdateUser(UserBLL user)
         {
-            MySqlConnection con = new MySqlConnection(connectionString);
             try
             {
                 string query = $"UPDATE user_tbl SET FullName = '{user.FullName}', Username = '{user.UserName}', Password = '{user.Password}', Phone = '{user.Phone}', Address = '{user.Address}', Gender = '{user.Gender}', UserType = '{user.UserType}', AddedDate = '{user.AddedDate}', AddedBy = '{user.AddedBy}', Active = {user.Active} WHERE Id = '{user.Id}'";
@@ -97,7 +93,6 @@ namespace Digitalkirana.DataAccessLayer
         #region Search User
         public DataTable SearchUser(string keyword)
         {
-            MySqlConnection con = new MySqlConnection(connectionString);
             DataTable dt = new DataTable();
             try
             {
