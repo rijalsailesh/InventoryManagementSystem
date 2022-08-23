@@ -14,7 +14,7 @@ namespace Digitalkirana
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Category());
+            Application.Run(new User());
         }
     }
 }
