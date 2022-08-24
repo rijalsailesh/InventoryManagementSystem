@@ -22,5 +22,10 @@ namespace Digitalkirana.Views
             User user = new User();
             user.ShowDialog();
         }
+
+        private void AdminDashboard_Load(object sender, EventArgs e)
+        {
+            labelUsername.Text = Login.fullName;
+        }
     }
 }

@@ -74,5 +74,63 @@ namespace Digitalkirana.DataAccessLayer
             return userType;
         }
         #endregion
+
+        #region Get Full Name
+        public string getFullName(LoginBLL login)
+        {
+            string fullName = "";
+            DataTable dt = new DataTable();
+            try
+            {
+                string query = $"SELECT FullName FROM user_tbl WHERE Username='{login.Username}' AND Password='{login.Password}'";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                con.Open();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    fullName = dt.Rows[0][0].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return fullName;
+        }
+        #endregion
+
+        #region Get Username
+        public string getUsername(LoginBLL login)
+        {
+            string username = "";
+            DataTable dt = new DataTable();
+            try
+            {
+                string query = $"SELECT Username FROM user_tbl WHERE Username='{login.Username}' AND Password='{login.Password}'";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                con.Open();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    username = dt.Rows[0][0].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return username;
+        }
+        #endregion
     }
 }

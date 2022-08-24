@@ -22,6 +22,8 @@ namespace Digitalkirana.Views
 
         LoginBLL login = new LoginBLL();
         LoginDAL loginDAL = new LoginDAL();
+        public static string fullName;
+        public static string username;
 
         private void togglePassword_CheckedChanged(object sender, EventArgs e)
         {
@@ -63,6 +65,8 @@ namespace Digitalkirana.Views
                 if (result)
                 {
                     login.UserType = loginDAL.getUserType(login);
+                    fullName = loginDAL.getFullName(login);
+                    username = loginDAL.getUsername(login);
                     if (login.UserType == "Admin")
                     {
                         AdminDashboard adminDashboard = new AdminDashboard();
@@ -81,11 +85,6 @@ namespace Digitalkirana.Views
                     MessageBox.Show("Incorrect username or password");
                 }
             }
-        }
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -113,5 +113,34 @@ namespace Digitalkirana.DataAccessLayer
             return dt;
         }
         #endregion
+
+        #region Get User Id From UserName
+        public int getUserId(string username)
+        {
+            int userId = 0;
+            DataTable dt = new DataTable();
+            try
+            {
+                string query = $"SELECT Id FROM user_tbl WHERE Username='{username}'";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                con.Open();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    userId =Convert.ToInt32(dt.Rows[0][0]);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return userId;
+        }
+        #endregion
     }
 }

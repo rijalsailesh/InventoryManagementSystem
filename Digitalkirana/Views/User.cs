@@ -21,7 +21,7 @@ namespace Digitalkirana.Views
 
         UserBLL user = new UserBLL();
         UserDAL userDAL = new UserDAL();
-        
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             user.FullName = textBoxFullName.Text;
@@ -32,7 +32,7 @@ namespace Digitalkirana.Views
             user.Address = textBoxAddress.Text;
             user.UserType = comboBoxUserType.SelectedItem.ToString();
             user.AddedDate = DateTime.Now;
-            user.AddedBy = 1;
+            user.AddedBy = userDAL.getUserId(Login.username);
             if (checkBoxActive.Checked)
             {
                 user.Active = true;

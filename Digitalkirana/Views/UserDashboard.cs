@@ -17,5 +17,9 @@ namespace Digitalkirana.Views
             InitializeComponent();
         }
 
+        private void UserDashboard_Load(object sender, EventArgs e)
+        {
+            labelUsername.Text = Login.fullName;
+        }
     }
 }
