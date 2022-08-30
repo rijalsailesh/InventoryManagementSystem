@@ -33,5 +33,11 @@ namespace Digitalkirana.Views
             Category category = new Category();
             category.ShowDialog();
         }
+
+        private void productsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Product product = new Product();
+            product.ShowDialog();
+        }
     }
 }

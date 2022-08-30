@@ -67,6 +67,7 @@ namespace Digitalkirana.Views
         private void btnDelete_Click(object sender, EventArgs e)
         {
             categoryDAL.DeleteCategory(category);
+            reset();
             dataGridViewCategory.DataSource = categoryDAL.SelectAllCategories();
         }
 

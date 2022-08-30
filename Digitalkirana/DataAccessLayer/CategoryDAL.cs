@@ -43,7 +43,7 @@ namespace Digitalkirana.DataAccessLayer
         {
             try
             {
-                string query = $"INSERT INTO category_tbl (CategoryName, Description, AddedBy, AddedDate ) VALUES ('{category.CategoryName}','{category.Description}',{category.AddedBy},'{category.AddedDate}')";
+                string query = $"INSERT INTO category_tbl (CategoryName, Description, AddedBy, AddedDate ) VALUES ('{category.CategoryName}','{category.Description}',{category.AddedBy},'{category.AddedDate.ToString("yyyy-MM-dd")}')";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 con.Open();
                 int result = cmd.ExecuteNonQuery();
