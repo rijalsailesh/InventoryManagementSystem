@@ -35,20 +35,20 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxCategory = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
             this.saveBtn = new System.Windows.Forms.Button();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxQuantity = new System.Windows.Forms.TextBox();
+            this.textBoxRate = new System.Windows.Forms.TextBox();
+            this.textBoxDescription = new System.Windows.Forms.TextBox();
+            this.textBoxProductName = new System.Windows.Forms.TextBox();
+            this.textBoxProductId = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
-            this.dataGridViewCategory = new System.Windows.Forms.DataGridView();
+            this.dataGridViewProduct = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCategory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProduct)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -59,15 +59,15 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.comboBoxCategory);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btnDelete);
             this.groupBox1.Controls.Add(this.saveBtn);
-            this.groupBox1.Controls.Add(this.textBox6);
-            this.groupBox1.Controls.Add(this.textBox5);
-            this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.textBoxQuantity);
+            this.groupBox1.Controls.Add(this.textBoxRate);
+            this.groupBox1.Controls.Add(this.textBoxDescription);
+            this.groupBox1.Controls.Add(this.textBoxProductName);
+            this.groupBox1.Controls.Add(this.textBoxProductId);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(876, 391);
@@ -120,13 +120,14 @@
             this.label2.TabIndex = 10;
             this.label2.Text = "Product Name";
             // 
-            // comboBox1
+            // comboBoxCategory
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(572, 90);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(285, 31);
-            this.comboBox1.TabIndex = 9;
+            this.comboBoxCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxCategory.FormattingEnabled = true;
+            this.comboBoxCategory.Location = new System.Drawing.Point(572, 90);
+            this.comboBoxCategory.Name = "comboBoxCategory";
+            this.comboBoxCategory.Size = new System.Drawing.Size(285, 31);
+            this.comboBoxCategory.TabIndex = 9;
             // 
             // label1
             // 
@@ -159,41 +160,41 @@
             this.saveBtn.Text = "Save";
             this.saveBtn.UseVisualStyleBackColor = false;
             // 
-            // textBox6
+            // textBoxQuantity
             // 
-            this.textBox6.Location = new System.Drawing.Point(572, 269);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(285, 32);
-            this.textBox6.TabIndex = 5;
+            this.textBoxQuantity.Location = new System.Drawing.Point(572, 269);
+            this.textBoxQuantity.Name = "textBoxQuantity";
+            this.textBoxQuantity.Size = new System.Drawing.Size(285, 32);
+            this.textBoxQuantity.TabIndex = 5;
             // 
-            // textBox5
+            // textBoxRate
             // 
-            this.textBox5.Location = new System.Drawing.Point(572, 180);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(285, 32);
-            this.textBox5.TabIndex = 4;
+            this.textBoxRate.Location = new System.Drawing.Point(572, 180);
+            this.textBoxRate.Name = "textBoxRate";
+            this.textBoxRate.Size = new System.Drawing.Size(285, 32);
+            this.textBoxRate.TabIndex = 4;
             // 
-            // textBox4
+            // textBoxDescription
             // 
-            this.textBox4.Location = new System.Drawing.Point(24, 180);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(517, 121);
-            this.textBox4.TabIndex = 3;
+            this.textBoxDescription.Location = new System.Drawing.Point(24, 180);
+            this.textBoxDescription.Multiline = true;
+            this.textBoxDescription.Name = "textBoxDescription";
+            this.textBoxDescription.Size = new System.Drawing.Size(517, 121);
+            this.textBoxDescription.TabIndex = 3;
             // 
-            // textBox2
+            // textBoxProductName
             // 
-            this.textBox2.Location = new System.Drawing.Point(256, 89);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(285, 32);
-            this.textBox2.TabIndex = 1;
+            this.textBoxProductName.Location = new System.Drawing.Point(256, 89);
+            this.textBoxProductName.Name = "textBoxProductName";
+            this.textBoxProductName.Size = new System.Drawing.Size(285, 32);
+            this.textBoxProductName.TabIndex = 1;
             // 
-            // textBox1
+            // textBoxProductId
             // 
-            this.textBox1.Location = new System.Drawing.Point(24, 89);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(201, 32);
-            this.textBox1.TabIndex = 0;
+            this.textBoxProductId.Location = new System.Drawing.Point(24, 89);
+            this.textBoxProductId.Name = "textBoxProductId";
+            this.textBoxProductId.Size = new System.Drawing.Size(201, 32);
+            this.textBoxProductId.TabIndex = 0;
             // 
             // label8
             // 
@@ -213,27 +214,27 @@
             this.textBoxSearch.Size = new System.Drawing.Size(787, 32);
             this.textBoxSearch.TabIndex = 27;
             // 
-            // dataGridViewCategory
+            // dataGridViewProduct
             // 
-            this.dataGridViewCategory.AllowUserToAddRows = false;
-            this.dataGridViewCategory.AllowUserToDeleteRows = false;
-            this.dataGridViewCategory.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dataGridViewCategory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewCategory.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridViewCategory.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dataGridViewCategory.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
-            this.dataGridViewCategory.ColumnHeadersHeight = 29;
-            this.dataGridViewCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridViewCategory.Location = new System.Drawing.Point(12, 478);
-            this.dataGridViewCategory.MultiSelect = false;
-            this.dataGridViewCategory.Name = "dataGridViewCategory";
-            this.dataGridViewCategory.ReadOnly = true;
-            this.dataGridViewCategory.RowHeadersVisible = false;
-            this.dataGridViewCategory.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dataGridViewCategory.RowTemplate.Height = 24;
-            this.dataGridViewCategory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewCategory.Size = new System.Drawing.Size(876, 214);
-            this.dataGridViewCategory.TabIndex = 25;
+            this.dataGridViewProduct.AllowUserToAddRows = false;
+            this.dataGridViewProduct.AllowUserToDeleteRows = false;
+            this.dataGridViewProduct.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dataGridViewProduct.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewProduct.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridViewProduct.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dataGridViewProduct.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
+            this.dataGridViewProduct.ColumnHeadersHeight = 29;
+            this.dataGridViewProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dataGridViewProduct.Location = new System.Drawing.Point(12, 478);
+            this.dataGridViewProduct.MultiSelect = false;
+            this.dataGridViewProduct.Name = "dataGridViewProduct";
+            this.dataGridViewProduct.ReadOnly = true;
+            this.dataGridViewProduct.RowHeadersVisible = false;
+            this.dataGridViewProduct.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dataGridViewProduct.RowTemplate.Height = 24;
+            this.dataGridViewProduct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewProduct.Size = new System.Drawing.Size(876, 214);
+            this.dataGridViewProduct.TabIndex = 25;
             // 
             // Product
             // 
@@ -243,7 +244,7 @@
             this.ClientSize = new System.Drawing.Size(900, 704);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.textBoxSearch);
-            this.Controls.Add(this.dataGridViewCategory);
+            this.Controls.Add(this.dataGridViewProduct);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -251,9 +252,10 @@
             this.Name = "Product";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Prdoduct";
+            this.Load += new System.EventHandler(this.Product_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCategory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProduct)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -262,22 +264,22 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBoxProductId;
+        private System.Windows.Forms.TextBox textBoxProductName;
+        private System.Windows.Forms.TextBox textBoxQuantity;
+        private System.Windows.Forms.TextBox textBoxRate;
+        private System.Windows.Forms.TextBox textBoxDescription;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button saveBtn;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxCategory;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBoxSearch;
-        private System.Windows.Forms.DataGridView dataGridViewCategory;
+        private System.Windows.Forms.DataGridView dataGridViewProduct;
     }
 }

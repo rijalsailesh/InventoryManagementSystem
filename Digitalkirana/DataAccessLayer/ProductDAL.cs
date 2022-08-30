@@ -10,17 +10,18 @@ using System.Windows.Forms;
 
 namespace Digitalkirana.DataAccessLayer
 {
-    public class CategoryDAL
+    public class ProductDAL
     {
+
         MySqlConnection con = new MySqlConnection(Connection.connectionString);
-        
-        #region Select Categories
-        public DataTable SelectAllCategories()
+
+        #region Select Products
+        public DataTable SelectAllProducts()
         {
             DataTable dt = new DataTable();
             try
             {
-                string query = "SELECT * FROM category_tbl";
+                string query = "SELECT * FROM product_tbl";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 con.Open();
@@ -38,18 +39,18 @@ namespace Digitalkirana.DataAccessLayer
         }
         #endregion
 
-        #region Insert Category
-        public bool InsertCategory(CategoryBLL category)
+        #region Insert Product
+        public bool InsertProduct(ProductBLL product)
         {
             try
             {
-                string query = $"INSERT INTO category_tbl (CategoryName, Description, AddedBy, AddedDate ) VALUES ('{category.CategoryName}','{category.Description}',{category.AddedBy},'{category.AddedDate.ToString("yyyy-MM-dd")}')";
+                string query = $"INSERT INTO product_tbl (Id, ProductName, Category, Description, Rate, Quantity, AddedBy, AddedDate ) VALUES ('{product.Id}','{product.ProductName}',{product.Category}, '{product.Description}', {product.Rate}, {product.Quantity}, {product.AddedBy},'{product.AddedDate.ToString("yyyy-MM-dd")}')";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 con.Open();
                 int result = cmd.ExecuteNonQuery();
                 if (result == 1)
                 {
-                    MessageBox.Show("Category Added Successfully");
+                    MessageBox.Show("Product Added Successfully");
                     return true;
                 }
             }
@@ -61,23 +62,23 @@ namespace Digitalkirana.DataAccessLayer
             {
                 con.Close();
             }
-            MessageBox.Show("Category Could not be added");
+            MessageBox.Show("Product Could not be added");
             return false;
         }
         #endregion
 
-        #region Update Category
-        public bool UpdateCategory(CategoryBLL category)
+        #region Update Product
+        public bool UpdateProduct(ProductBLL product)
         {
             try
             {
-                string query = $"UPDATE category_tbl SET CategoryName = '{category.CategoryName}', Description = '{category.Description}', WHERE Id = {category.Id}";
+                string query = $"UPDATE product_tbl SET ProductName='{product.ProductName}', Category={product.Category}, Description = '{product.Description}', Rate = {product.Rate}, Quantity = {product.Quantity} WHERE Id = '{product.Id}'";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 con.Open();
                 int result = cmd.ExecuteNonQuery();
                 if (result == 1)
                 {
-                    MessageBox.Show("Category Updated Successfully");
+                    MessageBox.Show("Product Updated Successfully");
                     return true;
                 }
             }
@@ -89,18 +90,18 @@ namespace Digitalkirana.DataAccessLayer
             {
                 con.Close();
             }
-            MessageBox.Show("Category Could not be updated");
+            MessageBox.Show("Product Could not be updated");
             return false;
         }
         #endregion
 
-        #region Search Category
-        public DataTable SearchCategory(string keyword)
+        #region Search Product
+        public DataTable SearchProduct(string keyword)
         {
             DataTable dt = new DataTable();
             try
             {
-                string query = $"SELECT * FROM category_tbl WHERE Id LIKE '%{keyword}%' OR CategoryName LIKE '%{keyword}%'";
+                string query = $"SELECT * FROM product_tbl WHERE Id LIKE '%{keyword}%' OR ProductName LIKE '%{keyword}%'";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 con.Open();
@@ -118,18 +119,18 @@ namespace Digitalkirana.DataAccessLayer
         }
         #endregion
 
-        #region Delete Category
-        public bool DeleteCategory(CategoryBLL category)
+        #region Delete Product
+        public bool DeleteProduct(ProductBLL product)
         {
             try
             {
-                string query = $"DELETE FROM category_tbl WHERE Id = {category.Id}";
+                string query = $"DELETE FROM product_tbl WHERE Id = {product.Id}";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 con.Open();
                 int result = cmd.ExecuteNonQuery();
                 if (result == 1)
                 {
-                    MessageBox.Show("Category Deleted Successfully");
+                    MessageBox.Show("Product Deleted Successfully");
                     return true;
                 }
             }
@@ -141,9 +142,10 @@ namespace Digitalkirana.DataAccessLayer
             {
                 con.Close();
             }
-            MessageBox.Show("Category Could not be deleted");
+            MessageBox.Show("Product Could not be deleted");
             return false;
         }
         #endregion
+
     }
 }

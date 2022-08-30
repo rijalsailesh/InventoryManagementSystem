@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Digitalkirana.DataAccessLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,16 @@ namespace Digitalkirana.Views
         public Product()
         {
             InitializeComponent();
+        }
+
+        CategoryDAL categoryDAL = new CategoryDAL();
+
+        private void Product_Load(object sender, EventArgs e)
+        {
+            comboBoxCategory.DataSource = categoryDAL.SelectAllCategories();
+            comboBoxCategory.DisplayMember = "CategoryName";
+            comboBoxCategory.ValueMember = "Id";
+            comboBoxCategory.SelectedIndex = -1;
         }
     }
 }
