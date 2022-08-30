@@ -1,4 +1,6 @@
-﻿using MySqlConnector;
+﻿using Digitalkirana.BusinessLogicLayer;
+using Digitalkirana.DataAccessLayer;
+using MySqlConnector;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,77 +20,67 @@ namespace Digitalkirana.Views
             InitializeComponent();
         }
 
-        MySqlConnection con = new MySqlConnection(Connection.connectionString);
-        int id = 0;
+        CategoryBLL category = new CategoryBLL();
+        CategoryDAL categoryDAL = new CategoryDAL();
+        UserDAL userDAL = new UserDAL();
 
-
-        private void saveBtn_Click_1(object sender, EventArgs e)
+        private void dataGridViewCategory_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            string query = "";
-            string successMessage = "";
-            try
+            int rowIndex = e.RowIndex;
+            DataGridViewRow selectedRow = dataGridViewCategory.Rows[rowIndex];
+            category.Id = Convert.ToInt32(selectedRow.Cells[0].Value);
+            textBoxCategoryName.Text = selectedRow.Cells[1].Value.ToString();
+            textBoxDescription.Text = selectedRow.Cells[2].Value.ToString();
+        }
+
+        private void saveBtn_Click(object sender, EventArgs e)
+        {
+            category.CategoryName = textBoxCategoryName.Text;
+            category.Description = textBoxDescription.Text;
+            category.AddedDate = DateTime.Now;
+            category.AddedBy = userDAL.getUserId(Login.username);
+
+            if (category.Id > 0)
             {
-                if (id == 0)
-                {
-                    query = $"INSERT INTO category_tbl (CategoryName) VALUES ('{textBoxCategory.Text}')";
-                    successMessage = $"Category: {textBoxCategory.Text} Added Successfully";
-                }
-                else
-                {
-                    query = $"UPDATE category_tbl SET CategoryName = '{textBoxCategory.Text}' WHERE Id = {id}";
-                    successMessage = $"Category: {textBoxCategory.Text} Updated Successfully";
-                }
-                MySqlCommand cmd = new MySqlCommand(query, con);
-                con.Open();
-                cmd.ExecuteNonQuery();
-                MessageBox.Show(successMessage);
-                textBoxCategory.Clear();
+                categoryDAL.UpdateCategory(category);
             }
-            catch(Exception ex)
+            else
             {
-                con.Close();
-                MessageBox.Show(ex.ToString());
+                categoryDAL.InsertCategory(category);
             }
-            finally
-            {
-                con.Close();
-                SetDataInGridView();
-            }
+            dataGridViewCategory.DataSource = categoryDAL.SelectAllCategories();
+            reset();
+        }
+
+        private void reset()
+        {
+            category.Id = 0;
+            textBoxCategoryName.Clear();
+            textBoxDescription.Clear();
         }
 
         private void Category_Load(object sender, EventArgs e)
         {
-            SetDataInGridView();
+            dataGridViewCategory.DataSource = categoryDAL.SelectAllCategories();
         }
 
-        private void SetDataInGridView()
+        private void btnDelete_Click(object sender, EventArgs e)
         {
-            try
-            {
-                MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT * FROM category_tbl", con);
-                DataTable dt = new DataTable();
-                con.Open();
-                adapter.Fill(dt);
-                dataGridViewCategory.DataSource = dt;
-            }
-            catch (Exception ex)
-            {
-                con.Close();
-                MessageBox.Show(ex.ToString());
-            }
-            finally
-            {
-                con.Close();
-            }
+            categoryDAL.DeleteCategory(category);
+            dataGridViewCategory.DataSource = categoryDAL.SelectAllCategories();
         }
 
-
-        private void dataGridViewCategory_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void textBoxSearch_TextChanged(object sender, EventArgs e)
         {
-            int index = e.RowIndex;
-            DataGridViewRow selectedRow = dataGridViewCategory.Rows[index];
-            id = Convert.ToInt32(selectedRow.Cells[0].Value);
-            textBoxCategory.Text = selectedRow.Cells[1].Value.ToString();
+            string keyword = textBoxSearch.Text;
+            if (keyword == null)
+            {
+                dataGridViewCategory.DataSource = categoryDAL.SelectAllCategories();
+            }
+            else
+            {
+                dataGridViewCategory.DataSource = categoryDAL.SearchCategory(keyword);
+            }
         }
     }
 }

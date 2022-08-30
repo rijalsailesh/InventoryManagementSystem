@@ -73,9 +73,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLogicLayer\CategoryBLL.cs" />
     <Compile Include="BusinessLogicLayer\LoginBLL.cs" />
     <Compile Include="BusinessLogicLayer\UserBLL.cs" />
     <Compile Include="Connection.cs" />
+    <Compile Include="DataAccessLayer\CategoryDAL.cs" />
     <Compile Include="DataAccessLayer\LoginDAL.cs" />
     <Compile Include="DataAccessLayer\UserDAL.cs" />
     <Compile Include="Program.cs" />

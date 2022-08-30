@@ -31,7 +31,6 @@ namespace Digitalkirana.Views
             user.Gender = comboBoxGender.SelectedItem.ToString();
             user.Address = textBoxAddress.Text;
             user.UserType = comboBoxUserType.SelectedItem.ToString();
-            user.AddedDate = DateTime.Now;
             user.AddedBy = userDAL.getUserId(Login.username);
             if (checkBoxActive.Checked)
             {

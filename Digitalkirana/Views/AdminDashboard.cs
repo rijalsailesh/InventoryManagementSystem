@@ -27,5 +27,11 @@ namespace Digitalkirana.Views
         {
             labelUsername.Text = Login.fullName;
         }
+
+        private void categoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Category category = new Category();
+            category.ShowDialog();
+        }
     }
 }
