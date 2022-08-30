@@ -44,7 +44,7 @@ namespace Digitalkirana.DataAccessLayer
         {
             try
             {
-                string query = $"INSERT INTO product_tbl (Id, ProductName, Category, Description, Rate, Quantity, AddedBy, AddedDate ) VALUES ('{product.Id}','{product.ProductName}',{product.Category}, '{product.Description}', {product.Rate}, {product.Quantity}, {product.AddedBy},'{product.AddedDate.ToString("yyyy-MM-dd")}')";
+                string query = $"INSERT INTO product_tbl (Id, ProductName, Category, Description, Rate, Quantity, AddedBy, AddedDate ) VALUES ('{product.Id}','{product.ProductName}', '{product.Category}', '{product.Description}', {product.Rate}, {product.Quantity}, {product.AddedBy},'{product.AddedDate.ToString("yyyy-MM-dd")}')";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 con.Open();
                 int result = cmd.ExecuteNonQuery();
@@ -72,7 +72,7 @@ namespace Digitalkirana.DataAccessLayer
         {
             try
             {
-                string query = $"UPDATE product_tbl SET ProductName='{product.ProductName}', Category={product.Category}, Description = '{product.Description}', Rate = {product.Rate}, Quantity = {product.Quantity} WHERE Id = '{product.Id}'";
+                string query = $"UPDATE product_tbl SET ProductName='{product.ProductName}', Category = '{product.Category}', Description = '{product.Description}', Rate = {product.Rate}, Quantity = {product.Quantity} WHERE Id = '{product.Id}'";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 con.Open();
                 int result = cmd.ExecuteNonQuery();
