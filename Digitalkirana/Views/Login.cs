@@ -70,14 +70,16 @@ namespace Digitalkirana.Views
                     if (login.UserType == "Admin")
                     {
                         AdminDashboard adminDashboard = new AdminDashboard();
-                        adminDashboard.Show();
                         this.Hide();
+                        adminDashboard.ShowDialog();
+                        Close();
                     }
                     else
                     {
                         UserDashboard userDashboard = new UserDashboard();
-                        userDashboard.Show();
                         this.Hide();
+                        userDashboard.ShowDialog();
+                        Close();
                     }
                 }
                 else

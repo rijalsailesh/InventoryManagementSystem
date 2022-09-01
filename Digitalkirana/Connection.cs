@@ -12,3 +12,4 @@ namespace Digitalkirana
         public static string connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
     }
 }
+ 

@@ -17,6 +17,7 @@ namespace Digitalkirana.Views
         public Product()
         {
             InitializeComponent();
+            
         }
 
         CategoryDAL categoryDAL = new CategoryDAL();

@@ -175,6 +175,7 @@
             this.textBoxRate.Name = "textBoxRate";
             this.textBoxRate.Size = new System.Drawing.Size(285, 32);
             this.textBoxRate.TabIndex = 4;
+            this.textBoxRate.Text = "\r\n";
             // 
             // textBoxDescription
             // 
