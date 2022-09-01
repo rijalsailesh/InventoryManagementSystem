@@ -43,7 +43,7 @@ namespace Digitalkirana.DataAccessLayer
         {
             try
             {
-                string query = $"INSERT INTO supplier_tbl (SupplierName, Email, Phone, Address, AddedBy, AddedDate) VALUES ('{supplier.SupplierName}','{supplier.Email}','{supplier.Phone}','{supplier.Phone}','{supplier.Address}',{supplier.AddedBy},'{supplier.AddedDate}','{supplier.AddedDate.ToString("yyyy-MM-dd")}')";
+                string query = $"INSERT INTO supplier_tbl (SupplierName, Email, Phone, Address, AddedBy, AddedDate) VALUES ('{supplier.SupplierName}','{supplier.Email}', '{supplier.Phone}','{supplier.Address}',{supplier.AddedBy}, '{supplier.AddedDate.ToString("yyyy-MM-dd")}')";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 con.Open();
                 int result = cmd.ExecuteNonQuery();
@@ -119,7 +119,7 @@ namespace Digitalkirana.DataAccessLayer
         #endregion
 
         #region Delete Supplier
-        public bool DeleteCategory(SupplierBLL supplier)
+        public bool DeleteSupplier(SupplierBLL supplier)
         {
             try
             {

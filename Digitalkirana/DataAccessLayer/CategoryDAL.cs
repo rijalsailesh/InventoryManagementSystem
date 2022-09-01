@@ -71,7 +71,7 @@ namespace Digitalkirana.DataAccessLayer
         {
             try
             {
-                string query = $"UPDATE category_tbl SET CategoryName = '{category.CategoryName}', Description = '{category.Description}', WHERE Id = {category.Id}";
+                string query = $"UPDATE category_tbl SET CategoryName = '{category.CategoryName}', Description = '{category.Description}' WHERE Id = {category.Id}";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 con.Open();
                 int result = cmd.ExecuteNonQuery();

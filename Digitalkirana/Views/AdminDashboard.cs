@@ -45,5 +45,10 @@ namespace Digitalkirana.Views
             Supplier supplier = new Supplier();
             supplier.ShowDialog();
         }
+
+        private void transactionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

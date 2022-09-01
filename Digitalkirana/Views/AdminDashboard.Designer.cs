@@ -40,6 +40,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.labelUsername = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.customersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -52,6 +53,7 @@
             this.categoryToolStripMenuItem,
             this.productsToolStripMenuItem,
             this.suppliersToolStripMenuItem,
+            this.customersToolStripMenuItem,
             this.inventoryToolStripMenuItem,
             this.transactionsToolStripMenuItem});
             this.menuStripTop.Location = new System.Drawing.Point(0, 0);
@@ -100,6 +102,7 @@
             this.transactionsToolStripMenuItem.Name = "transactionsToolStripMenuItem";
             this.transactionsToolStripMenuItem.Size = new System.Drawing.Size(104, 24);
             this.transactionsToolStripMenuItem.Text = "Transactions";
+            this.transactionsToolStripMenuItem.Click += new System.EventHandler(this.transactionsToolStripMenuItem_Click);
             // 
             // panel1
             // 
@@ -143,6 +146,12 @@
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
+            // customersToolStripMenuItem
+            // 
+            this.customersToolStripMenuItem.Name = "customersToolStripMenuItem";
+            this.customersToolStripMenuItem.Size = new System.Drawing.Size(92, 24);
+            this.customersToolStripMenuItem.Text = "Customers";
+            // 
             // AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
@@ -185,5 +194,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelUsername;
         private System.Windows.Forms.ToolStripMenuItem suppliersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem customersToolStripMenuItem;
     }
 }

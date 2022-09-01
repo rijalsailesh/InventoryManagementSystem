@@ -40,7 +40,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxPhone = new System.Windows.Forms.TextBox();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
-            this.textBoxFullName = new System.Windows.Forms.TextBox();
+            this.textBoxSupplierName = new System.Windows.Forms.TextBox();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSupplier)).BeginInit();
@@ -67,6 +67,7 @@
             this.btnDelete.TabIndex = 20;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnSave
             // 
@@ -78,6 +79,7 @@
             this.btnSave.TabIndex = 18;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // label7
             // 
@@ -100,6 +102,8 @@
             // 
             this.dataGridViewSupplier.AllowUserToAddRows = false;
             this.dataGridViewSupplier.AllowUserToDeleteRows = false;
+            this.dataGridViewSupplier.AllowUserToResizeColumns = false;
+            this.dataGridViewSupplier.AllowUserToResizeRows = false;
             this.dataGridViewSupplier.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dataGridViewSupplier.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewSupplier.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
@@ -109,9 +113,12 @@
             this.dataGridViewSupplier.ReadOnly = true;
             this.dataGridViewSupplier.RowHeadersVisible = false;
             this.dataGridViewSupplier.RowHeadersWidth = 51;
+            this.dataGridViewSupplier.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridViewSupplier.RowTemplate.Height = 24;
+            this.dataGridViewSupplier.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewSupplier.Size = new System.Drawing.Size(968, 198);
             this.dataGridViewSupplier.TabIndex = 24;
+            this.dataGridViewSupplier.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSupplier_CellClick);
             // 
             // label3
             // 
@@ -146,7 +153,6 @@
             this.textBoxPhone.Name = "textBoxPhone";
             this.textBoxPhone.Size = new System.Drawing.Size(273, 32);
             this.textBoxPhone.TabIndex = 2;
-            this.textBoxPhone.TextChanged += new System.EventHandler(this.textBoxPassword_TextChanged);
             // 
             // textBoxEmail
             // 
@@ -154,15 +160,13 @@
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(273, 32);
             this.textBoxEmail.TabIndex = 1;
-            this.textBoxEmail.TextChanged += new System.EventHandler(this.textBoxUsername_TextChanged);
             // 
-            // textBoxFullName
+            // textBoxSupplierName
             // 
-            this.textBoxFullName.Location = new System.Drawing.Point(21, 68);
-            this.textBoxFullName.Name = "textBoxFullName";
-            this.textBoxFullName.Size = new System.Drawing.Size(273, 32);
-            this.textBoxFullName.TabIndex = 0;
-            this.textBoxFullName.TextChanged += new System.EventHandler(this.textBoxFullName_TextChanged);
+            this.textBoxSupplierName.Location = new System.Drawing.Point(21, 68);
+            this.textBoxSupplierName.Name = "textBoxSupplierName";
+            this.textBoxSupplierName.Size = new System.Drawing.Size(273, 32);
+            this.textBoxSupplierName.TabIndex = 0;
             // 
             // textBoxSearch
             // 
@@ -171,6 +175,7 @@
             this.textBoxSearch.Name = "textBoxSearch";
             this.textBoxSearch.Size = new System.Drawing.Size(879, 32);
             this.textBoxSearch.TabIndex = 26;
+            this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
             // 
             // groupBox1
             // 
@@ -184,7 +189,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.textBoxPhone);
             this.groupBox1.Controls.Add(this.textBoxEmail);
-            this.groupBox1.Controls.Add(this.textBoxFullName);
+            this.groupBox1.Controls.Add(this.textBoxSupplierName);
             this.groupBox1.Location = new System.Drawing.Point(13, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(968, 275);
@@ -207,6 +212,7 @@
             this.Name = "Supplier";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Supplier";
+            this.Load += new System.EventHandler(this.Supplier_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSupplier)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -228,7 +234,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxPhone;
         private System.Windows.Forms.TextBox textBoxEmail;
-        private System.Windows.Forms.TextBox textBoxFullName;
+        private System.Windows.Forms.TextBox textBoxSupplierName;
         private System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.GroupBox groupBox1;
     }

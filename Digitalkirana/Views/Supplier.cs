@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Digitalkirana.BusinessLogicLayer;
+using Digitalkirana.DataAccessLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,19 +19,74 @@ namespace Digitalkirana.Views
             InitializeComponent();
         }
 
-        private void textBoxFullName_TextChanged(object sender, EventArgs e)
-        {
+        SupplierBLL supplier = new SupplierBLL();
+        SupplierDAL supplierDAL = new SupplierDAL();
+        UserDAL userDAL = new UserDAL();
 
+        private void Supplier_Load(object sender, EventArgs e)
+        {
+            dataGridViewSupplier.DataSource = supplierDAL.SelectAllSuppliers();
         }
 
-        private void textBoxUsername_TextChanged(object sender, EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
+            supplier.SupplierName = textBoxSupplierName.Text;
+            supplier.Email = textBoxEmail.Text;
+            supplier.Phone = textBoxPhone.Text;
+            supplier.Address = textBoxAddress.Text;
+            supplier.AddedDate = DateTime.Now;
+            supplier.AddedBy = userDAL.getUserId(Login.username);
 
+            if (supplier.Id > 0)
+            {
+                supplierDAL.UpdateSupplier(supplier);
+            }
+            else
+            {
+                supplierDAL.InsertSupplier(supplier);
+            }
+            dataGridViewSupplier.DataSource = supplierDAL.SelectAllSuppliers();
+            reset();
         }
 
-        private void textBoxPassword_TextChanged(object sender, EventArgs e)
+        private void reset()
         {
+            textBoxSupplierName.Clear();
+            textBoxEmail.Clear();
+            textBoxAddress.Clear();
+            textBoxPhone.Clear();
+            supplier.Id = 0;
+        }
 
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            supplierDAL.DeleteSupplier(supplier);
+            reset();
+            dataGridViewSupplier.DataSource = supplierDAL.SelectAllSuppliers();
+        }
+
+        private void textBoxSearch_TextChanged(object sender, EventArgs e)
+        {
+            string keyword = textBoxSearch.Text;
+            if (keyword == null)
+            {
+                dataGridViewSupplier.DataSource = supplierDAL.SelectAllSuppliers();
+            }
+            else
+            {
+                dataGridViewSupplier.DataSource = supplierDAL.SearchSupplier(keyword);
+            }
+        }
+
+        private void dataGridViewSupplier_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int rowIndex = e.RowIndex;
+            DataGridViewRow selectedRow = dataGridViewSupplier.Rows[rowIndex];
+            supplier.Id = Convert.ToInt32(selectedRow.Cells[0].Value);
+            textBoxSupplierName.Text = selectedRow.Cells[1].Value.ToString();
+            textBoxEmail.Text = selectedRow.Cells[2].Value.ToString();
+            textBoxPhone.Text = selectedRow.Cells[3].Value.ToString();
+            textBoxAddress.Text = selectedRow.Cells[4].Value.ToString();
         }
     }
 }
