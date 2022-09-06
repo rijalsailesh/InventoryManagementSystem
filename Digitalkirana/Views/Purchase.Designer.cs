@@ -470,7 +470,7 @@
             this.dataGridViewAddedProducts.AllowUserToResizeColumns = false;
             this.dataGridViewAddedProducts.AllowUserToResizeRows = false;
             this.dataGridViewAddedProducts.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dataGridViewAddedProducts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridViewAddedProducts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewAddedProducts.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridViewAddedProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewAddedProducts.Location = new System.Drawing.Point(9, 37);

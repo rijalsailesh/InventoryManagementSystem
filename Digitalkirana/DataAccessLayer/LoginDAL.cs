@@ -132,5 +132,34 @@ namespace Digitalkirana.DataAccessLayer
             return username;
         }
         #endregion
+
+        #region CheckIsActive
+        public bool CheckIsActive(LoginBLL login)
+        {
+            bool isActive = false;
+            DataTable dt = new DataTable();
+            try
+            {
+                string query = $"SELECT Active FROM user_tbl WHERE Username='{login.Username}' AND Password='{login.Password}'";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                con.Open();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    isActive = Convert.ToBoolean(dt.Rows[0]["Active"]);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return isActive;
+        }
+        #endregion
     }
 }

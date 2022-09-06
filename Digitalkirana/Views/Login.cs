@@ -39,6 +39,11 @@ namespace Digitalkirana.Views
 
         private void clearBtn_Click(object sender, EventArgs e)
         {
+            reset();
+        }
+
+        private void reset()
+        {
             textBoxUsername.Clear();
             textBoxPassword.Clear();
         }
@@ -62,31 +67,46 @@ namespace Digitalkirana.Views
                 login.Username = textBoxUsername.Text;
                 login.Password = textBoxPassword.Text;
                 bool result = loginDAL.loginCheck(login);
-                if (result)
+                bool isActive = loginDAL.CheckIsActive(login);
+                if (isActive)
                 {
-                    login.UserType = loginDAL.getUserType(login);
-                    fullName = loginDAL.getFullName(login);
-                    username = loginDAL.getUsername(login);
-                    if (login.UserType == "Admin")
+                    if (result)
                     {
-                        AdminDashboard adminDashboard = new AdminDashboard();
-                        this.Hide();
-                        adminDashboard.ShowDialog();
-                        Close();
+                        login.UserType = loginDAL.getUserType(login);
+                        fullName = loginDAL.getFullName(login);
+                        username = loginDAL.getUsername(login);
+                        if (login.UserType == "Admin")
+                        {
+                            AdminDashboard adminDashboard = new AdminDashboard();
+                            this.Hide();
+                            adminDashboard.ShowDialog();
+                            reset();
+                            Show();
+                        }
+                        else
+                        {
+                            UserDashboard userDashboard = new UserDashboard();
+                            this.Hide();
+                            userDashboard.ShowDialog();
+                            reset();
+                            Show();
+                        }
                     }
                     else
                     {
-                        UserDashboard userDashboard = new UserDashboard();
-                        this.Hide();
-                        userDashboard.ShowDialog();
-                        Close();
+                        MessageBox.Show("Incorrect username or password");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Incorrect username or password");
+                    MessageBox.Show("This Login User is currenlty inactive");
                 }
             }
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

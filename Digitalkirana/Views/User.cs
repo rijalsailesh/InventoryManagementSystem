@@ -71,11 +71,6 @@ namespace Digitalkirana.Views
             dataGridViewUser.DataSource = userDAL.SelectAllUsers();
         }
 
-        private void btnReset_Click(object sender, EventArgs e)
-        {
-            reset();
-        }
-
         private void dataGridViewUser_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int rowIndex = e.RowIndex;
@@ -103,6 +98,11 @@ namespace Digitalkirana.Views
             {
                 dataGridViewUser.DataSource = userDAL.SearchUser(keyword);
             }
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            reset();
         }
     }
 }
