@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Product));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBoxQuantity = new System.Windows.Forms.NumericUpDown();
+            this.textBoxRate = new System.Windows.Forms.NumericUpDown();
+            this.btnReset = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -39,8 +42,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
             this.saveBtn = new System.Windows.Forms.Button();
-            this.textBoxQuantity = new System.Windows.Forms.TextBox();
-            this.textBoxRate = new System.Windows.Forms.TextBox();
             this.textBoxDescription = new System.Windows.Forms.TextBox();
             this.textBoxProductName = new System.Windows.Forms.TextBox();
             this.textBoxProductId = new System.Windows.Forms.TextBox();
@@ -48,12 +49,17 @@
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.dataGridViewProduct = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxQuantity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxRate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProduct)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox1.Controls.Add(this.textBoxQuantity);
+            this.groupBox1.Controls.Add(this.textBoxRate);
+            this.groupBox1.Controls.Add(this.btnReset);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
@@ -63,8 +69,6 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btnDelete);
             this.groupBox1.Controls.Add(this.saveBtn);
-            this.groupBox1.Controls.Add(this.textBoxQuantity);
-            this.groupBox1.Controls.Add(this.textBoxRate);
             this.groupBox1.Controls.Add(this.textBoxDescription);
             this.groupBox1.Controls.Add(this.textBoxProductName);
             this.groupBox1.Controls.Add(this.textBoxProductId);
@@ -74,6 +78,32 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Product\'s Details";
+            // 
+            // textBoxQuantity
+            // 
+            this.textBoxQuantity.Location = new System.Drawing.Point(572, 269);
+            this.textBoxQuantity.Name = "textBoxQuantity";
+            this.textBoxQuantity.Size = new System.Drawing.Size(285, 32);
+            this.textBoxQuantity.TabIndex = 17;
+            // 
+            // textBoxRate
+            // 
+            this.textBoxRate.Location = new System.Drawing.Point(572, 181);
+            this.textBoxRate.Name = "textBoxRate";
+            this.textBoxRate.Size = new System.Drawing.Size(285, 32);
+            this.textBoxRate.TabIndex = 16;
+            // 
+            // btnReset
+            // 
+            this.btnReset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(95)))), ((int)(((byte)(112)))));
+            this.btnReset.ForeColor = System.Drawing.Color.White;
+            this.btnReset.Location = new System.Drawing.Point(572, 321);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(285, 53);
+            this.btnReset.TabIndex = 15;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = false;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // label6
             // 
@@ -142,9 +172,9 @@
             // 
             this.btnDelete.BackColor = System.Drawing.Color.Crimson;
             this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(571, 321);
+            this.btnDelete.Location = new System.Drawing.Point(299, 321);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(286, 53);
+            this.btnDelete.Size = new System.Drawing.Size(242, 53);
             this.btnDelete.TabIndex = 7;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
@@ -156,26 +186,11 @@
             this.saveBtn.ForeColor = System.Drawing.Color.White;
             this.saveBtn.Location = new System.Drawing.Point(24, 321);
             this.saveBtn.Name = "saveBtn";
-            this.saveBtn.Size = new System.Drawing.Size(517, 53);
+            this.saveBtn.Size = new System.Drawing.Size(242, 53);
             this.saveBtn.TabIndex = 6;
-            this.saveBtn.Text = "Save";
+            this.saveBtn.Text = "Add";
             this.saveBtn.UseVisualStyleBackColor = false;
             this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
-            // 
-            // textBoxQuantity
-            // 
-            this.textBoxQuantity.Location = new System.Drawing.Point(572, 269);
-            this.textBoxQuantity.Name = "textBoxQuantity";
-            this.textBoxQuantity.Size = new System.Drawing.Size(285, 32);
-            this.textBoxQuantity.TabIndex = 5;
-            // 
-            // textBoxRate
-            // 
-            this.textBoxRate.Location = new System.Drawing.Point(572, 180);
-            this.textBoxRate.Name = "textBoxRate";
-            this.textBoxRate.Size = new System.Drawing.Size(285, 32);
-            this.textBoxRate.TabIndex = 4;
-            this.textBoxRate.Text = "\r\n";
             // 
             // textBoxDescription
             // 
@@ -259,6 +274,8 @@
             this.Load += new System.EventHandler(this.Product_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxQuantity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxRate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProduct)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -270,8 +287,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox textBoxProductId;
         private System.Windows.Forms.TextBox textBoxProductName;
-        private System.Windows.Forms.TextBox textBoxQuantity;
-        private System.Windows.Forms.TextBox textBoxRate;
         private System.Windows.Forms.TextBox textBoxDescription;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button saveBtn;
@@ -285,5 +300,8 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.DataGridView dataGridViewProduct;
+        private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.NumericUpDown textBoxQuantity;
+        private System.Windows.Forms.NumericUpDown textBoxRate;
     }
 }

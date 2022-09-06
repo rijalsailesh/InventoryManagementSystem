@@ -147,5 +147,36 @@ namespace Digitalkirana.DataAccessLayer
         }
         #endregion
 
+        #region Search Product For Purchase
+        public ProductBLL SearchProductForPurchase(string keyword)
+        {
+            DataTable dt = new DataTable();
+            ProductBLL product = new ProductBLL();
+            try
+            {
+                string query = $"SELECT ProductName, Rate, Quantity FROM product_tbl WHERE Id LIKE '%{keyword}%' OR ProductName LIKE '%{keyword}%'";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                con.Open();
+                da.Fill(dt);
+                if(dt.Rows.Count > 0)
+                {
+                    product.ProductName = dt.Rows[0]["ProductName"].ToString();
+                    product.Rate = Convert.ToDecimal(dt.Rows[0]["Rate"]);
+                    product.Quantity = Convert.ToDecimal(dt.Rows[0]["Quantity"]);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return product;
+        }
+        #endregion
+
     }
 }

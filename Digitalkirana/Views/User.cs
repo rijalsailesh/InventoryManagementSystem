@@ -63,6 +63,7 @@ namespace Digitalkirana.Views
             textBoxAddress.Clear();
             comboBoxUserType.SelectedIndex = -1;
             checkBoxActive.Checked = false;
+            btnSave.Text = "Add";
         }
 
         private void User_Load(object sender, EventArgs e)
@@ -79,6 +80,7 @@ namespace Digitalkirana.Views
         {
             int rowIndex = e.RowIndex;
             DataGridViewRow selectedRow = dataGridViewUser.Rows[rowIndex];
+            btnSave.Text = "Update";
             user.Id = Convert.ToInt32(selectedRow.Cells[0].Value);
             textBoxFullName.Text = selectedRow.Cells[1].Value.ToString();
             textBoxUsername.Text = selectedRow.Cells[2].Value.ToString();

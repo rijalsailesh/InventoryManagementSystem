@@ -66,6 +66,7 @@
             this.inventoryToolStripMenuItem.Name = "inventoryToolStripMenuItem";
             this.inventoryToolStripMenuItem.Size = new System.Drawing.Size(81, 24);
             this.inventoryToolStripMenuItem.Text = "Purchase";
+            this.inventoryToolStripMenuItem.Click += new System.EventHandler(this.inventoryToolStripMenuItem_Click);
             // 
             // transactionsToolStripMenuItem
             // 

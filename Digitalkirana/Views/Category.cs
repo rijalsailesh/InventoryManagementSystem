@@ -26,7 +26,12 @@ namespace Digitalkirana.Views
 
         private void dataGridViewCategory_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            saveBtn.Text = "Update";
             int rowIndex = e.RowIndex;
+            if(rowIndex < 0)
+            {
+                return;
+            }
             DataGridViewRow selectedRow = dataGridViewCategory.Rows[rowIndex];
             category.Id = Convert.ToInt32(selectedRow.Cells[0].Value);
             textBoxCategoryName.Text = selectedRow.Cells[1].Value.ToString();
@@ -57,6 +62,7 @@ namespace Digitalkirana.Views
             category.Id = 0;
             textBoxCategoryName.Clear();
             textBoxDescription.Clear();
+            saveBtn.Text = "Add";
         }
 
         private void Category_Load(object sender, EventArgs e)
@@ -82,6 +88,11 @@ namespace Digitalkirana.Views
             {
                 dataGridViewCategory.DataSource = categoryDAL.SearchCategory(keyword);
             }
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            reset();
         }
     }
 }

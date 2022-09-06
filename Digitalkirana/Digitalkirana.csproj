@@ -77,6 +77,8 @@
     <Compile Include="BusinessLogicLayer\LoginBLL.cs" />
     <Compile Include="BusinessLogicLayer\ProductBLL.cs" />
     <Compile Include="BusinessLogicLayer\CustomerBLL.cs" />
+    <Compile Include="BusinessLogicLayer\PurchaseBLL.cs" />
+    <Compile Include="BusinessLogicLayer\PurchaseDetailsBLL.cs" />
     <Compile Include="BusinessLogicLayer\SupplierBLL.cs" />
     <Compile Include="BusinessLogicLayer\UserBLL.cs" />
     <Compile Include="Connection.cs" />
@@ -84,6 +86,8 @@
     <Compile Include="DataAccessLayer\LoginDAL.cs" />
     <Compile Include="DataAccessLayer\ProductDAL.cs" />
     <Compile Include="DataAccessLayer\CustomerDAL.cs" />
+    <Compile Include="DataAccessLayer\PurchaseDAL.cs" />
+    <Compile Include="DataAccessLayer\PurchaseDetailsDAL.cs" />
     <Compile Include="DataAccessLayer\SupplierDAL.cs" />
     <Compile Include="DataAccessLayer\UserDAL.cs" />
     <Compile Include="Program.cs" />
@@ -117,6 +121,12 @@
     </Compile>
     <Compile Include="Views\Product.Designer.cs">
       <DependentUpon>Product.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Purchase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Purchase.Designer.cs">
+      <DependentUpon>Purchase.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Supplier.cs">
       <SubType>Form</SubType>
@@ -160,6 +170,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Product.resx">
       <DependentUpon>Product.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Purchase.resx">
+      <DependentUpon>Purchase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Supplier.resx">
       <DependentUpon>Supplier.cs</DependentUpon>

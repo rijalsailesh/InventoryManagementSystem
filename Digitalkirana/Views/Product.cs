@@ -17,7 +17,8 @@ namespace Digitalkirana.Views
         public Product()
         {
             InitializeComponent();
-            
+            textBoxRate.Maximum = Decimal.MaxValue;
+            textBoxQuantity.Maximum = Decimal.MaxValue;
         }
 
         CategoryDAL categoryDAL = new CategoryDAL();
@@ -43,8 +44,8 @@ namespace Digitalkirana.Views
             product.ProductName = textBoxProductName.Text;
             product.Category = comboBoxCategory.Text;
             product.Description = textBoxDescription.Text;
-            product.Rate = Convert.ToDecimal(textBoxRate.Text);
-            product.Quantity = Convert.ToDecimal(textBoxQuantity.Text);
+            product.Rate = textBoxRate.Value;
+            product.Quantity = textBoxQuantity.Value;
             product.AddedBy = userDAL.getUserId(Login.username);
             product.AddedDate = DateTime.Now;
 
@@ -62,12 +63,13 @@ namespace Digitalkirana.Views
 
         private void reset()
         {
+            saveBtn.Text = "Add";
             textBoxProductId.Clear();
             textBoxProductName.Clear();
             comboBoxCategory.SelectedIndex = -1;
             textBoxDescription.Clear();
-            textBoxRate.Clear();
-            textBoxQuantity.Clear();
+            textBoxRate.Value=0;
+            textBoxQuantity.Value=0;
             textBoxProductId.Enabled = true;
         }
 
@@ -94,8 +96,14 @@ namespace Digitalkirana.Views
         private void dataGridViewProduct_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             textBoxProductId.Enabled = false;
+            saveBtn.Text = "Update";
             int rowIndex = e.RowIndex;
+            if (rowIndex < 0)
+            {
+                return;
+            }
             DataGridViewRow selectedRow = dataGridViewProduct.Rows[rowIndex];
+
             productId = selectedRow.Cells[0].Value.ToString();
             textBoxProductId.Text = selectedRow.Cells[0].Value.ToString();
             textBoxProductName.Text = selectedRow.Cells[1].Value.ToString();
@@ -103,6 +111,11 @@ namespace Digitalkirana.Views
             textBoxDescription.Text = selectedRow.Cells[3].Value.ToString();
             textBoxRate.Text = selectedRow.Cells[4].Value.ToString();
             textBoxQuantity.Text = selectedRow.Cells[5].Value.ToString();
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            reset();
         }
     }
 }

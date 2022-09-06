@@ -145,5 +145,38 @@ namespace Digitalkirana.DataAccessLayer
             return false;
         }
         #endregion
+
+        #region Search Supplier For Purchase
+        public SupplierBLL SearchSupplierForPurchase(string keyword)
+        {
+            DataTable dt = new DataTable();
+            SupplierBLL supplier = new SupplierBLL();
+            try
+            {
+                string query = $"SELECT SupplierName, Email, Phone, Address FROM supplier_tbl WHERE Id LIKE '%{keyword}%' OR SupplierName LIKE '%{keyword}%'";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                con.Open();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    supplier.SupplierName = dt.Rows[0]["SupplierName"].ToString();
+                    supplier.Email = dt.Rows[0]["Email"].ToString();
+                    supplier.Phone = dt.Rows[0]["Phone"].ToString();
+                    supplier.Address = dt.Rows[0]["Address"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return supplier;
+        }
+        #endregion
     }
 }
