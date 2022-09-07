@@ -30,23 +30,30 @@ namespace Digitalkirana.Views
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            supplier.SupplierName = textBoxSupplierName.Text;
-            supplier.Email = textBoxEmail.Text;
-            supplier.Phone = textBoxPhone.Text;
-            supplier.Address = textBoxAddress.Text;
-            supplier.AddedDate = DateTime.Now;
-            supplier.AddedBy = userDAL.getUserId(Login.username);
-
-            if (supplier.Id > 0)
+            if (textBoxSupplierName.Text != "" && textBoxEmail.Text != "" && textBoxPhone.Text != "" && textBoxAddress.Text != "")
             {
-                supplierDAL.UpdateSupplier(supplier);
+                supplier.SupplierName = textBoxSupplierName.Text;
+                supplier.Email = textBoxEmail.Text;
+                supplier.Phone = textBoxPhone.Text;
+                supplier.Address = textBoxAddress.Text;
+                supplier.AddedDate = DateTime.Now;
+                supplier.AddedBy = userDAL.getUserId(Login.username);
+
+                if (supplier.Id > 0)
+                {
+                    supplierDAL.UpdateSupplier(supplier);
+                }
+                else
+                {
+                    supplierDAL.InsertSupplier(supplier);
+                }
+                dataGridViewSupplier.DataSource = supplierDAL.SelectAllSuppliers();
+                reset();
             }
             else
             {
-                supplierDAL.InsertSupplier(supplier);
+                MessageBox.Show("Some field is missing!!");
             }
-            dataGridViewSupplier.DataSource = supplierDAL.SelectAllSuppliers();
-            reset();
         }
 
         private void reset()

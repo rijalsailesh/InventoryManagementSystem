@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 using System.Windows.Forms;
 
 namespace Digitalkirana.Views
@@ -31,7 +32,11 @@ namespace Digitalkirana.Views
         SupplierDAL supplierDAL = new SupplierDAL();
         ProductDAL productDAL = new ProductDAL();
         DataTable productDt = new DataTable();
-
+        PurchaseDAL purchaseDAL = new PurchaseDAL();
+        UserDAL userDAL = new UserDAL();
+        PurchaseDetailsDAL purchaseDetailsDAL = new PurchaseDetailsDAL();
+        public string productId;
+        public int supplierId;
 
         private void textBoxSupplierSearch_TextChanged(object sender, EventArgs e)
         {
@@ -42,15 +47,16 @@ namespace Digitalkirana.Views
                 textBoxEmail.Clear();
                 textBoxAddress.Clear();
                 textBoxPhone.Clear();
+                supplierId = 0;
             }
             else
             {
                 var supplier = supplierDAL.SearchSupplierForPurchase(keyword);
+                supplierId = supplier.Id;
                 textBoxSupplierName.Text = supplier.SupplierName;
                 textBoxPhone.Text = supplier.Phone;
                 textBoxAddress.Text = supplier.Address;
                 textBoxEmail.Text = supplier.Email;
-
             }
         }
 
@@ -63,10 +69,12 @@ namespace Digitalkirana.Views
                 textBoxRate.Value=0;
                 textBoxQuantity.Value=0;
                 textBoxInventory.Value = 0;
+                productId = null;
             }
             else
             {
                 var product = productDAL.SearchProductForPurchase(keyword);
+                productId = product.Id;
                 textBoxProductName.Text = product.ProductName;
                 textBoxRate.Value = product.Rate;
                 textBoxInventory.Value = product.Quantity;
@@ -77,7 +85,7 @@ namespace Digitalkirana.Views
         {
             string productName = textBoxProductName.Text;
             decimal rate = textBoxRate.Value;
-            decimal quantity = textBoxRate.Value;
+            decimal quantity = textBoxQuantity.Value;
             decimal total = rate * quantity;
             decimal subtotal = textboxSubtotal.Value;
             subtotal = subtotal + total;
@@ -125,7 +133,6 @@ namespace Digitalkirana.Views
                 decimal grandTotal = total + vatAmt;
                 textBoxGrandTotal.Value = grandTotal;
             }
-            
         }
 
         private void textBoxPaidAmt_ValueChanged(object sender, EventArgs e)
@@ -134,6 +141,52 @@ namespace Digitalkirana.Views
             decimal paidAmt = textBoxPaidAmt.Value;
             decimal returnAmt = paidAmt - grandTotal;
             textBoxReturnAmt.Text = returnAmt.ToString("0.00");
+        }
+
+        private void saveBtn_Click(object sender, EventArgs e)
+        {
+            PurchaseBLL purchase = new PurchaseBLL();
+            purchase.SupplierId = supplierId;
+            purchase.GrandTotal = textBoxGrandTotal.Value;
+            purchase.Date = dateTimePickerBill.Value;
+            purchase.Tax = textBoxVat.Value;
+            purchase.Discount = textBoxDiscount.Value;
+            purchase.AddedBy = userDAL.getUserId(Login.username);
+            purchase.PurchaseDetails = productDt;
+
+            bool success = false;
+
+            using (TransactionScope scope = new TransactionScope())
+            {
+                int purchaseId = -1;
+                bool w = purchaseDAL.InsertPurchase(purchase, out purchaseId);
+
+                for (int i = 0; i < productDt.Rows.Count; i++)
+                {
+                    PurchaseDetailsBLL purchaseDetailsBLL = new PurchaseDetailsBLL();
+                    purchaseDetailsBLL.ProductId = productId;
+                    purchaseDetailsBLL.Rate = Convert.ToDecimal(productDt.Rows[i][1]);
+                    purchaseDetailsBLL.Quantity = Convert.ToDecimal(productDt.Rows[i][2]);
+                    purchaseDetailsBLL.Total = Convert.ToDecimal(productDt.Rows[i][3]);
+                    purchaseDetailsBLL.SupplierId = supplierId;
+                    purchaseDetailsBLL.AddedDate = DateTime.Now;
+                    purchaseDetailsBLL.AddedBy = userDAL.getUserId(Login.username);
+
+                    bool y = purchaseDetailsDAL.InsertPurchaseDetails(purchaseDetailsBLL);
+                    success = w && y;
+                    if (success)
+                    {
+                        MessageBox.Show("Purchase transaction successful.");
+                        dataGridViewAddedProducts.DataSource = null;
+                        dataGridViewAddedProducts.Rows.Clear();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Purchase transaction failed.");
+                    }
+                }
+            }
+
         }
     }
 }

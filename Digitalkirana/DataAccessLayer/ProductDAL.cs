@@ -50,7 +50,7 @@ namespace Digitalkirana.DataAccessLayer
                 int result = cmd.ExecuteNonQuery();
                 if (result == 1)
                 {
-                    MessageBox.Show("Product Added Successfully");
+                    MessageBox.Show("Product Added Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return true;
                 }
             }
@@ -154,13 +154,14 @@ namespace Digitalkirana.DataAccessLayer
             ProductBLL product = new ProductBLL();
             try
             {
-                string query = $"SELECT ProductName, Rate, Quantity FROM product_tbl WHERE Id LIKE '%{keyword}%' OR ProductName LIKE '%{keyword}%'";
+                string query = $"SELECT Id, ProductName, Rate, Quantity FROM product_tbl WHERE Id LIKE '%{keyword}%' OR ProductName LIKE '%{keyword}%'";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 con.Open();
                 da.Fill(dt);
                 if(dt.Rows.Count > 0)
                 {
+                    product.Id = dt.Rows[0]["Id"].ToString();
                     product.ProductName = dt.Rows[0]["ProductName"].ToString();
                     product.Rate = Convert.ToDecimal(dt.Rows[0]["Rate"]);
                     product.Quantity = Convert.ToDecimal(dt.Rows[0]["Quantity"]);

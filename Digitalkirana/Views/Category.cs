@@ -40,21 +40,27 @@ namespace Digitalkirana.Views
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
-            category.CategoryName = textBoxCategoryName.Text;
-            category.Description = textBoxDescription.Text;
-            category.AddedDate = DateTime.Now;
-            category.AddedBy = userDAL.getUserId(Login.username);
-
-            if (category.Id > 0)
+            if (textBoxCategoryName.Text != "")
             {
-                categoryDAL.UpdateCategory(category);
-            }
+                category.CategoryName = textBoxCategoryName.Text;
+                category.Description = textBoxDescription.Text;
+                category.AddedDate = DateTime.Now;
+                category.AddedBy = userDAL.getUserId(Login.username);
+                if (category.Id > 0)
+                {
+                    categoryDAL.UpdateCategory(category);
+                }
+                else
+                {
+                    categoryDAL.InsertCategory(category);
+                }
+                dataGridViewCategory.DataSource = categoryDAL.SelectAllCategories();
+                reset();
+                }
             else
             {
-                categoryDAL.InsertCategory(category);
+                MessageBox.Show("Category Name is missing!");
             }
-            dataGridViewCategory.DataSource = categoryDAL.SelectAllCategories();
-            reset();
         }
 
         private void reset()

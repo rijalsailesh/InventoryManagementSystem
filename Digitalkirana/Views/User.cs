@@ -24,32 +24,40 @@ namespace Digitalkirana.Views
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            user.FullName = textBoxFullName.Text;
-            user.UserName = textBoxUsername.Text;
-            user.Password = textBoxPassword.Text;
-            user.Phone = textBoxPhone.Text;
-            user.Gender = comboBoxGender.SelectedItem.ToString();
-            user.Address = textBoxAddress.Text;
-            user.UserType = comboBoxUserType.SelectedItem.ToString();
-            user.AddedBy = userDAL.getUserId(Login.username);
-            if (checkBoxActive.Checked)
+            if (textBoxFullName.Text != "" && textBoxPassword.Text != "" && textBoxPhone.Text != "" && textBoxUsername.Text != "" && comboBoxGender.Text != "" && comboBoxUserType.Text != "" && textBoxAddress.Text != "")
             {
-                user.Active = true;
+
+                user.FullName = textBoxFullName.Text;
+                user.UserName = textBoxUsername.Text;
+                user.Password = textBoxPassword.Text;
+                user.Phone = textBoxPhone.Text;
+                user.Gender = comboBoxGender.SelectedItem.ToString();
+                user.Address = textBoxAddress.Text;
+                user.UserType = comboBoxUserType.SelectedItem.ToString();
+                user.AddedBy = userDAL.getUserId(Login.username);
+                if (checkBoxActive.Checked)
+                {
+                    user.Active = true;
+                }
+                else
+                {
+                    user.Active = false;
+                }
+                if (user.Id > 0)
+                {
+                    userDAL.UpdateUser(user);
+                }
+                else
+                {
+                    userDAL.InsertUser(user);
+                }
+                dataGridViewUser.DataSource = userDAL.SelectAllUsers();
+                reset();
             }
             else
             {
-                user.Active = false;
+                MessageBox.Show("Some field is empty.");
             }
-            if (user.Id > 0)
-            {
-                userDAL.UpdateUser(user);
-            }
-            else
-            {
-                userDAL.InsertUser(user);
-            }
-            dataGridViewUser.DataSource = userDAL.SelectAllUsers();
-            reset();
         }
 
         private void reset()

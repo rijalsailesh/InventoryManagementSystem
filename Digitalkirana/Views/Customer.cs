@@ -31,6 +31,9 @@ namespace Digitalkirana.Views
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if(textBoxCustomerName.Text!="" && textBoxEmail.Text!="" && textBoxPhone.Text!="" && textBoxAddress.Text != "")
+            {
+
             customer.CustomerName = textBoxCustomerName.Text;
             customer.Email = textBoxEmail.Text;
             customer.Phone = textBoxPhone.Text;
@@ -48,6 +51,11 @@ namespace Digitalkirana.Views
             }
             dataGridViewCustomer.DataSource = customerDAL.SelectAllCustomers();
             reset();
+            }
+            else
+            {
+                MessageBox.Show("Some field is missing");
+            }
         }
 
         private void reset()

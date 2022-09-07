@@ -40,6 +40,9 @@ namespace Digitalkirana.Views
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
+            if (textBoxProductId.Text != "" && comboBoxCategory.Text != "")
+            {
+
             product.Id = textBoxProductId.Text;
             product.ProductName = textBoxProductName.Text;
             product.Category = comboBoxCategory.Text;
@@ -59,6 +62,11 @@ namespace Digitalkirana.Views
             }
             dataGridViewProduct.DataSource = productDAL.SelectAllProducts();
             reset();
+            }
+            else
+            {
+                MessageBox.Show("Some field is missing!!");
+            }
         }
 
         private void reset()

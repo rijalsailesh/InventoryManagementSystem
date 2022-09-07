@@ -14,8 +14,9 @@ namespace Digitalkirana.DataAccessLayer
         MySqlConnection con = new MySqlConnection(Connection.connectionString);
 
         #region Insert Category
-        public bool InsertCategory(PurchaseDetailsBLL pd)
+        public bool InsertPurchaseDetails(PurchaseDetailsBLL pd)
         {
+            bool success = false;
             try
             {
                 string query = $"INSERT INTO purchase-details_tbl (ProductId, Rate, Quantity, Total, SupplierId, AddedDate, AddedBy ) VALUES ('{pd.ProductId}',{pd.Rate}, {pd.Quantity}, {pd.Total}, {pd.SupplierId}, '{pd.AddedDate.ToString("yyyy-MM-dd")}', {pd.AddedBy})";
@@ -24,8 +25,11 @@ namespace Digitalkirana.DataAccessLayer
                 int result = cmd.ExecuteNonQuery();
                 if (result == 1)
                 {
-                    MessageBox.Show("Category Added Successfully");
-                    return true;
+                    success = true;
+                }
+                else
+                {
+                    success = false;
                 }
             }
             catch (Exception ex)
@@ -36,8 +40,7 @@ namespace Digitalkirana.DataAccessLayer
             {
                 con.Close();
             }
-            MessageBox.Show("Category Could not be added");
-            return false;
+            return success;
         }
         #endregion
     }

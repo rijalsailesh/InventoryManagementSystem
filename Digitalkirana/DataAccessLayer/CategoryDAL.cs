@@ -49,7 +49,7 @@ namespace Digitalkirana.DataAccessLayer
                 int result = cmd.ExecuteNonQuery();
                 if (result == 1)
                 {
-                    MessageBox.Show("Category Added Successfully");
+                    MessageBox.Show("Category Added Successfully", "Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return true;
                 }
             }

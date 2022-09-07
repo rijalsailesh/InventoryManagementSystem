@@ -69,6 +69,7 @@
             this.textBoxDiscount = new System.Windows.Forms.NumericUpDown();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridViewAddedProducts = new System.Windows.Forms.DataGridView();
+            this.saveBtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textBoxQuantity)).BeginInit();
@@ -99,7 +100,7 @@
             this.groupBox1.Controls.Add(this.textBoxPhone);
             this.groupBox1.Controls.Add(this.textBoxEmail);
             this.groupBox1.Controls.Add(this.textBoxSupplierName);
-            this.groupBox1.Location = new System.Drawing.Point(12, 14);
+            this.groupBox1.Location = new System.Drawing.Point(12, 16);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1245, 196);
             this.groupBox1.TabIndex = 0;
@@ -221,7 +222,7 @@
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.textBoxProductName);
             this.groupBox2.Controls.Add(this.textBoxProductSearch);
-            this.groupBox2.Location = new System.Drawing.Point(12, 216);
+            this.groupBox2.Location = new System.Drawing.Point(12, 224);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(1245, 123);
             this.groupBox2.TabIndex = 1;
@@ -327,6 +328,7 @@
             // groupBox3
             // 
             this.groupBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox3.Controls.Add(this.saveBtn);
             this.groupBox3.Controls.Add(this.textboxSubtotal);
             this.groupBox3.Controls.Add(this.textBoxReturnAmt);
             this.groupBox3.Controls.Add(this.label14);
@@ -339,9 +341,9 @@
             this.groupBox3.Controls.Add(this.textBoxGrandTotal);
             this.groupBox3.Controls.Add(this.textBoxVat);
             this.groupBox3.Controls.Add(this.textBoxDiscount);
-            this.groupBox3.Location = new System.Drawing.Point(702, 356);
+            this.groupBox3.Location = new System.Drawing.Point(702, 365);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(555, 412);
+            this.groupBox3.Size = new System.Drawing.Size(555, 449);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Calculation Details";
@@ -349,6 +351,7 @@
             // textboxSubtotal
             // 
             this.textboxSubtotal.DecimalPlaces = 2;
+            this.textboxSubtotal.Enabled = false;
             this.textboxSubtotal.Location = new System.Drawing.Point(266, 47);
             this.textboxSubtotal.Name = "textboxSubtotal";
             this.textboxSubtotal.Size = new System.Drawing.Size(273, 32);
@@ -456,9 +459,9 @@
             // 
             this.groupBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox4.Controls.Add(this.dataGridViewAddedProducts);
-            this.groupBox4.Location = new System.Drawing.Point(12, 356);
+            this.groupBox4.Location = new System.Drawing.Point(12, 365);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(676, 412);
+            this.groupBox4.Size = new System.Drawing.Size(676, 449);
             this.groupBox4.TabIndex = 38;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Added Products";
@@ -473,7 +476,7 @@
             this.dataGridViewAddedProducts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewAddedProducts.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridViewAddedProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewAddedProducts.Location = new System.Drawing.Point(9, 37);
+            this.dataGridViewAddedProducts.Location = new System.Drawing.Point(9, 32);
             this.dataGridViewAddedProducts.Name = "dataGridViewAddedProducts";
             this.dataGridViewAddedProducts.ReadOnly = true;
             this.dataGridViewAddedProducts.RowHeadersVisible = false;
@@ -481,14 +484,26 @@
             this.dataGridViewAddedProducts.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridViewAddedProducts.RowTemplate.Height = 24;
             this.dataGridViewAddedProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewAddedProducts.Size = new System.Drawing.Size(654, 359);
+            this.dataGridViewAddedProducts.Size = new System.Drawing.Size(654, 401);
             this.dataGridViewAddedProducts.TabIndex = 25;
+            // 
+            // saveBtn
+            // 
+            this.saveBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(95)))), ((int)(((byte)(112)))));
+            this.saveBtn.ForeColor = System.Drawing.Color.White;
+            this.saveBtn.Location = new System.Drawing.Point(266, 391);
+            this.saveBtn.Name = "saveBtn";
+            this.saveBtn.Size = new System.Drawing.Size(273, 42);
+            this.saveBtn.TabIndex = 28;
+            this.saveBtn.Text = "Save";
+            this.saveBtn.UseVisualStyleBackColor = false;
+            this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
             // 
             // Purchase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1267, 783);
+            this.ClientSize = new System.Drawing.Size(1267, 826);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -562,5 +577,6 @@
         private System.Windows.Forms.TextBox textBoxReturnAmt;
         private System.Windows.Forms.NumericUpDown textBoxGrandTotal;
         private System.Windows.Forms.NumericUpDown textboxSubtotal;
+        private System.Windows.Forms.Button saveBtn;
     }
 }

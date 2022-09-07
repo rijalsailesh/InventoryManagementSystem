@@ -15,19 +15,24 @@ namespace Digitalkirana.DataAccessLayer
         MySqlConnection con = new MySqlConnection(Connection.connectionString);
 
         #region Insert Purchase
-        public bool InsertCategory(PurchaseBLL purchase,out int purchaseId)
+        public bool InsertPurchase(PurchaseBLL purchase, out int purchaseId)
         {
+            bool success = false;
+            purchaseId = -1;
             try
             {
-                string query = $"INSERT INTO purchase_tbl (SupplierId, GrandTotal, Date, Tax, Discount, AddedBy ) VALUES ('{purchase.SupplierId}','{purchase.GrandTotal}','{purchase.Date.ToString("yyyy-MM-dd")}', {purchase.Tax}, {purchase.Discount}, {purchase.AddedBy})";
+                string query = $"INSERT INTO purchase_tbl (SupplierId, GrandTotal, Date, Tax, Discount, AddedBy ) VALUES ({purchase.SupplierId}, {purchase.GrandTotal},'{purchase.Date.ToString("yyyy-MM-dd")}', {purchase.Tax}, {purchase.Discount}, {purchase.AddedBy})";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 con.Open();
                 object obj = cmd.ExecuteScalar();
                 if (obj!=null)
                 {
-                    purchaseId = (int)obj;
-                    MessageBox.Show("Category Added Successfully");
-                    return true;
+                    purchaseId = int.Parse(obj.ToString());
+                    success = true;
+                }
+                else
+                {
+                    success = false;
                 }
             }
             catch (Exception ex)
@@ -38,9 +43,7 @@ namespace Digitalkirana.DataAccessLayer
             {
                 con.Close();
             }
-            MessageBox.Show("Category Could not be added");
-            purchaseId = 0;
-            return false;
+            return success;
         }
         #endregion
     }
