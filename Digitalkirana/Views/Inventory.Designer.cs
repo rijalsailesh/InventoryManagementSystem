@@ -29,23 +29,25 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inventory));
-            this.comboBoxTransaction = new System.Windows.Forms.ComboBox();
+            this.comboBoxCategory = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridViewInventory = new System.Windows.Forms.DataGridView();
+            this.btnShowAll = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInventory)).BeginInit();
             this.SuspendLayout();
             // 
-            // comboBoxTransaction
+            // comboBoxCategory
             // 
-            this.comboBoxTransaction.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxTransaction.FormattingEnabled = true;
-            this.comboBoxTransaction.Items.AddRange(new object[] {
+            this.comboBoxCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxCategory.FormattingEnabled = true;
+            this.comboBoxCategory.Items.AddRange(new object[] {
             "Sales",
             "Purchase"});
-            this.comboBoxTransaction.Location = new System.Drawing.Point(121, 23);
-            this.comboBoxTransaction.Name = "comboBoxTransaction";
-            this.comboBoxTransaction.Size = new System.Drawing.Size(323, 31);
-            this.comboBoxTransaction.TabIndex = 31;
+            this.comboBoxCategory.Location = new System.Drawing.Point(121, 23);
+            this.comboBoxCategory.Name = "comboBoxCategory";
+            this.comboBoxCategory.Size = new System.Drawing.Size(323, 31);
+            this.comboBoxCategory.TabIndex = 31;
+            this.comboBoxCategory.SelectedIndexChanged += new System.EventHandler(this.comboBoxCategory_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -66,7 +68,7 @@
             this.dataGridViewInventory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewInventory.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridViewInventory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewInventory.Location = new System.Drawing.Point(12, 76);
+            this.dataGridViewInventory.Location = new System.Drawing.Point(16, 75);
             this.dataGridViewInventory.Name = "dataGridViewInventory";
             this.dataGridViewInventory.ReadOnly = true;
             this.dataGridViewInventory.RowHeadersVisible = false;
@@ -74,23 +76,37 @@
             this.dataGridViewInventory.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridViewInventory.RowTemplate.Height = 24;
             this.dataGridViewInventory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewInventory.Size = new System.Drawing.Size(1104, 489);
+            this.dataGridViewInventory.Size = new System.Drawing.Size(1220, 501);
             this.dataGridViewInventory.TabIndex = 29;
+            // 
+            // btnShowAll
+            // 
+            this.btnShowAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(95)))), ((int)(((byte)(112)))));
+            this.btnShowAll.ForeColor = System.Drawing.Color.White;
+            this.btnShowAll.Location = new System.Drawing.Point(939, 19);
+            this.btnShowAll.Name = "btnShowAll";
+            this.btnShowAll.Size = new System.Drawing.Size(297, 37);
+            this.btnShowAll.TabIndex = 32;
+            this.btnShowAll.Text = "Show All";
+            this.btnShowAll.UseVisualStyleBackColor = false;
+            this.btnShowAll.Click += new System.EventHandler(this.btnShowAll_Click);
             // 
             // Inventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1128, 588);
-            this.Controls.Add(this.comboBoxTransaction);
+            this.ClientSize = new System.Drawing.Size(1248, 588);
+            this.Controls.Add(this.btnShowAll);
+            this.Controls.Add(this.comboBoxCategory);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridViewInventory);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Inventory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inventory";
+            this.Load += new System.EventHandler(this.Inventory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInventory)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -99,8 +115,9 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBoxTransaction;
+        private System.Windows.Forms.ComboBox comboBoxCategory;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridViewInventory;
+        private System.Windows.Forms.Button btnShowAll;
     }
 }

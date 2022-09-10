@@ -280,5 +280,30 @@ namespace Digitalkirana.DataAccessLayer
             return false;
         }
         #endregion
+
+        #region Select Products by Category
+        public DataTable SelectProductsByCategory(string categoryName)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                string query = $"SELECT * FROM product_tbl WHERE Category = '{categoryName}'";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                con.Open();
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dt;
+        }
+        #endregion
     }
 }
+
