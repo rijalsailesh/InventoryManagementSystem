@@ -27,5 +27,11 @@ namespace Digitalkirana.Views
             Purchase purchase = new Purchase();
             purchase.ShowDialog();
         }
+
+        private void usersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Sales sales = new Sales();
+            sales.ShowDialog();
+        }
     }
 }

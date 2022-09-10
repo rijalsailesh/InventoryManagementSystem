@@ -145,5 +145,39 @@ namespace Digitalkirana.DataAccessLayer
             return false;
         }
         #endregion
+
+        #region Search Customer For Sale
+        public CustomerBLL SearchCustomerForSale(string keyword)
+        {
+            DataTable dt = new DataTable();
+            CustomerBLL customer = new CustomerBLL();
+            try
+            {
+                string query = $"SELECT Id, CustomerName, Email, Phone, Address FROM customer_tbl WHERE Id LIKE '%{keyword}%' OR CustomerName LIKE '%{keyword}%'";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                con.Open();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    customer.Id = Convert.ToInt32(dt.Rows[0]["Id"]);
+                    customer.CustomerName = dt.Rows[0]["CustomerName"].ToString();
+                    customer.Email = dt.Rows[0]["Email"].ToString();
+                    customer.Phone = dt.Rows[0]["Phone"].ToString();
+                    customer.Address = dt.Rows[0]["Address"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return customer;
+        }
+        #endregion
     }
 }

@@ -18,14 +18,19 @@ namespace Digitalkirana.Views
         public Purchase()
         {
             InitializeComponent();
+            InitialConstraints();
+        }
+
+        private void InitialConstraints()
+        {
             textBoxRate.Maximum = Decimal.MaxValue;
             textBoxQuantity.Maximum = Decimal.MaxValue;
             textBoxInventory.Maximum = Decimal.MaxValue;
             textBoxQuantity.Maximum = Decimal.MaxValue;
             textBoxDiscount.Maximum = Decimal.MaxValue;
             textBoxVat.Maximum = Decimal.MaxValue;
-            textBoxPaidAmt.Maximum=Decimal.MaxValue;
-            textboxSubtotal.Maximum=Decimal.MaxValue;
+            textBoxPaidAmt.Maximum = Decimal.MaxValue;
+            textboxSubtotal.Maximum = Decimal.MaxValue;
             textBoxGrandTotal.Maximum = Decimal.MaxValue;
         }
 
