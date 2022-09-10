@@ -79,6 +79,8 @@
     <Compile Include="BusinessLogicLayer\CustomerBLL.cs" />
     <Compile Include="BusinessLogicLayer\PurchaseBLL.cs" />
     <Compile Include="BusinessLogicLayer\PurchaseDetailsBLL.cs" />
+    <Compile Include="BusinessLogicLayer\SalesBLL.cs" />
+    <Compile Include="BusinessLogicLayer\SalesDetailsBLL.cs" />
     <Compile Include="BusinessLogicLayer\SupplierBLL.cs" />
     <Compile Include="BusinessLogicLayer\UserBLL.cs" />
     <Compile Include="Connection.cs" />
@@ -88,6 +90,8 @@
     <Compile Include="DataAccessLayer\CustomerDAL.cs" />
     <Compile Include="DataAccessLayer\PurchaseDAL.cs" />
     <Compile Include="DataAccessLayer\PurchaseDetailsDAL.cs" />
+    <Compile Include="DataAccessLayer\SalesDAL.cs" />
+    <Compile Include="DataAccessLayer\SalesDetailsDAL.cs" />
     <Compile Include="DataAccessLayer\SupplierDAL.cs" />
     <Compile Include="DataAccessLayer\UserDAL.cs" />
     <Compile Include="Program.cs" />
