@@ -50,7 +50,7 @@ namespace Digitalkirana.DataAccessLayer
                 int result = cmd.ExecuteNonQuery();
                 if (result == 1)
                 {
-                    MessageBox.Show("Product Added Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Product Added Successfully", "Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return true;
                 }
             }
@@ -62,7 +62,7 @@ namespace Digitalkirana.DataAccessLayer
             {
                 con.Close();
             }
-            MessageBox.Show("Product Could not be added");
+            MessageBox.Show("Product Could not be added", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return false;
         }
         #endregion
@@ -78,7 +78,7 @@ namespace Digitalkirana.DataAccessLayer
                 int result = cmd.ExecuteNonQuery();
                 if (result == 1)
                 {
-                    MessageBox.Show("Product Updated Successfully");
+                    MessageBox.Show("Product Updated Successfully", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return true;
                 }
             }
@@ -90,7 +90,7 @@ namespace Digitalkirana.DataAccessLayer
             {
                 con.Close();
             }
-            MessageBox.Show("Product Could not be updated");
+            MessageBox.Show("Product Could not be updated", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return false;
         }
         #endregion
@@ -130,7 +130,7 @@ namespace Digitalkirana.DataAccessLayer
                 int result = cmd.ExecuteNonQuery();
                 if (result == 1)
                 {
-                    MessageBox.Show("Product Deleted Successfully");
+                    MessageBox.Show("Product Deleted Successfully", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return true;
                 }
             }
@@ -142,7 +142,7 @@ namespace Digitalkirana.DataAccessLayer
             {
                 con.Close();
             }
-            MessageBox.Show("Product Could not be deleted");
+            MessageBox.Show("Product Could not be deleted", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return false;
         }
         #endregion

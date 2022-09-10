@@ -95,7 +95,7 @@ namespace Digitalkirana.Views
             }
             else
             {
-                productDt.Rows.Add(productName, rate, quantity, total);
+                productDt.Rows.Add(productId, productName, rate, quantity, total);
                 dataGridViewAddedProducts.DataSource = productDt;
                 textBoxProductSearch.Clear();
                 textBoxProductName.Clear();
@@ -108,6 +108,7 @@ namespace Digitalkirana.Views
 
         private void Purchase_Load(object sender, EventArgs e)
         {
+            productDt.Columns.Add("ID");
             productDt.Columns.Add("Product Name");
             productDt.Columns.Add("Rate");
             productDt.Columns.Add("Quantity");
@@ -154,39 +155,50 @@ namespace Digitalkirana.Views
             purchase.AddedBy = userDAL.getUserId(Login.username);
             purchase.PurchaseDetails = productDt;
 
-            bool success = false;
-
             using (TransactionScope scope = new TransactionScope())
             {
+                bool success = false;
                 int purchaseId = -1;
                 bool w = purchaseDAL.InsertPurchase(purchase, out purchaseId);
-
                 for (int i = 0; i < productDt.Rows.Count; i++)
                 {
                     PurchaseDetailsBLL purchaseDetailsBLL = new PurchaseDetailsBLL();
-                    purchaseDetailsBLL.ProductId = productId;
-                    purchaseDetailsBLL.Rate = Convert.ToDecimal(productDt.Rows[i][1]);
-                    purchaseDetailsBLL.Quantity = Convert.ToDecimal(productDt.Rows[i][2]);
-                    purchaseDetailsBLL.Total = Convert.ToDecimal(productDt.Rows[i][3]);
+                    purchaseDetailsBLL.ProductId = productDt.Rows[i][0].ToString();
+                    purchaseDetailsBLL.Rate = Convert.ToDecimal(productDt.Rows[i][2]);
+                    purchaseDetailsBLL.Quantity = Convert.ToDecimal(productDt.Rows[i][3]);
+                    purchaseDetailsBLL.Total = Convert.ToDecimal(productDt.Rows[i][4]);
                     purchaseDetailsBLL.SupplierId = supplierId;
                     purchaseDetailsBLL.AddedDate = DateTime.Now;
                     purchaseDetailsBLL.AddedBy = userDAL.getUserId(Login.username);
-
                     bool y = purchaseDetailsDAL.InsertPurchaseDetails(purchaseDetailsBLL);
                     success = w && y;
-                    if (success)
-                    {
-                        MessageBox.Show("Purchase transaction successful.");
-                        dataGridViewAddedProducts.DataSource = null;
-                        dataGridViewAddedProducts.Rows.Clear();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Purchase transaction failed.");
-                    }
+                }
+                if (success)
+                {
+                    scope.Complete();
+                    MessageBox.Show("Purchase transaction successful.");
+                    Reset();
+                }
+                else
+                {
+                    MessageBox.Show("Purchase transaction failed.");
                 }
             }
+        }
 
+        private void Reset()
+        {
+            dataGridViewAddedProducts.DataSource = null;
+            dataGridViewAddedProducts.Rows.Clear();
+            textBoxProductSearch.Clear();
+            textBoxSupplierSearch.Clear();
+            textBoxQuantity.Value = 0;
+            textboxSubtotal.Value = 0;
+            textBoxVat.Value = 0;
+            textBoxDiscount.Value = 0;
+            textBoxGrandTotal.Value = 0;
+            textBoxReturnAmt.Clear();
+            textBoxPaidAmt.Value = 0;
         }
     }
 }

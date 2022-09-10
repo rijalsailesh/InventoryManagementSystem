@@ -61,7 +61,7 @@ namespace Digitalkirana.DataAccessLayer
             {
                 con.Close();
             }
-            MessageBox.Show("Category Could not be added");
+            MessageBox.Show("Category could not be added", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return false;
         }
         #endregion
@@ -89,7 +89,7 @@ namespace Digitalkirana.DataAccessLayer
             {
                 con.Close();
             }
-            MessageBox.Show("Category Could not be updated");
+            MessageBox.Show("Category could not be updated", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return false;
         }
         #endregion
@@ -141,7 +141,7 @@ namespace Digitalkirana.DataAccessLayer
             {
                 con.Close();
             }
-            MessageBox.Show("Category Could not be deleted");
+            MessageBox.Show("Category could not be deleted", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return false;
         }
         #endregion

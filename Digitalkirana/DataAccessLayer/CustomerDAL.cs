@@ -61,7 +61,7 @@ namespace Digitalkirana.DataAccessLayer
             {
                 con.Close();
             }
-            MessageBox.Show("Customer Could not be added");
+            MessageBox.Show("Customer could not be added", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return false;
         }
         #endregion

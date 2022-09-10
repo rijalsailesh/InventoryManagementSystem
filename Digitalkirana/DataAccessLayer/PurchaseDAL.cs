@@ -21,10 +21,10 @@ namespace Digitalkirana.DataAccessLayer
             purchaseId = -1;
             try
             {
-                string query = $"INSERT INTO purchase_tbl (SupplierId, GrandTotal, Date, Tax, Discount, AddedBy ) VALUES ({purchase.SupplierId}, {purchase.GrandTotal},'{purchase.Date.ToString("yyyy-MM-dd")}', {purchase.Tax}, {purchase.Discount}, {purchase.AddedBy})";
+                string query = $"INSERT INTO purchase_tbl (SupplierId, GrandTotal, Date, Tax, Discount, AddedBy ) VALUES ({purchase.SupplierId}, {purchase.GrandTotal},'{purchase.Date.ToString("yyyy-MM-dd")}', {purchase.Tax}, {purchase.Discount}, {purchase.AddedBy}); SELECT LAST_INSERT_ID()";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 con.Open();
-                object obj = cmd.ExecuteScalar();
+                var obj = cmd.ExecuteScalar();
                 if (obj!=null)
                 {
                     purchaseId = int.Parse(obj.ToString());
