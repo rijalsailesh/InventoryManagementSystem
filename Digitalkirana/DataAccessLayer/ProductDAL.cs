@@ -1,4 +1,5 @@
 ﻿using Digitalkirana.BusinessLogicLayer;
+using Digitalkirana.Views;
 using MySqlConnector;
 using System;
 using System.Collections.Generic;
@@ -179,5 +180,105 @@ namespace Digitalkirana.DataAccessLayer
         }
         #endregion
 
+        #region Current Quantity Based On ProductID
+        public Decimal GetProductQuantity(string productId)
+        {
+            Decimal quantity = 0;
+            DataTable dt = new DataTable();
+            try
+            {
+                string query = $"SELECT Quantity FROM product_tbl Where Id = {productId}";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                con.Open();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    quantity = Convert.ToDecimal(dt.Rows[0]["Quantity"]);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return quantity;
+        }
+        #endregion
+
+        #region Update Quantity
+        public bool UpdateQuantity(string productId, decimal quantity)
+        {
+            try
+            {
+                string query = $"UPDATE product_tbl SET Quantity={quantity} WHERE Id = '{productId}'";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                con.Open();
+                int result = cmd.ExecuteNonQuery();
+                if (result == 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return false;
+        }
+        #endregion
+
+        #region Increase Quantity
+        public bool IncreaseQuantity(string productId, decimal incresaseQuantity)
+        {
+            try
+            {
+                decimal currentQuantity = GetProductQuantity(productId);
+                decimal newQuantity = currentQuantity + incresaseQuantity;
+                return UpdateQuantity(productId, newQuantity);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return false;
+        }
+        #endregion
+
+        #region Decrease Quantity
+        public bool DecreaseQuantity(string productId, decimal decreaseQuantity)
+        {
+            try
+            {
+                decimal currentQuantity = GetProductQuantity(productId);
+                decimal newQuantity = currentQuantity - decreaseQuantity;
+                return UpdateQuantity(productId, newQuantity);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return false;
+        }
+        #endregion
     }
 }

@@ -169,9 +169,12 @@ namespace Digitalkirana.Views
                     purchaseDetailsBLL.Total = Convert.ToDecimal(productDt.Rows[i][4]);
                     purchaseDetailsBLL.SupplierId = supplierId;
                     purchaseDetailsBLL.AddedDate = DateTime.Now;
+                    purchaseDetailsBLL.PurchaseId = purchaseId;
                     purchaseDetailsBLL.AddedBy = userDAL.getUserId(Login.username);
+                    bool x = productDAL.IncreaseQuantity(purchaseDetailsBLL.ProductId, purchaseDetailsBLL.Quantity);
+
                     bool y = purchaseDetailsDAL.InsertPurchaseDetails(purchaseDetailsBLL);
-                    success = w && y;
+                    success = x && w && y;
                 }
                 if (success)
                 {

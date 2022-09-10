@@ -19,7 +19,7 @@ namespace Digitalkirana.DataAccessLayer
             bool success = false;
             try
             {
-                string query = $"INSERT INTO purchase_details_tbl (ProductId, Rate, Quantity, Total, SupplierId, AddedDate, AddedBy ) VALUES ('{pd.ProductId}',{pd.Rate}, {pd.Quantity}, {pd.Total}, {pd.SupplierId}, '{pd.AddedDate.ToString("yyyy-MM-dd")}', {pd.AddedBy})";
+                string query = $"INSERT INTO purchase_details_tbl (ProductId, Rate, Quantity, Total, SupplierId, AddedDate, AddedBy, PurchaseId ) VALUES ('{pd.ProductId}',{pd.Rate}, {pd.Quantity}, {pd.Total}, {pd.SupplierId}, '{pd.AddedDate.ToString("yyyy-MM-dd")}', {pd.AddedBy}, {pd.PurchaseId})";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 con.Open();
                 int result = cmd.ExecuteNonQuery();

@@ -16,5 +16,6 @@ namespace Digitalkirana.BusinessLogicLayer
         public int SupplierId { get; set; }
         public int AddedBy { get; set; }
         public DateTime AddedDate { get; set; }
+        public int PurchaseId { get; set; }
     }
 }
