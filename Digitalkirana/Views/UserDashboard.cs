@@ -33,5 +33,23 @@ namespace Digitalkirana.Views
             Sales sales = new Sales();
             sales.ShowDialog();
         }
+
+        private void suppliersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Supplier supplier = new Supplier();
+            supplier.ShowDialog();
+        }
+
+        private void customersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Customer customer = new Customer();
+            customer.ShowDialog();
+        }
+
+        private void transactionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Inventory inventory = new Inventory();
+            inventory.ShowDialog();
+        }
     }
 }

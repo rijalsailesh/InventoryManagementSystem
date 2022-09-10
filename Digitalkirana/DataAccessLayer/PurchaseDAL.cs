@@ -2,6 +2,7 @@
 using MySqlConnector;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -44,6 +45,30 @@ namespace Digitalkirana.DataAccessLayer
                 con.Close();
             }
             return success;
+        }
+        #endregion
+
+        #region Select Purchase Transactions
+        public DataTable SelectPurchaseTransactions()
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                string query = "SELECT * FROM purchase_tbl";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                con.Open();
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dt;
         }
         #endregion
     }

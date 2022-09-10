@@ -51,5 +51,17 @@ namespace Digitalkirana.Views
             Customer customer = new Customer();
             customer.ShowDialog();
         }
+
+        private void transactionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Transactions transactions = new Transactions();
+            transactions.ShowDialog();
+        }
+
+        private void inventoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Inventory inventory = new Inventory();
+            inventory.ShowDialog();
+        }
     }
 }
