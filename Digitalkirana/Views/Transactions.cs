@@ -64,5 +64,6 @@ namespace Digitalkirana.Views
                 transactionsDetails.ShowDialog();
             }
         }
+
     }
 }

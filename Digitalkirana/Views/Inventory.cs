@@ -31,7 +31,7 @@ namespace Digitalkirana.Views
             dataGridViewInventory.DataSource = productDAL.SelectAllProducts();
             comboBoxCategory.DataSource = categoryDAL.SelectAllCategories();
             comboBoxCategory.DisplayMember = "CategoryName";
-            comboBoxCategory.ValueMember = "CategoryName";
+            comboBoxCategory.ValueMember = "Category Name";
             comboBoxCategory.SelectedIndex = -1;
         }
 

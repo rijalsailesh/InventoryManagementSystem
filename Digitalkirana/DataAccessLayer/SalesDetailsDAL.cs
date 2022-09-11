@@ -51,7 +51,7 @@ namespace Digitalkirana.DataAccessLayer
             DataTable dt = new DataTable();
             try
             {
-                string query = $"SELECT * FROM sales_details_tbl WHERE SalesId = {id}";
+                string query = $"SELECT p.ProductName `Product Name`, s.Rate, s.Quantity, s.Total FROM `sales_details_tbl` s INNER JOIN product_tbl p on  s.ProductId = p.Id WHERE SalesId = {id}";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 con.Open();

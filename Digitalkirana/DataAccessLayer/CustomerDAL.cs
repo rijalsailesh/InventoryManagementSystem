@@ -20,7 +20,7 @@ namespace Digitalkirana.DataAccessLayer
             DataTable dt = new DataTable();
             try
             {
-                string query = "SELECT * FROM customer_tbl";
+                string query = "SELECT c.Id `Customer ID`, c.CustomerName `Supplier Name`, c.Email, c.Phone, c.Address, c.AddedDate `Added Date`, u.FullName `Added By` FROM customer_tbl c INNER JOIN user_tbl u ON c.AddedBy = u.Id";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 con.Open();
