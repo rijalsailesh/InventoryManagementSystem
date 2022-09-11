@@ -254,6 +254,7 @@
             this.dataGridViewProduct.Size = new System.Drawing.Size(876, 214);
             this.dataGridViewProduct.TabIndex = 25;
             this.dataGridViewProduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewProduct_CellClick);
+            this.dataGridViewProduct.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewProduct_CellContentClick);
             // 
             // Product
             // 

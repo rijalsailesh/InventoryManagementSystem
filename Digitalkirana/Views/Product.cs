@@ -125,5 +125,10 @@ namespace Digitalkirana.Views
         {
             reset();
         }
+
+        private void dataGridViewProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

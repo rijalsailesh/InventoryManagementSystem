@@ -20,6 +20,8 @@ namespace Digitalkirana.Views
 
         PurchaseDAL purchaseDAL = new PurchaseDAL();
         SalesDAL salesDAL = new SalesDAL();
+        int transactionId = 0;
+        public static DataTable transactionsDetailsDt = new DataTable();
 
         private void Transactions_Load(object sender, EventArgs e)
         {
@@ -30,11 +32,36 @@ namespace Digitalkirana.Views
         {
             if(comboBoxTransaction.SelectedIndex == 0)
             {
-                dataGridViewTransactions.DataSource = purchaseDAL.SelectPurchaseTransactions();
+                dataGridViewTransactions.DataSource = salesDAL.SelectSalesTransactions();
             }
             else if(comboBoxTransaction.SelectedIndex== 1)
             {
-                dataGridViewTransactions.DataSource = salesDAL.SelectSalesTransactions();
+                dataGridViewTransactions.DataSource = purchaseDAL.SelectPurchaseTransactions();
+            }
+        }
+
+        private void dataGridViewTransactions_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int rowIndex = e.RowIndex;
+            DataGridViewRow selectedRow = dataGridViewTransactions.Rows[rowIndex];
+            transactionId = Convert.ToInt32(selectedRow.Cells[0].Value);
+            btnDetails.Enabled = true;
+        }
+
+        private void btnDetails_Click(object sender, EventArgs e)
+        {
+            SalesDetailsDAL salesDetailsDal = new SalesDetailsDAL();
+            PurchaseDetailsDAL purchaseDetailsDAL = new PurchaseDetailsDAL();
+            TransactionsDetails transactionsDetails = new TransactionsDetails();
+            if (comboBoxTransaction.SelectedIndex == 0)
+            {
+                transactionsDetailsDt = salesDetailsDal.SelectSalesDetailsBySalesId(transactionId);
+                transactionsDetails.ShowDialog();
+            }
+            else if (comboBoxTransaction.SelectedIndex == 1)
+            {
+                transactionsDetailsDt = purchaseDetailsDAL.SelectPurchaseDetailsByPurchaseId(transactionId);
+                transactionsDetails.ShowDialog();
             }
         }
     }

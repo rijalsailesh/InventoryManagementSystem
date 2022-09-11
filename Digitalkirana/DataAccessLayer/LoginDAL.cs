@@ -1,4 +1,5 @@
 ﻿using Digitalkirana.BusinessLogicLayer;
+using Digitalkirana.Views;
 using MySqlConnector;
 using System;
 using System.Collections.Generic;
@@ -20,14 +21,16 @@ namespace Digitalkirana.DataAccessLayer
             DataTable dt = new DataTable();
             try
             {
-                string query = $"SELECT * FROM user_tbl WHERE Username='{login.Username}' AND Password='{login.Password}'";
+
+                string query = $"SELECT * FROM user_tbl WHERE Username='{login.Username}'";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 con.Open();
                 da.Fill(dt);
                 if(dt.Rows.Count > 0)
                 {
-                    return true;
+                    var password = dt.Rows[0]["Password"].ToString();
+                    return BCrypt.Net.BCrypt.Verify(login.Password, password);
                 }
                 else
                 {
@@ -53,7 +56,7 @@ namespace Digitalkirana.DataAccessLayer
             DataTable dt = new DataTable();
             try
             {
-                string query = $"SELECT UserType FROM user_tbl WHERE Username='{login.Username}' AND Password='{login.Password}'";
+                string query = $"SELECT UserType FROM user_tbl WHERE Username='{login.Username}'";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 con.Open();
@@ -82,7 +85,7 @@ namespace Digitalkirana.DataAccessLayer
             DataTable dt = new DataTable();
             try
             {
-                string query = $"SELECT FullName FROM user_tbl WHERE Username='{login.Username}' AND Password='{login.Password}'";
+                string query = $"SELECT FullName FROM user_tbl WHERE Username='{login.Username}'";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 con.Open();
@@ -111,7 +114,7 @@ namespace Digitalkirana.DataAccessLayer
             DataTable dt = new DataTable();
             try
             {
-                string query = $"SELECT Username FROM user_tbl WHERE Username='{login.Username}' AND Password='{login.Password}'";
+                string query = $"SELECT Username FROM user_tbl WHERE Username='{login.Username}'";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 con.Open();
@@ -140,7 +143,7 @@ namespace Digitalkirana.DataAccessLayer
             DataTable dt = new DataTable();
             try
             {
-                string query = $"SELECT Active FROM user_tbl WHERE Username='{login.Username}' AND Password='{login.Password}'";
+                string query = $"SELECT Active FROM user_tbl WHERE Username='{login.Username}'";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 con.Open();

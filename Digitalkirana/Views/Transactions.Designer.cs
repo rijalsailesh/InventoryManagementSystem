@@ -32,6 +32,7 @@
             this.dataGridViewTransactions = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxTransaction = new System.Windows.Forms.ComboBox();
+            this.btnDetails = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTransactions)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,6 +56,7 @@
             this.dataGridViewTransactions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewTransactions.Size = new System.Drawing.Size(1104, 489);
             this.dataGridViewTransactions.TabIndex = 26;
+            this.dataGridViewTransactions.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTransactions_CellClick);
             // 
             // label1
             // 
@@ -78,17 +80,31 @@
             this.comboBoxTransaction.TabIndex = 28;
             this.comboBoxTransaction.SelectedIndexChanged += new System.EventHandler(this.comboBoxTransaction_SelectedIndexChanged);
             // 
+            // btnDetails
+            // 
+            this.btnDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(95)))), ((int)(((byte)(112)))));
+            this.btnDetails.Enabled = false;
+            this.btnDetails.ForeColor = System.Drawing.Color.White;
+            this.btnDetails.Location = new System.Drawing.Point(843, 28);
+            this.btnDetails.Name = "btnDetails";
+            this.btnDetails.Size = new System.Drawing.Size(273, 41);
+            this.btnDetails.TabIndex = 29;
+            this.btnDetails.Text = "Details";
+            this.btnDetails.UseVisualStyleBackColor = false;
+            this.btnDetails.Click += new System.EventHandler(this.btnDetails_Click);
+            // 
             // Transactions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1128, 588);
+            this.Controls.Add(this.btnDetails);
             this.Controls.Add(this.comboBoxTransaction);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridViewTransactions);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Transactions";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Transactions";
@@ -104,5 +120,6 @@
         private System.Windows.Forms.DataGridView dataGridViewTransactions;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBoxTransaction;
+        private System.Windows.Forms.Button btnDetails;
     }
 }

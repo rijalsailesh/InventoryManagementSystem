@@ -2,6 +2,7 @@
 using MySqlConnector;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,6 +42,30 @@ namespace Digitalkirana.DataAccessLayer
                 con.Close();
             }
             return success;
+        }
+        #endregion
+
+        #region Select Sales Details By Sales
+        public DataTable SelectSalesDetailsBySalesId(int id)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                string query = $"SELECT * FROM sales_details_tbl WHERE SalesId = {id}";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                con.Open();
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dt;
         }
         #endregion
     }

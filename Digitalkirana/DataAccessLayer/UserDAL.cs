@@ -39,7 +39,8 @@ namespace Digitalkirana.DataAccessLayer
         {
             try
             {
-                string query = $"INSERT INTO user_tbl (FullName, Username, Password, Phone, Address, Gender, UserType, AddedDate, AddedBy, Active) VALUES ('{user.FullName}','{user.UserName}','{user.Password}','{user.Phone}','{user.Address}','{user.Gender}','{user.UserType}','{user.AddedDate}','{user.AddedBy}',{user.Active})";
+                string hashedPassword = BCrypt.Net.BCrypt.HashPassword(user.Password);
+                string query = $"INSERT INTO user_tbl (FullName, Username, Password, Phone, Address, Gender, UserType, AddedDate, AddedBy, Active) VALUES ('{user.FullName}','{user.UserName}','{hashedPassword}','{user.Phone}','{user.Address}','{user.Gender}','{user.UserType}','{user.AddedDate}','{user.AddedBy}',{user.Active})";
                 MySqlCommand cmd = new MySqlCommand(query,con);
                 con.Open();
                 int result = cmd.ExecuteNonQuery();
@@ -67,7 +68,8 @@ namespace Digitalkirana.DataAccessLayer
         {
             try
             {
-                string query = $"UPDATE user_tbl SET FullName = '{user.FullName}', Username = '{user.UserName}', Password = '{user.Password}', Phone = '{user.Phone}', Address = '{user.Address}', Gender = '{user.Gender}', UserType = '{user.UserType}', Active = {user.Active} WHERE Id = '{user.Id}'";
+                var hashedPassword = BCrypt.Net.BCrypt.HashPassword(user.Password);
+                string query = $"UPDATE user_tbl SET FullName = '{user.FullName}', Username = '{user.UserName}', Password = '{hashedPassword}', Phone = '{user.Phone}', Address = '{user.Address}', Gender = '{user.Gender}', UserType = '{user.UserType}', Active = {user.Active} WHERE Id = '{user.Id}'";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 con.Open();
                 int result = cmd.ExecuteNonQuery();
