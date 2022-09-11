@@ -64,7 +64,7 @@
             this.btnDelete.Location = new System.Drawing.Point(673, 204);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(273, 41);
-            this.btnDelete.TabIndex = 20;
+            this.btnDelete.TabIndex = 5;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -76,7 +76,7 @@
             this.btnSave.Location = new System.Drawing.Point(673, 150);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(273, 41);
-            this.btnSave.TabIndex = 18;
+            this.btnSave.TabIndex = 4;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -96,7 +96,7 @@
             this.textBoxAddress.Multiline = true;
             this.textBoxAddress.Name = "textBoxAddress";
             this.textBoxAddress.Size = new System.Drawing.Size(590, 89);
-            this.textBoxAddress.TabIndex = 14;
+            this.textBoxAddress.TabIndex = 3;
             // 
             // dataGridViewSupplier
             // 
@@ -117,7 +117,7 @@
             this.dataGridViewSupplier.RowTemplate.Height = 24;
             this.dataGridViewSupplier.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewSupplier.Size = new System.Drawing.Size(968, 198);
-            this.dataGridViewSupplier.TabIndex = 24;
+            this.dataGridViewSupplier.TabIndex = 7;
             this.dataGridViewSupplier.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSupplier_CellClick);
             // 
             // label3
@@ -174,7 +174,7 @@
             this.textBoxSearch.Location = new System.Drawing.Point(102, 320);
             this.textBoxSearch.Name = "textBoxSearch";
             this.textBoxSearch.Size = new System.Drawing.Size(879, 32);
-            this.textBoxSearch.TabIndex = 26;
+            this.textBoxSearch.TabIndex = 6;
             this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
             // 
             // groupBox1

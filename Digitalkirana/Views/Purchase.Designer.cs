@@ -55,6 +55,7 @@
             this.textBoxProductName = new System.Windows.Forms.TextBox();
             this.textBoxProductSearch = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.saveBtn = new System.Windows.Forms.Button();
             this.textboxSubtotal = new System.Windows.Forms.NumericUpDown();
             this.textBoxReturnAmt = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -69,7 +70,6 @@
             this.textBoxDiscount = new System.Windows.Forms.NumericUpDown();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridViewAddedProducts = new System.Windows.Forms.DataGridView();
-            this.saveBtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textBoxQuantity)).BeginInit();
@@ -121,7 +121,7 @@
             this.dateTimePickerBill.Location = new System.Drawing.Point(944, 68);
             this.dateTimePickerBill.Name = "dateTimePickerBill";
             this.dateTimePickerBill.Size = new System.Drawing.Size(285, 32);
-            this.dateTimePickerBill.TabIndex = 26;
+            this.dateTimePickerBill.TabIndex = 2;
             // 
             // label4
             // 
@@ -137,7 +137,7 @@
             this.textBoxSupplierSearch.Location = new System.Drawing.Point(22, 68);
             this.textBoxSupplierSearch.Name = "textBoxSupplierSearch";
             this.textBoxSupplierSearch.Size = new System.Drawing.Size(273, 32);
-            this.textBoxSupplierSearch.TabIndex = 24;
+            this.textBoxSupplierSearch.TabIndex = 0;
             this.textBoxSupplierSearch.TextChanged += new System.EventHandler(this.textBoxSupplierSearch_TextChanged);
             // 
             // label7
@@ -234,7 +234,7 @@
             this.textBoxQuantity.Location = new System.Drawing.Point(956, 67);
             this.textBoxQuantity.Name = "textBoxQuantity";
             this.textBoxQuantity.Size = new System.Drawing.Size(165, 32);
-            this.textBoxQuantity.TabIndex = 27;
+            this.textBoxQuantity.TabIndex = 5;
             // 
             // textBoxRate
             // 
@@ -242,7 +242,7 @@
             this.textBoxRate.Location = new System.Drawing.Point(759, 66);
             this.textBoxRate.Name = "textBoxRate";
             this.textBoxRate.Size = new System.Drawing.Size(165, 32);
-            this.textBoxRate.TabIndex = 26;
+            this.textBoxRate.TabIndex = 4;
             // 
             // textBoxInventory
             // 
@@ -259,7 +259,7 @@
             this.btnProductAdd.Location = new System.Drawing.Point(1145, 62);
             this.btnProductAdd.Name = "btnProductAdd";
             this.btnProductAdd.Size = new System.Drawing.Size(84, 37);
-            this.btnProductAdd.TabIndex = 25;
+            this.btnProductAdd.TabIndex = 6;
             this.btnProductAdd.Text = "ADD";
             this.btnProductAdd.UseVisualStyleBackColor = false;
             this.btnProductAdd.Click += new System.EventHandler(this.btnProductAdd_Click);
@@ -322,7 +322,7 @@
             this.textBoxProductSearch.Location = new System.Drawing.Point(22, 66);
             this.textBoxProductSearch.Name = "textBoxProductSearch";
             this.textBoxProductSearch.Size = new System.Drawing.Size(198, 32);
-            this.textBoxProductSearch.TabIndex = 15;
+            this.textBoxProductSearch.TabIndex = 3;
             this.textBoxProductSearch.TextChanged += new System.EventHandler(this.textBoxProductSearch_TextChanged);
             // 
             // groupBox3
@@ -347,6 +347,18 @@
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Calculation Details";
+            // 
+            // saveBtn
+            // 
+            this.saveBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(95)))), ((int)(((byte)(112)))));
+            this.saveBtn.ForeColor = System.Drawing.Color.White;
+            this.saveBtn.Location = new System.Drawing.Point(266, 391);
+            this.saveBtn.Name = "saveBtn";
+            this.saveBtn.Size = new System.Drawing.Size(273, 42);
+            this.saveBtn.TabIndex = 11;
+            this.saveBtn.Text = "Save";
+            this.saveBtn.UseVisualStyleBackColor = false;
+            this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
             // 
             // textboxSubtotal
             // 
@@ -425,7 +437,7 @@
             this.textBoxPaidAmt.Location = new System.Drawing.Point(266, 272);
             this.textBoxPaidAmt.Name = "textBoxPaidAmt";
             this.textBoxPaidAmt.Size = new System.Drawing.Size(273, 32);
-            this.textBoxPaidAmt.TabIndex = 31;
+            this.textBoxPaidAmt.TabIndex = 10;
             this.textBoxPaidAmt.ValueChanged += new System.EventHandler(this.textBoxPaidAmt_ValueChanged);
             // 
             // textBoxGrandTotal
@@ -443,7 +455,7 @@
             this.textBoxVat.Location = new System.Drawing.Point(266, 160);
             this.textBoxVat.Name = "textBoxVat";
             this.textBoxVat.Size = new System.Drawing.Size(273, 32);
-            this.textBoxVat.TabIndex = 27;
+            this.textBoxVat.TabIndex = 9;
             this.textBoxVat.ValueChanged += new System.EventHandler(this.textBoxVat_ValueChanged);
             // 
             // textBoxDiscount
@@ -452,7 +464,7 @@
             this.textBoxDiscount.Location = new System.Drawing.Point(266, 102);
             this.textBoxDiscount.Name = "textBoxDiscount";
             this.textBoxDiscount.Size = new System.Drawing.Size(273, 32);
-            this.textBoxDiscount.TabIndex = 28;
+            this.textBoxDiscount.TabIndex = 8;
             this.textBoxDiscount.ValueChanged += new System.EventHandler(this.textBoxDiscount_ValueChanged);
             // 
             // groupBox4
@@ -485,19 +497,7 @@
             this.dataGridViewAddedProducts.RowTemplate.Height = 24;
             this.dataGridViewAddedProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewAddedProducts.Size = new System.Drawing.Size(654, 401);
-            this.dataGridViewAddedProducts.TabIndex = 25;
-            // 
-            // saveBtn
-            // 
-            this.saveBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(95)))), ((int)(((byte)(112)))));
-            this.saveBtn.ForeColor = System.Drawing.Color.White;
-            this.saveBtn.Location = new System.Drawing.Point(266, 391);
-            this.saveBtn.Name = "saveBtn";
-            this.saveBtn.Size = new System.Drawing.Size(273, 42);
-            this.saveBtn.TabIndex = 28;
-            this.saveBtn.Text = "Save";
-            this.saveBtn.UseVisualStyleBackColor = false;
-            this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
+            this.dataGridViewAddedProducts.TabIndex = 7;
             // 
             // Purchase
             // 

@@ -1,4 +1,5 @@
-﻿using Digitalkirana.BusinessLogicLayer;
+﻿using DGVPrinterHelper;
+using Digitalkirana.BusinessLogicLayer;
 using Digitalkirana.DataAccessLayer;
 using System;
 using System.Collections.Generic;
@@ -185,6 +186,7 @@ namespace Digitalkirana.Views
                 {
                     scope.Complete();
                     MessageBox.Show("Purchase transaction successful.");
+                    print();
                     Reset();
                 }
                 else
@@ -193,6 +195,23 @@ namespace Digitalkirana.Views
                 }
             }
         }
+
+        private void print()
+        {
+            DGVPrinter printer = new DGVPrinter();
+            printer.Title = "\r\n\r\n\n\n\nDigital Kirana";
+            printer.SubTitle = $"\n\nMechinagar-6, Jhapa\r\nPhone: 98xxxxxxxxxxx\n\n\n\n Date: {dateTimePickerBill.Value.ToString("yyyy-mm-dd")}\n\n Supplier Name: {textBoxSupplierName.Text}    Address: {textBoxAddress.Text}\n\n\n\n";
+            printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
+            printer.PageNumbers = true;
+            printer.PageNumberInHeader = false;
+            printer.PorportionalColumns = true;
+            printer.HeaderCellAlignment = StringAlignment.Near;
+            printer.Footer = $"Discount: {textBoxDiscount.Value}%\r\nVAT: {textBoxVat.Value}%\r\nGrand Total: {textBoxGrandTotal.Value} \r\nThank You!!";
+            printer.FooterSpacing = 15;
+            printer.PrintDataGridView(dataGridViewAddedProducts);
+
+        }
+
 
         private void Reset()
         {

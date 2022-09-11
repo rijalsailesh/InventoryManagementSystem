@@ -115,7 +115,7 @@
             this.saveBtn.Location = new System.Drawing.Point(266, 391);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(273, 42);
-            this.saveBtn.TabIndex = 28;
+            this.saveBtn.TabIndex = 10;
             this.saveBtn.Text = "Save";
             this.saveBtn.UseVisualStyleBackColor = false;
             this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
@@ -197,7 +197,7 @@
             this.textBoxPaidAmt.Location = new System.Drawing.Point(266, 272);
             this.textBoxPaidAmt.Name = "textBoxPaidAmt";
             this.textBoxPaidAmt.Size = new System.Drawing.Size(273, 32);
-            this.textBoxPaidAmt.TabIndex = 31;
+            this.textBoxPaidAmt.TabIndex = 9;
             this.textBoxPaidAmt.ValueChanged += new System.EventHandler(this.textBoxPaidAmt_ValueChanged);
             // 
             // textBoxGrandTotal
@@ -215,7 +215,7 @@
             this.textBoxVat.Location = new System.Drawing.Point(266, 160);
             this.textBoxVat.Name = "textBoxVat";
             this.textBoxVat.Size = new System.Drawing.Size(273, 32);
-            this.textBoxVat.TabIndex = 27;
+            this.textBoxVat.TabIndex = 8;
             this.textBoxVat.ValueChanged += new System.EventHandler(this.textBoxVat_ValueChanged);
             // 
             // textBoxDiscount
@@ -224,7 +224,7 @@
             this.textBoxDiscount.Location = new System.Drawing.Point(266, 102);
             this.textBoxDiscount.Name = "textBoxDiscount";
             this.textBoxDiscount.Size = new System.Drawing.Size(273, 32);
-            this.textBoxDiscount.TabIndex = 28;
+            this.textBoxDiscount.TabIndex = 7;
             this.textBoxDiscount.ValueChanged += new System.EventHandler(this.textBoxDiscount_ValueChanged);
             // 
             // textBoxQuantity
@@ -232,7 +232,7 @@
             this.textBoxQuantity.Location = new System.Drawing.Point(956, 67);
             this.textBoxQuantity.Name = "textBoxQuantity";
             this.textBoxQuantity.Size = new System.Drawing.Size(165, 32);
-            this.textBoxQuantity.TabIndex = 27;
+            this.textBoxQuantity.TabIndex = 4;
             // 
             // textBoxRate
             // 
@@ -240,7 +240,7 @@
             this.textBoxRate.Location = new System.Drawing.Point(759, 66);
             this.textBoxRate.Name = "textBoxRate";
             this.textBoxRate.Size = new System.Drawing.Size(165, 32);
-            this.textBoxRate.TabIndex = 26;
+            this.textBoxRate.TabIndex = 3;
             // 
             // textBoxInventory
             // 
@@ -257,7 +257,7 @@
             this.btnProductAdd.Location = new System.Drawing.Point(1145, 62);
             this.btnProductAdd.Name = "btnProductAdd";
             this.btnProductAdd.Size = new System.Drawing.Size(84, 37);
-            this.btnProductAdd.TabIndex = 25;
+            this.btnProductAdd.TabIndex = 5;
             this.btnProductAdd.Text = "ADD";
             this.btnProductAdd.UseVisualStyleBackColor = false;
             this.btnProductAdd.Click += new System.EventHandler(this.btnProductAdd_Click);
@@ -299,7 +299,7 @@
             this.dataGridViewAddedProducts.RowTemplate.Height = 24;
             this.dataGridViewAddedProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewAddedProducts.Size = new System.Drawing.Size(654, 401);
-            this.dataGridViewAddedProducts.TabIndex = 25;
+            this.dataGridViewAddedProducts.TabIndex = 6;
             // 
             // label5
             // 
@@ -346,7 +346,7 @@
             this.dateTimePickerBill.Location = new System.Drawing.Point(944, 68);
             this.dateTimePickerBill.Name = "dateTimePickerBill";
             this.dateTimePickerBill.Size = new System.Drawing.Size(285, 32);
-            this.dateTimePickerBill.TabIndex = 26;
+            this.dateTimePickerBill.TabIndex = 1;
             // 
             // label4
             // 
@@ -362,7 +362,7 @@
             this.textBoxCustomerSearch.Location = new System.Drawing.Point(22, 68);
             this.textBoxCustomerSearch.Name = "textBoxCustomerSearch";
             this.textBoxCustomerSearch.Size = new System.Drawing.Size(273, 32);
-            this.textBoxCustomerSearch.TabIndex = 24;
+            this.textBoxCustomerSearch.TabIndex = 0;
             this.textBoxCustomerSearch.TextChanged += new System.EventHandler(this.textBoxCustomerSearch_TextChanged);
             // 
             // label7
@@ -496,7 +496,7 @@
             this.textBoxProductSearch.Location = new System.Drawing.Point(22, 66);
             this.textBoxProductSearch.Name = "textBoxProductSearch";
             this.textBoxProductSearch.Size = new System.Drawing.Size(198, 32);
-            this.textBoxProductSearch.TabIndex = 15;
+            this.textBoxProductSearch.TabIndex = 2;
             this.textBoxProductSearch.TextChanged += new System.EventHandler(this.textBoxProductSearch_TextChanged);
             // 
             // Sales

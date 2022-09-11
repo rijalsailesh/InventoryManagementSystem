@@ -56,7 +56,7 @@
             this.groupBox1.Controls.Add(this.textBoxCategoryName);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(876, 326);
+            this.groupBox1.Size = new System.Drawing.Size(876, 317);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Category";
@@ -65,10 +65,10 @@
             // 
             this.btnReset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(95)))), ((int)(((byte)(112)))));
             this.btnReset.ForeColor = System.Drawing.Color.White;
-            this.btnReset.Location = new System.Drawing.Point(16, 257);
+            this.btnReset.Location = new System.Drawing.Point(16, 243);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(286, 53);
-            this.btnReset.TabIndex = 6;
+            this.btnReset.TabIndex = 5;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = false;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
@@ -76,7 +76,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(330, 51);
+            this.label2.Location = new System.Drawing.Point(330, 46);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(117, 23);
             this.label2.TabIndex = 5;
@@ -85,7 +85,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 51);
+            this.label1.Location = new System.Drawing.Point(12, 46);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(170, 23);
             this.label1.TabIndex = 4;
@@ -95,17 +95,17 @@
             // 
             this.btnDelete.BackColor = System.Drawing.Color.Crimson;
             this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(16, 196);
+            this.btnDelete.Location = new System.Drawing.Point(16, 182);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(286, 53);
-            this.btnDelete.TabIndex = 3;
+            this.btnDelete.TabIndex = 4;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // textBoxDescription
             // 
-            this.textBoxDescription.Location = new System.Drawing.Point(334, 86);
+            this.textBoxDescription.Location = new System.Drawing.Point(334, 72);
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.Size = new System.Drawing.Size(523, 224);
@@ -115,20 +115,20 @@
             // 
             this.saveBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(95)))), ((int)(((byte)(112)))));
             this.saveBtn.ForeColor = System.Drawing.Color.White;
-            this.saveBtn.Location = new System.Drawing.Point(16, 137);
+            this.saveBtn.Location = new System.Drawing.Point(16, 123);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(286, 53);
-            this.saveBtn.TabIndex = 1;
+            this.saveBtn.TabIndex = 3;
             this.saveBtn.Text = "Add";
             this.saveBtn.UseVisualStyleBackColor = false;
             this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
             // 
             // textBoxCategoryName
             // 
-            this.textBoxCategoryName.Location = new System.Drawing.Point(16, 86);
+            this.textBoxCategoryName.Location = new System.Drawing.Point(16, 72);
             this.textBoxCategoryName.Name = "textBoxCategoryName";
             this.textBoxCategoryName.Size = new System.Drawing.Size(286, 32);
-            this.textBoxCategoryName.TabIndex = 0;
+            this.textBoxCategoryName.TabIndex = 1;
             // 
             // dataGridViewCategory
             // 
@@ -140,7 +140,7 @@
             this.dataGridViewCategory.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dataGridViewCategory.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
             this.dataGridViewCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewCategory.Location = new System.Drawing.Point(12, 411);
+            this.dataGridViewCategory.Location = new System.Drawing.Point(12, 400);
             this.dataGridViewCategory.MultiSelect = false;
             this.dataGridViewCategory.Name = "dataGridViewCategory";
             this.dataGridViewCategory.ReadOnly = true;
@@ -148,15 +148,15 @@
             this.dataGridViewCategory.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridViewCategory.RowTemplate.Height = 24;
             this.dataGridViewCategory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewCategory.Size = new System.Drawing.Size(876, 281);
-            this.dataGridViewCategory.TabIndex = 1;
+            this.dataGridViewCategory.Size = new System.Drawing.Size(876, 292);
+            this.dataGridViewCategory.TabIndex = 7;
             this.dataGridViewCategory.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCategory_CellClick);
             // 
             // label8
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(12, 365);
+            this.label8.Location = new System.Drawing.Point(12, 350);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(83, 23);
             this.label8.TabIndex = 23;
@@ -165,10 +165,10 @@
             // textBoxSearch
             // 
             this.textBoxSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxSearch.Location = new System.Drawing.Point(101, 362);
+            this.textBoxSearch.Location = new System.Drawing.Point(101, 347);
             this.textBoxSearch.Name = "textBoxSearch";
             this.textBoxSearch.Size = new System.Drawing.Size(787, 32);
-            this.textBoxSearch.TabIndex = 24;
+            this.textBoxSearch.TabIndex = 6;
             this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
             // 
             // Category

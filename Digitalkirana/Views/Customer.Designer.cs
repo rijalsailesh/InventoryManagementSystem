@@ -64,7 +64,7 @@
             this.btnDelete.Location = new System.Drawing.Point(673, 204);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(273, 41);
-            this.btnDelete.TabIndex = 20;
+            this.btnDelete.TabIndex = 6;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -76,7 +76,7 @@
             this.btnSave.Location = new System.Drawing.Point(673, 150);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(273, 41);
-            this.btnSave.TabIndex = 18;
+            this.btnSave.TabIndex = 5;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -96,7 +96,7 @@
             this.textBoxAddress.Multiline = true;
             this.textBoxAddress.Name = "textBoxAddress";
             this.textBoxAddress.Size = new System.Drawing.Size(590, 89);
-            this.textBoxAddress.TabIndex = 14;
+            this.textBoxAddress.TabIndex = 4;
             // 
             // dataGridViewCustomer
             // 
@@ -117,7 +117,7 @@
             this.dataGridViewCustomer.RowTemplate.Height = 24;
             this.dataGridViewCustomer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewCustomer.Size = new System.Drawing.Size(968, 198);
-            this.dataGridViewCustomer.TabIndex = 28;
+            this.dataGridViewCustomer.TabIndex = 8;
             this.dataGridViewCustomer.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCustomer_CellClick);
             // 
             // label3
@@ -152,21 +152,21 @@
             this.textBoxPhone.Location = new System.Drawing.Point(673, 68);
             this.textBoxPhone.Name = "textBoxPhone";
             this.textBoxPhone.Size = new System.Drawing.Size(273, 32);
-            this.textBoxPhone.TabIndex = 2;
+            this.textBoxPhone.TabIndex = 3;
             // 
             // textBoxEmail
             // 
             this.textBoxEmail.Location = new System.Drawing.Point(338, 68);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(273, 32);
-            this.textBoxEmail.TabIndex = 1;
+            this.textBoxEmail.TabIndex = 2;
             // 
             // textBoxCustomerName
             // 
             this.textBoxCustomerName.Location = new System.Drawing.Point(21, 68);
             this.textBoxCustomerName.Name = "textBoxCustomerName";
             this.textBoxCustomerName.Size = new System.Drawing.Size(273, 32);
-            this.textBoxCustomerName.TabIndex = 0;
+            this.textBoxCustomerName.TabIndex = 1;
             // 
             // textBoxSearch
             // 
@@ -174,7 +174,7 @@
             this.textBoxSearch.Location = new System.Drawing.Point(102, 320);
             this.textBoxSearch.Name = "textBoxSearch";
             this.textBoxSearch.Size = new System.Drawing.Size(879, 32);
-            this.textBoxSearch.TabIndex = 30;
+            this.textBoxSearch.TabIndex = 7;
             this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
             // 
             // groupBox1

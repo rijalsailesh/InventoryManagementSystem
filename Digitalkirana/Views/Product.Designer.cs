@@ -81,17 +81,17 @@
             // 
             // textBoxQuantity
             // 
-            this.textBoxQuantity.Location = new System.Drawing.Point(572, 269);
+            this.textBoxQuantity.Location = new System.Drawing.Point(572, 258);
             this.textBoxQuantity.Name = "textBoxQuantity";
             this.textBoxQuantity.Size = new System.Drawing.Size(285, 32);
-            this.textBoxQuantity.TabIndex = 17;
+            this.textBoxQuantity.TabIndex = 6;
             // 
             // textBoxRate
             // 
-            this.textBoxRate.Location = new System.Drawing.Point(572, 181);
+            this.textBoxRate.Location = new System.Drawing.Point(572, 170);
             this.textBoxRate.Name = "textBoxRate";
             this.textBoxRate.Size = new System.Drawing.Size(285, 32);
-            this.textBoxRate.TabIndex = 16;
+            this.textBoxRate.TabIndex = 5;
             // 
             // btnReset
             // 
@@ -100,7 +100,7 @@
             this.btnReset.Location = new System.Drawing.Point(572, 321);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(285, 53);
-            this.btnReset.TabIndex = 15;
+            this.btnReset.TabIndex = 9;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = false;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
@@ -154,10 +154,10 @@
             // 
             this.comboBoxCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCategory.FormattingEnabled = true;
-            this.comboBoxCategory.Location = new System.Drawing.Point(572, 90);
+            this.comboBoxCategory.Location = new System.Drawing.Point(572, 81);
             this.comboBoxCategory.Name = "comboBoxCategory";
             this.comboBoxCategory.Size = new System.Drawing.Size(285, 31);
-            this.comboBoxCategory.TabIndex = 9;
+            this.comboBoxCategory.TabIndex = 3;
             // 
             // label1
             // 
@@ -175,7 +175,7 @@
             this.btnDelete.Location = new System.Drawing.Point(299, 321);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(242, 53);
-            this.btnDelete.TabIndex = 7;
+            this.btnDelete.TabIndex = 8;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -187,29 +187,29 @@
             this.saveBtn.Location = new System.Drawing.Point(24, 321);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(242, 53);
-            this.saveBtn.TabIndex = 6;
+            this.saveBtn.TabIndex = 7;
             this.saveBtn.Text = "Add";
             this.saveBtn.UseVisualStyleBackColor = false;
             this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
             // 
             // textBoxDescription
             // 
-            this.textBoxDescription.Location = new System.Drawing.Point(24, 180);
+            this.textBoxDescription.Location = new System.Drawing.Point(24, 169);
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.Size = new System.Drawing.Size(517, 121);
-            this.textBoxDescription.TabIndex = 3;
+            this.textBoxDescription.TabIndex = 4;
             // 
             // textBoxProductName
             // 
-            this.textBoxProductName.Location = new System.Drawing.Point(256, 89);
+            this.textBoxProductName.Location = new System.Drawing.Point(256, 80);
             this.textBoxProductName.Name = "textBoxProductName";
             this.textBoxProductName.Size = new System.Drawing.Size(285, 32);
             this.textBoxProductName.TabIndex = 1;
             // 
             // textBoxProductId
             // 
-            this.textBoxProductId.Location = new System.Drawing.Point(24, 89);
+            this.textBoxProductId.Location = new System.Drawing.Point(24, 80);
             this.textBoxProductId.Name = "textBoxProductId";
             this.textBoxProductId.Size = new System.Drawing.Size(201, 32);
             this.textBoxProductId.TabIndex = 0;
@@ -230,7 +230,7 @@
             this.textBoxSearch.Location = new System.Drawing.Point(101, 429);
             this.textBoxSearch.Name = "textBoxSearch";
             this.textBoxSearch.Size = new System.Drawing.Size(787, 32);
-            this.textBoxSearch.TabIndex = 27;
+            this.textBoxSearch.TabIndex = 10;
             this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
             // 
             // dataGridViewProduct
@@ -252,7 +252,7 @@
             this.dataGridViewProduct.RowTemplate.Height = 24;
             this.dataGridViewProduct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewProduct.Size = new System.Drawing.Size(876, 214);
-            this.dataGridViewProduct.TabIndex = 25;
+            this.dataGridViewProduct.TabIndex = 11;
             this.dataGridViewProduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewProduct_CellClick);
             this.dataGridViewProduct.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewProduct_CellContentClick);
             // 

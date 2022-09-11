@@ -55,7 +55,7 @@
             this.dataGridViewTransactions.RowTemplate.Height = 24;
             this.dataGridViewTransactions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewTransactions.Size = new System.Drawing.Size(1104, 489);
-            this.dataGridViewTransactions.TabIndex = 26;
+            this.dataGridViewTransactions.TabIndex = 2;
             this.dataGridViewTransactions.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTransactions_CellClick);
             // 
             // label1
@@ -77,7 +77,7 @@
             this.comboBoxTransaction.Location = new System.Drawing.Point(219, 34);
             this.comboBoxTransaction.Name = "comboBoxTransaction";
             this.comboBoxTransaction.Size = new System.Drawing.Size(323, 31);
-            this.comboBoxTransaction.TabIndex = 28;
+            this.comboBoxTransaction.TabIndex = 0;
             this.comboBoxTransaction.SelectedIndexChanged += new System.EventHandler(this.comboBoxTransaction_SelectedIndexChanged);
             // 
             // btnDetails
@@ -88,7 +88,7 @@
             this.btnDetails.Location = new System.Drawing.Point(843, 28);
             this.btnDetails.Name = "btnDetails";
             this.btnDetails.Size = new System.Drawing.Size(273, 41);
-            this.btnDetails.TabIndex = 29;
+            this.btnDetails.TabIndex = 1;
             this.btnDetails.Text = "Details";
             this.btnDetails.UseVisualStyleBackColor = false;
             this.btnDetails.Click += new System.EventHandler(this.btnDetails_Click);

@@ -50,7 +50,6 @@
             this.dataGridViewUser = new System.Windows.Forms.DataGridView();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUser)).BeginInit();
             this.SuspendLayout();
@@ -89,7 +88,7 @@
             this.btnReset.Location = new System.Drawing.Point(742, 208);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(204, 62);
-            this.btnReset.TabIndex = 24;
+            this.btnReset.TabIndex = 9;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = false;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
@@ -100,7 +99,7 @@
             this.checkBoxActive.Location = new System.Drawing.Point(21, 227);
             this.checkBoxActive.Name = "checkBoxActive";
             this.checkBoxActive.Size = new System.Drawing.Size(115, 27);
-            this.checkBoxActive.TabIndex = 22;
+            this.checkBoxActive.TabIndex = 7;
             this.checkBoxActive.Text = "Is Active";
             this.checkBoxActive.UseVisualStyleBackColor = true;
             // 
@@ -111,7 +110,7 @@
             this.btnSave.Location = new System.Drawing.Point(262, 208);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(444, 62);
-            this.btnSave.TabIndex = 18;
+            this.btnSave.TabIndex = 8;
             this.btnSave.Text = "Add";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -126,7 +125,7 @@
             this.comboBoxUserType.Location = new System.Drawing.Point(742, 160);
             this.comboBoxUserType.Name = "comboBoxUserType";
             this.comboBoxUserType.Size = new System.Drawing.Size(204, 31);
-            this.comboBoxUserType.TabIndex = 17;
+            this.comboBoxUserType.TabIndex = 6;
             // 
             // comboBoxGender
             // 
@@ -139,7 +138,7 @@
             this.comboBoxGender.Location = new System.Drawing.Point(21, 161);
             this.comboBoxGender.Name = "comboBoxGender";
             this.comboBoxGender.Size = new System.Drawing.Size(204, 31);
-            this.comboBoxGender.TabIndex = 16;
+            this.comboBoxGender.TabIndex = 4;
             // 
             // label7
             // 
@@ -155,7 +154,7 @@
             this.textBoxAddress.Location = new System.Drawing.Point(262, 160);
             this.textBoxAddress.Name = "textBoxAddress";
             this.textBoxAddress.Size = new System.Drawing.Size(444, 32);
-            this.textBoxAddress.TabIndex = 14;
+            this.textBoxAddress.TabIndex = 5;
             // 
             // label6
             // 
@@ -276,22 +275,12 @@
             this.label8.TabIndex = 22;
             this.label8.Text = "Search:";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 23;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // User
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(995, 600);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.textBoxSearch);
             this.Controls.Add(this.dataGridViewUser);
@@ -334,6 +323,5 @@
         private System.Windows.Forms.ComboBox comboBoxGender;
         private System.Windows.Forms.CheckBox checkBoxActive;
         private System.Windows.Forms.Button btnReset;
-        private System.Windows.Forms.Button button1;
     }
 }

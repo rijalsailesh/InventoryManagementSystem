@@ -46,7 +46,7 @@
             this.comboBoxCategory.Location = new System.Drawing.Point(121, 23);
             this.comboBoxCategory.Name = "comboBoxCategory";
             this.comboBoxCategory.Size = new System.Drawing.Size(323, 31);
-            this.comboBoxCategory.TabIndex = 31;
+            this.comboBoxCategory.TabIndex = 1;
             this.comboBoxCategory.SelectedIndexChanged += new System.EventHandler(this.comboBoxCategory_SelectedIndexChanged);
             // 
             // label1
@@ -77,7 +77,7 @@
             this.dataGridViewInventory.RowTemplate.Height = 24;
             this.dataGridViewInventory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewInventory.Size = new System.Drawing.Size(1220, 501);
-            this.dataGridViewInventory.TabIndex = 29;
+            this.dataGridViewInventory.TabIndex = 3;
             // 
             // btnShowAll
             // 
@@ -86,7 +86,7 @@
             this.btnShowAll.Location = new System.Drawing.Point(939, 19);
             this.btnShowAll.Name = "btnShowAll";
             this.btnShowAll.Size = new System.Drawing.Size(297, 37);
-            this.btnShowAll.TabIndex = 32;
+            this.btnShowAll.TabIndex = 2;
             this.btnShowAll.Text = "Show All";
             this.btnShowAll.UseVisualStyleBackColor = false;
             this.btnShowAll.Click += new System.EventHandler(this.btnShowAll_Click);
