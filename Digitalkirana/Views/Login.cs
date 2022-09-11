@@ -67,11 +67,12 @@ namespace Digitalkirana.Views
                 login.Username = textBoxUsername.Text;
                 login.Password = textBoxPassword.Text;
                 bool result = loginDAL.loginCheck(login);
-                bool isActive = loginDAL.CheckIsActive(login);
-                if (isActive)
+                if (result)
                 {
-                    if (result)
+                    bool isActive = loginDAL.CheckIsActive(login);
+                    if (isActive)
                     {
+                    
                         login.UserType = loginDAL.getUserType(login);
                         fullName = loginDAL.getFullName(login);
                         username = loginDAL.getUsername(login);
@@ -94,12 +95,13 @@ namespace Digitalkirana.Views
                     }
                     else
                     {
-                        MessageBox.Show("Incorrect username or password");
+                        MessageBox.Show("This Login User is currenlty inactive");
                     }
+
                 }
                 else
                 {
-                    MessageBox.Show("This Login User is currenlty inactive");
+                    MessageBox.Show("Incorrect username or password");
                 }
             }
         }
