@@ -26,6 +26,7 @@ namespace Digitalkirana.Views
         private void Transactions_Load(object sender, EventArgs e)
         {
             comboBoxTransaction.SelectedIndex = -1;
+            dataGridViewTransactions.SelectedCells[0].Selected = false;
         }
 
         private void comboBoxTransaction_SelectedIndexChanged(object sender, EventArgs e)

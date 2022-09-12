@@ -30,6 +30,7 @@ namespace Digitalkirana.Views
         
         private void TransactionsDetails_Load(object sender, EventArgs e)
         {
+            dataGridViewPurchaseDetails.SelectedCells[0].Selected = false;
             if (Ttype == "sales")
             {
                 dataGridViewPurchaseDetails.DataSource = salesDetailsDAL.SelectSalesDetailsBySalesId(Tid);

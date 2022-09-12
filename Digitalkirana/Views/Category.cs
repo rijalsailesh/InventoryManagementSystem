@@ -74,6 +74,7 @@ namespace Digitalkirana.Views
         private void Category_Load(object sender, EventArgs e)
         {
             dataGridViewCategory.DataSource = categoryDAL.SelectAllCategories();
+            dataGridViewCategory.SelectedCells[0].Selected = false;
         }
 
         private void btnDelete_Click(object sender, EventArgs e)

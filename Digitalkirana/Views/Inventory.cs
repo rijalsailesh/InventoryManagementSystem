@@ -24,6 +24,7 @@ namespace Digitalkirana.Views
         private void Inventory_Load(object sender, EventArgs e)
         {
             loadCategoryInComboBox();
+            dataGridViewInventory.SelectedCells[0].Selected = false;
         }
 
         private void loadCategoryInComboBox()

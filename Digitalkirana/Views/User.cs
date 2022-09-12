@@ -85,6 +85,7 @@ namespace Digitalkirana.Views
         private void User_Load(object sender, EventArgs e)
         {
             dataGridViewUser.DataSource = userDAL.SelectAllUsers();
+            dataGridViewUser.SelectedCells[0].Selected = false;
         }
 
         private void dataGridViewUser_CellClick(object sender, DataGridViewCellEventArgs e)
