@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
@@ -77,6 +78,7 @@ namespace Digitalkirana.Views
 
         private void btnProductAdd_Click(object sender, EventArgs e)
         {
+            bool productIdFound = false;
             string productName = textBoxProductName.Text;
             decimal rate = textBoxRate.Value;
             decimal quantity = textBoxQuantity.Value;
@@ -89,14 +91,47 @@ namespace Digitalkirana.Views
             }
             else
             {
-                productDt.Rows.Add(productId, productName, rate, quantity, total);
-                dataGridViewAddedProducts.DataSource = productDt;
-                textBoxProductSearch.Clear();
-                textBoxProductName.Clear();
-                textBoxInventory.Value = 0;
-                textBoxRate.Value = 0;
-                textBoxQuantity.Value = 0;
-                textboxSubtotal.Value = subtotal;
+                if(textBoxInventory.Value >= textBoxQuantity.Value)
+                {
+                    if (textBoxQuantity.Value > 0)
+                    {
+                        if (dataGridViewAddedProducts.Rows.Count > 0)
+                        {
+                            for (int i = 0; i < dataGridViewAddedProducts.Rows.Count; i++)
+                            {
+                                if (productId == dataGridViewAddedProducts.Rows[i].Cells["ID"].Value.ToString())
+                                {
+                                    productIdFound = true;
+                                    dataGridViewAddedProducts.Rows[i].Cells["quantity"].Value = Convert.ToDecimal(dataGridViewAddedProducts.Rows[i].Cells["quantity"].Value.ToString()) + textBoxQuantity.Value;
+                                    break;
+                                }
+                                else
+                                {
+                                    productIdFound = false;
+                                }
+                            }
+                        }
+                        if (!productIdFound)
+                        {
+                            productDt.Rows.Add(productId, productName, rate, quantity, total);
+                            dataGridViewAddedProducts.DataSource = productDt;
+                        }
+                        textBoxProductSearch.Clear();
+                        textBoxProductName.Clear();
+                        textBoxInventory.Value = 0;
+                        textBoxRate.Value = 0;
+                        textBoxQuantity.Value = 0;
+                        textboxSubtotal.Value = subtotal;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please add quantity");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Stock finished");
+                }
             }
         }
 
@@ -219,11 +254,33 @@ namespace Digitalkirana.Views
             }
             else
             {
+                decimal currentInventory;
                 var product = productDAL.SearchProductForPurchase(keyword);
                 productId = product.Id;
                 textBoxProductName.Text = product.ProductName;
                 textBoxRate.Value = product.Rate;
+
+                if(dataGridViewAddedProducts.Rows.Count > 0)
+                {
+                    for (int i = 0; i < dataGridViewAddedProducts.Rows.Count; i++)
+                    {
+                        if (dataGridViewAddedProducts.Rows[i].Cells["Id"].Value.ToString() == productId)
+                        {
+                            currentInventory = product.Quantity - Convert.ToDecimal(dataGridViewAddedProducts.Rows[i].Cells["quantity"].Value);
+                            textBoxInventory.Value = currentInventory;
+                            break;
+                        }
+                        else
+                        {
+                            currentInventory = product.Quantity;
+                            textBoxInventory.Value = currentInventory;
+                        }
+                    }
+                }
+                else
+                {
                 textBoxInventory.Value = product.Quantity;
+                }
             }
         }
     }
