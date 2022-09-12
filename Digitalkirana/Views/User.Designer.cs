@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(User));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnResetPassword = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.checkBoxActive = new System.Windows.Forms.CheckBox();
             this.btnSave = new System.Windows.Forms.Button();
@@ -57,6 +58,7 @@
             // groupBox1
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox1.Controls.Add(this.btnResetPassword);
             this.groupBox1.Controls.Add(this.btnReset);
             this.groupBox1.Controls.Add(this.checkBoxActive);
             this.groupBox1.Controls.Add(this.btnSave);
@@ -80,6 +82,19 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "User\'s Details";
+            // 
+            // btnResetPassword
+            // 
+            this.btnResetPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(95)))), ((int)(((byte)(112)))));
+            this.btnResetPassword.Enabled = false;
+            this.btnResetPassword.ForeColor = System.Drawing.Color.White;
+            this.btnResetPassword.Location = new System.Drawing.Point(502, 208);
+            this.btnResetPassword.Name = "btnResetPassword";
+            this.btnResetPassword.Size = new System.Drawing.Size(204, 62);
+            this.btnResetPassword.TabIndex = 16;
+            this.btnResetPassword.Text = "Password Reset";
+            this.btnResetPassword.UseVisualStyleBackColor = false;
+            this.btnResetPassword.Click += new System.EventHandler(this.btnResetPassword_Click);
             // 
             // btnReset
             // 
@@ -109,7 +124,7 @@
             this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.Location = new System.Drawing.Point(262, 208);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(444, 62);
+            this.btnSave.Size = new System.Drawing.Size(204, 62);
             this.btnSave.TabIndex = 8;
             this.btnSave.Text = "Add";
             this.btnSave.UseVisualStyleBackColor = false;
@@ -323,5 +338,6 @@
         private System.Windows.Forms.ComboBox comboBoxGender;
         private System.Windows.Forms.CheckBox checkBoxActive;
         private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.Button btnResetPassword;
     }
 }

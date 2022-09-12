@@ -1,4 +1,5 @@
 ﻿using Digitalkirana.BusinessLogicLayer;
+using Digitalkirana.Views;
 using MySqlConnector;
 using System;
 using System.Configuration;
@@ -10,13 +11,14 @@ namespace Digitalkirana.DataAccessLayer
     public class UserDAL
     {
         MySqlConnection con = new MySqlConnection(Connection.connectionString);
+
         #region Select Users
         public DataTable SelectAllUsers()
         {
             DataTable dt = new DataTable();
             try
             {
-                string query = "SELECT * FROM user_tbl";
+                string query = "SELECT u1.Id, u1.FullName `Full Name`, u1.Username, u1.Phone, u1.Address, u1.Gender, u1.UserType `User Type`, u1.AddedDate `Added Date`, u1.Active, u2.FullName  FROM `user_tbl` u1 INNER JOIN user_tbl u2 ON u1.AddedBy = u2.Id;";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 con.Open();
@@ -40,7 +42,7 @@ namespace Digitalkirana.DataAccessLayer
             try
             {
                 string hashedPassword = BCrypt.Net.BCrypt.HashPassword(user.Password);
-                string query = $"INSERT INTO user_tbl (FullName, Username, Password, Phone, Address, Gender, UserType, AddedDate, AddedBy, Active) VALUES ('{user.FullName}','{user.UserName}','{hashedPassword}','{user.Phone}','{user.Address}','{user.Gender}','{user.UserType}','{user.AddedDate}','{user.AddedBy}',{user.Active})";
+                string query = $"INSERT INTO user_tbl (FullName, Username, Password, Phone, Address, Gender, UserType, AddedDate, AddedBy, Active) VALUES ('{user.FullName}','{user.UserName}','{hashedPassword}','{user.Phone}','{user.Address}','{user.Gender}','{user.UserType}','{user.AddedDate.ToString("yyyy-MM-dd")}','{user.AddedBy}',{user.Active})";
                 MySqlCommand cmd = new MySqlCommand(query,con);
                 con.Open();
                 int result = cmd.ExecuteNonQuery();
@@ -68,8 +70,7 @@ namespace Digitalkirana.DataAccessLayer
         {
             try
             {
-                var hashedPassword = BCrypt.Net.BCrypt.HashPassword(user.Password);
-                string query = $"UPDATE user_tbl SET FullName = '{user.FullName}', Username = '{user.UserName}', Password = '{hashedPassword}', Phone = '{user.Phone}', Address = '{user.Address}', Gender = '{user.Gender}', UserType = '{user.UserType}', Active = {user.Active} WHERE Id = '{user.Id}'";
+                string query = $"UPDATE user_tbl SET FullName = '{user.FullName}', Username = '{user.UserName}', Phone = '{user.Phone}', Address = '{user.Address}', Gender = '{user.Gender}', UserType = '{user.UserType}', Active = {user.Active} WHERE Id = '{user.Id}'";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 con.Open();
                 int result = cmd.ExecuteNonQuery();
@@ -113,6 +114,35 @@ namespace Digitalkirana.DataAccessLayer
                 con.Close();
             }
             return dt;
+        }
+        #endregion
+
+        #region Reset Password By User Id
+        public bool ResetPasswordByUserId(int userId, string password)
+        {
+            try
+            {
+                var hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
+                string query = $"UPDATE user_tbl SET Password = '{hashedPassword}' WHERE Id = {userId}";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                con.Open();
+                int result = cmd.ExecuteNonQuery();
+                if (result == 1)
+                {
+                    MessageBox.Show("Password has been reset sucessfully.");
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            MessageBox.Show("Password could not be reset.");
+            return false;
         }
         #endregion
 

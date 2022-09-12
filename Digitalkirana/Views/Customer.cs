@@ -65,6 +65,7 @@ namespace Digitalkirana.Views
             textBoxAddress.Clear();
             textBoxPhone.Clear();
             customer.Id = 0;
+            btnSave.Text = "Add";
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -96,6 +97,7 @@ namespace Digitalkirana.Views
             textBoxEmail.Text = selectedRow.Cells[2].Value.ToString();
             textBoxPhone.Text = selectedRow.Cells[3].Value.ToString();
             textBoxAddress.Text = selectedRow.Cells[4].Value.ToString();
+            btnSave.Text = "Update";
         }
     }
 }

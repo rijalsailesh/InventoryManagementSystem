@@ -24,8 +24,13 @@ namespace Digitalkirana.Views
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (textBoxFullName.Text != "" && textBoxPassword.Text != "" && textBoxPhone.Text != "" && textBoxUsername.Text != "" && comboBoxGender.Text != "" && comboBoxUserType.Text != "" && textBoxAddress.Text != "")
+            if (textBoxFullName.Text != ""  && textBoxPhone.Text != "" && textBoxUsername.Text != "" && comboBoxGender.Text != "" && comboBoxUserType.Text != "" && textBoxAddress.Text != "")
             {
+                if(btnSave.Text == "Add" && textBoxPassword.Text =="")
+                {
+                    MessageBox.Show("Some field is empty");
+                    return;
+                }
 
                 user.FullName = textBoxFullName.Text;
                 user.UserName = textBoxUsername.Text;
@@ -34,6 +39,7 @@ namespace Digitalkirana.Views
                 user.Gender = comboBoxGender.SelectedItem.ToString();
                 user.Address = textBoxAddress.Text;
                 user.UserType = comboBoxUserType.SelectedItem.ToString();
+                user.AddedDate = DateTime.Now;
                 user.AddedBy = userDAL.getUserId(Login.username);
                 if (checkBoxActive.Checked)
                 {
@@ -72,6 +78,8 @@ namespace Digitalkirana.Views
             comboBoxUserType.SelectedIndex = -1;
             checkBoxActive.Checked = false;
             btnSave.Text = "Add";
+            btnResetPassword.Enabled = false;
+            textBoxPassword.Enabled = true;
         }
 
         private void User_Load(object sender, EventArgs e)
@@ -87,12 +95,13 @@ namespace Digitalkirana.Views
             user.Id = Convert.ToInt32(selectedRow.Cells[0].Value);
             textBoxFullName.Text = selectedRow.Cells[1].Value.ToString();
             textBoxUsername.Text = selectedRow.Cells[2].Value.ToString();
-            textBoxPassword.Text = selectedRow.Cells[3].Value.ToString();
-            textBoxPhone.Text = selectedRow.Cells[4].Value.ToString();
-            textBoxAddress.Text = selectedRow.Cells[5].Value.ToString();
-            comboBoxGender.Text = selectedRow.Cells[6].Value.ToString();
-            comboBoxUserType.Text = selectedRow.Cells[7].Value.ToString();
-            checkBoxActive.Checked = Convert.ToBoolean(selectedRow.Cells[10].Value);
+            textBoxPhone.Text = selectedRow.Cells[3].Value.ToString();
+            textBoxAddress.Text = selectedRow.Cells[4].Value.ToString();
+            comboBoxGender.Text = selectedRow.Cells[5].Value.ToString();
+            comboBoxUserType.Text = selectedRow.Cells[6].Value.ToString();
+            checkBoxActive.Checked = Convert.ToBoolean(selectedRow.Cells[8].Value);
+            btnResetPassword.Enabled = true;
+            textBoxPassword.Enabled = false;
         }
 
         private void textBoxSearch_TextChanged(object sender, EventArgs e)
@@ -111,6 +120,12 @@ namespace Digitalkirana.Views
         private void btnReset_Click(object sender, EventArgs e)
         {
             reset();
+        }
+
+        private void btnResetPassword_Click(object sender, EventArgs e)
+        {
+            ResetPassword resetPassword = new ResetPassword(user.Id);
+            resetPassword.ShowDialog();
         }
     }
 }
