@@ -20,7 +20,7 @@ namespace Digitalkirana.DataAccessLayer
             DataTable dt = new DataTable();
             try
             {
-                string query = "SELECT c.Id `Customer ID`, c.CustomerName `Supplier Name`, c.Email, c.Phone, c.Address, c.AddedDate `Added Date`, u.FullName `Added By` FROM customer_tbl c INNER JOIN user_tbl u ON c.AddedBy = u.Id";
+                string query = "SELECT c.Id `Customer ID`, c.CustomerName `Customer Name`, c.Email, c.Phone, c.Address, c.AddedDate `Added Date`, u.FullName `Added By` FROM customer_tbl c INNER JOIN user_tbl u ON c.AddedBy = u.Id";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 con.Open();
@@ -153,7 +153,7 @@ namespace Digitalkirana.DataAccessLayer
             CustomerBLL customer = new CustomerBLL();
             try
             {
-                string query = $"SELECT Id, CustomerName, Email, Phone, Address FROM customer_tbl WHERE Id LIKE '%{keyword}%' OR CustomerName LIKE '%{keyword}%'";
+                string query = $"SELECT c.Id `Customer ID`, c.CustomerName `Customer Name`, c.Email, c.Phone, c.Address, c.AddedDate `Added Date`, u.FullName `Added By` FROM customer_tbl c INNER JOIN user_tbl u ON c.AddedBy = u.Id WHERE c.Id LIKE '%{keyword}%' OR c.CustomerName LIKE '%{keyword}%'";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 con.Open();

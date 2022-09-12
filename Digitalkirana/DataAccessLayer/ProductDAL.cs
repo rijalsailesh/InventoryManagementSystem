@@ -102,7 +102,7 @@ namespace Digitalkirana.DataAccessLayer
             DataTable dt = new DataTable();
             try
             {
-                string query = $"SELECT * FROM product_tbl WHERE Id LIKE '%{keyword}%' OR ProductName LIKE '%{keyword}%'";
+                string query = $"SELECT p.Id AS `Product ID`, p.ProductName AS `Product Name`, p.Category, p.Description, p.Rate, p.Quantity, p.AddedDate AS `Added Date`, u.FullName AS `Added By` FROM `product_tbl` AS p INNER JOIN user_tbl AS u ON P.AddedBy = u.Id WHERE p.Id LIKE '%{keyword}%' OR p.ProductName LIKE '%{keyword}%'";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 con.Open();

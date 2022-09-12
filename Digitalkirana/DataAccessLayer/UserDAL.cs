@@ -18,7 +18,7 @@ namespace Digitalkirana.DataAccessLayer
             DataTable dt = new DataTable();
             try
             {
-                string query = "SELECT u1.Id, u1.FullName `Full Name`, u1.Username, u1.Phone, u1.Address, u1.Gender, u1.UserType `User Type`, u1.AddedDate `Added Date`, u1.Active, u2.FullName  FROM `user_tbl` u1 INNER JOIN user_tbl u2 ON u1.AddedBy = u2.Id;";
+                string query = "SELECT u1.Id, u1.FullName `Full Name`, u1.Username, u1.Phone, u1.Address, u1.Gender, u1.UserType `User Type`, u1.AddedDate `Added Date`, u1.Active, u2.FullName  FROM `user_tbl` u1 INNER JOIN user_tbl u2 ON u1.AddedBy = u2.Id";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 con.Open();
@@ -99,7 +99,7 @@ namespace Digitalkirana.DataAccessLayer
             DataTable dt = new DataTable();
             try
             {
-                string query = $"SELECT * FROM user_tbl WHERE Id LIKE '%{keyword}%' OR FullName LIKE '%{keyword}%' OR Username LIKE '%{keyword}%'";
+                string query = $"SELECT u1.Id, u1.FullName `Full Name`, u1.Username, u1.Phone, u1.Address, u1.Gender, u1.UserType `User Type`, u1.AddedDate `Added Date`, u1.Active, u2.FullName  FROM `user_tbl` u1 INNER JOIN user_tbl u2 ON u1.AddedBy = u2.Id WHERE u1.Id LIKE '%{keyword}%' OR u1.FullName LIKE '%{keyword}%' OR u1.Username LIKE '%{keyword}%'";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 con.Open();
