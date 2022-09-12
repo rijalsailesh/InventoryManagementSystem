@@ -21,7 +21,7 @@ namespace Digitalkirana.Views
         PurchaseDAL purchaseDAL = new PurchaseDAL();
         SalesDAL salesDAL = new SalesDAL();
         int transactionId = 0;
-        public static DataTable transactionsDetailsDt = new DataTable();
+        string totalAmt = null;
 
         private void Transactions_Load(object sender, EventArgs e)
         {
@@ -46,21 +46,23 @@ namespace Digitalkirana.Views
             DataGridViewRow selectedRow = dataGridViewTransactions.Rows[rowIndex];
             transactionId = Convert.ToInt32(selectedRow.Cells[0].Value);
             btnDetails.Enabled = true;
+            totalAmt = Convert.ToString(selectedRow.Cells[2].Value);
         }
 
         private void btnDetails_Click(object sender, EventArgs e)
         {
-            SalesDetailsDAL salesDetailsDal = new SalesDetailsDAL();
-            PurchaseDetailsDAL purchaseDetailsDAL = new PurchaseDetailsDAL();
-            TransactionsDetails transactionsDetails = new TransactionsDetails();
+            string type = null;
             if (comboBoxTransaction.SelectedIndex == 0)
             {
-                transactionsDetailsDt = salesDetailsDal.SelectSalesDetailsBySalesId(transactionId);
-                transactionsDetails.ShowDialog();
+                type = "sales";
             }
             else if (comboBoxTransaction.SelectedIndex == 1)
             {
-                transactionsDetailsDt = purchaseDetailsDAL.SelectPurchaseDetailsByPurchaseId(transactionId);
+                type = "purchase";
+            }
+            if(type!= null)
+            {
+                TransactionsDetails transactionsDetails = new TransactionsDetails(transactionId, type, totalAmt);
                 transactionsDetails.ShowDialog();
             }
         }

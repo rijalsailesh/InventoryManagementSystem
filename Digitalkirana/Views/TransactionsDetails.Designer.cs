@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TransactionsDetails));
             this.dataGridViewPurchaseDetails = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.totalAmt = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPurchaseDetails)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,7 +45,7 @@
             this.dataGridViewPurchaseDetails.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewPurchaseDetails.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridViewPurchaseDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewPurchaseDetails.Location = new System.Drawing.Point(12, 12);
+            this.dataGridViewPurchaseDetails.Location = new System.Drawing.Point(12, 53);
             this.dataGridViewPurchaseDetails.Name = "dataGridViewPurchaseDetails";
             this.dataGridViewPurchaseDetails.ReadOnly = true;
             this.dataGridViewPurchaseDetails.RowHeadersVisible = false;
@@ -51,14 +53,34 @@
             this.dataGridViewPurchaseDetails.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridViewPurchaseDetails.RowTemplate.Height = 24;
             this.dataGridViewPurchaseDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewPurchaseDetails.Size = new System.Drawing.Size(1104, 564);
+            this.dataGridViewPurchaseDetails.Size = new System.Drawing.Size(1104, 523);
             this.dataGridViewPurchaseDetails.TabIndex = 27;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(62, 23);
+            this.label1.TabIndex = 28;
+            this.label1.Text = "Total:";
+            // 
+            // totalAmt
+            // 
+            this.totalAmt.AutoSize = true;
+            this.totalAmt.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalAmt.Location = new System.Drawing.Point(80, 9);
+            this.totalAmt.Name = "totalAmt";
+            this.totalAmt.Size = new System.Drawing.Size(0, 23);
+            this.totalAmt.TabIndex = 29;
             // 
             // TransactionsDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1128, 588);
+            this.Controls.Add(this.totalAmt);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridViewPurchaseDetails);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -69,11 +91,14 @@
             this.Load += new System.EventHandler(this.TransactionsDetails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPurchaseDetails)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridViewPurchaseDetails;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label totalAmt;
     }
 }
