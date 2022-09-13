@@ -25,7 +25,7 @@ namespace Digitalkirana.Views
         ProductBLL product = new ProductBLL();
         ProductDAL productDAL = new ProductDAL();
         UserDAL userDAL = new UserDAL();
-        public string productId;
+        public string productId = null;
 
 
         private void Product_Load(object sender, EventArgs e)
@@ -41,33 +41,42 @@ namespace Digitalkirana.Views
         {
             if (textBoxProductId.Text != "" && comboBoxCategory.Text != "")
             {
+                
+                product.Id = textBoxProductId.Text;
+                product.ProductName = textBoxProductName.Text;
+                product.Category = comboBoxCategory.Text;
+                product.Description = textBoxDescription.Text;
+                product.Rate = textBoxRate.Value;
+                product.Quantity = textBoxQuantity.Value;
+                product.AddedBy = userDAL.getUserId(Login.username);
+                product.AddedDate = DateTime.Now;
 
-            product.Id = textBoxProductId.Text;
-            product.ProductName = textBoxProductName.Text;
-            product.Category = comboBoxCategory.Text;
-            product.Description = textBoxDescription.Text;
-            product.Rate = textBoxRate.Value;
-            product.Quantity = textBoxQuantity.Value;
-            product.AddedBy = userDAL.getUserId(Login.username);
-            product.AddedDate = DateTime.Now;
-
-            if (productId !=null)
-            {
-                productDAL.UpdateProduct(product);
-            }
-            else
-            {
-                productDAL.InsertProduct(product);
-            }
-            dataGridViewProduct.DataSource = productDAL.SelectAllProducts();
-            reset();
+                if (productId != null)
+                {
+                    productDAL.UpdateProduct(product);
+                }
+                else
+                {
+                    var checkDuplicateId = productDAL.CheckDuplicateProductId(textBoxProductId.Text);
+                    if (checkDuplicateId)
+                    {
+                        MessageBox.Show("Product Id already exists please enter unique Product Id", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        return;
+                    }
+                    else
+                    {
+                        productDAL.InsertProduct(product);
+                    }
+                }
+                dataGridViewProduct.DataSource = productDAL.SelectAllProducts();
+                reset();
             }
             else
             {
                 MessageBox.Show("Some field is missing!!", "Missing", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
         }
-
+    
         private void reset()
         {
             saveBtn.Text = "Add";
@@ -88,7 +97,7 @@ namespace Digitalkirana.Views
             {
                 return;
             }
-            productDAL.DeleteProduct(product);
+            productDAL.DeleteProduct(productId);
             reset();
             dataGridViewProduct.DataSource = productDAL.SelectAllProducts();
         }

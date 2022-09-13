@@ -121,11 +121,11 @@ namespace Digitalkirana.DataAccessLayer
         #endregion
 
         #region Delete Product
-        public bool DeleteProduct(ProductBLL product)
+        public bool DeleteProduct(string productId)
         {
             try
             {
-                string query = $"DELETE FROM product_tbl WHERE Id = '{product.Id}'";
+                string query = $"DELETE FROM product_tbl WHERE Id = '{productId}'";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 con.Open();
                 int result = cmd.ExecuteNonQuery();
@@ -357,6 +357,34 @@ namespace Digitalkirana.DataAccessLayer
             return dt;
         }
         #endregion
+
+        #region Check Duplicate ProductId
+        public bool CheckDuplicateProductId(string id)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                string query = $"SELECT * FROM product_tbl WHERE Id = '{id}'";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                con.Open();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return false;
+        }
+        #endregion  
     }
 }
 
