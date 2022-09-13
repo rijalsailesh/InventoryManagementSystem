@@ -208,5 +208,33 @@ namespace Digitalkirana.DataAccessLayer
             return noOfSuppliers;
         }
         #endregion
+
+        #region Check Supplier in PurchaseDAL 
+        public bool CheckSupplierInPurchase(int id)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                string query = $"SELECT * FROM purchase_tbl WHERE SupplierId = {id}";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                con.Open();
+                da.Fill(dt);
+                if(dt.Rows.Count > 0)
+                {
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return false;
+        }
+        #endregion
     }
 }

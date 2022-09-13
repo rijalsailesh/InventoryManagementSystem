@@ -208,5 +208,33 @@ namespace Digitalkirana.DataAccessLayer
             return noOfCustomers;
         }
         #endregion
+
+        #region Check Customer in SalesDAL 
+        public bool CheckCustomerInSales(int id)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                string query = $"SELECT * FROM sales_tbl WHERE CustomerId = {id}";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                con.Open();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return false;
+        }
+        #endregion
     }
 }
