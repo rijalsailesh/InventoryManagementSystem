@@ -47,31 +47,35 @@ namespace Digitalkirana.Views
         {
             Purchase purchase = new Purchase();
             purchase.ShowDialog();
+            loadDisplayData();
         }
 
         private void usersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Sales sales = new Sales();
             sales.ShowDialog();
+            loadDisplayData();
         }
 
         private void suppliersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Supplier supplier = new Supplier();
             supplier.ShowDialog();
+            loadDisplayData();
         }
 
         private void customersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Customer customer = new Customer();
             customer.ShowDialog();
+            loadDisplayData();
         }
 
         private void transactionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Inventory inventory = new Inventory();
             inventory.ShowDialog();
+            loadDisplayData();
         }
-
     }
 }
