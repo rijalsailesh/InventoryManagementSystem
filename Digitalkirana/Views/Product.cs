@@ -35,7 +35,6 @@ namespace Digitalkirana.Views
             comboBoxCategory.DisplayMember = "Category Name";
             comboBoxCategory.ValueMember = "Category Id";
             comboBoxCategory.SelectedIndex = -1;
-            dataGridViewProduct.SelectedCells[0].Selected = false;
         }
 
         private void saveBtn_Click(object sender, EventArgs e)

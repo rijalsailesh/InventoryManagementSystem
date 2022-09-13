@@ -125,7 +125,7 @@ namespace Digitalkirana.DataAccessLayer
         {
             try
             {
-                string query = $"DELETE FROM product_tbl WHERE Id = {product.Id}";
+                string query = $"DELETE FROM product_tbl WHERE Id = '{product.Id}'";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 con.Open();
                 int result = cmd.ExecuteNonQuery();

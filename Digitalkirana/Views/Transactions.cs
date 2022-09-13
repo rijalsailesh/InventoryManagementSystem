@@ -38,7 +38,7 @@ namespace Digitalkirana.Views
             {
                 dataGridViewTransactions.DataSource = purchaseDAL.SelectPurchaseTransactions();
             }
-            dataGridViewTransactions.SelectedCells[0].Selected = false;
+            
         }
 
         private void dataGridViewTransactions_CellClick(object sender, DataGridViewCellEventArgs e)

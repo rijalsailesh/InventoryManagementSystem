@@ -27,7 +27,6 @@ namespace Digitalkirana.Views
         private void Customer_Load(object sender, EventArgs e)
         {
             dataGridViewCustomer.DataSource = customerDAL.SelectAllCustomers();
-            dataGridViewCustomer.SelectedCells[0].Selected = false;
         }
 
         private void btnSave_Click(object sender, EventArgs e)

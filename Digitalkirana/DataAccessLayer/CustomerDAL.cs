@@ -160,8 +160,8 @@ namespace Digitalkirana.DataAccessLayer
                 da.Fill(dt);
                 if (dt.Rows.Count > 0)
                 {
-                    customer.Id = Convert.ToInt32(dt.Rows[0]["Id"]);
-                    customer.CustomerName = dt.Rows[0]["CustomerName"].ToString();
+                    customer.Id = Convert.ToInt32(dt.Rows[0]["Customer Id"]);
+                    customer.CustomerName = dt.Rows[0]["Customer Name"].ToString();
                     customer.Email = dt.Rows[0]["Email"].ToString();
                     customer.Phone = dt.Rows[0]["Phone"].ToString();
                     customer.Address = dt.Rows[0]["Address"].ToString();

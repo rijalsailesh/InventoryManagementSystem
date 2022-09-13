@@ -26,7 +26,6 @@ namespace Digitalkirana.Views
         private void Supplier_Load(object sender, EventArgs e)
         {
             dataGridViewSupplier.DataSource = supplierDAL.SelectAllSuppliers();
-            dataGridViewSupplier.SelectedCells[0].Selected = false;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
