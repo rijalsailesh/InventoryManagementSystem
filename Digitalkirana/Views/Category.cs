@@ -36,6 +36,7 @@ namespace Digitalkirana.Views
             category.Id = Convert.ToInt32(selectedRow.Cells[0].Value);
             textBoxCategoryName.Text = selectedRow.Cells[1].Value.ToString();
             textBoxDescription.Text = selectedRow.Cells[2].Value.ToString();
+            btnDelete.Enabled = true;
         }
 
         private void saveBtn_Click(object sender, EventArgs e)
@@ -69,6 +70,7 @@ namespace Digitalkirana.Views
             textBoxCategoryName.Clear();
             textBoxDescription.Clear();
             saveBtn.Text = "Add";
+            btnDelete.Enabled = false;
         }
 
         private void Category_Load(object sender, EventArgs e)

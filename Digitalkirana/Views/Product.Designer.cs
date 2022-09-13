@@ -171,6 +171,7 @@
             // btnDelete
             // 
             this.btnDelete.BackColor = System.Drawing.Color.Crimson;
+            this.btnDelete.Enabled = false;
             this.btnDelete.ForeColor = System.Drawing.Color.White;
             this.btnDelete.Location = new System.Drawing.Point(299, 321);
             this.btnDelete.Name = "btnDelete";

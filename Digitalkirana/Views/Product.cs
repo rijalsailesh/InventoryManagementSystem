@@ -78,6 +78,7 @@ namespace Digitalkirana.Views
             textBoxRate.Value=0;
             textBoxQuantity.Value=0;
             textBoxProductId.Enabled = true;
+            btnDelete.Enabled = false;
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -118,6 +119,7 @@ namespace Digitalkirana.Views
             textBoxDescription.Text = selectedRow.Cells[3].Value.ToString();
             textBoxRate.Text = selectedRow.Cells[4].Value.ToString();
             textBoxQuantity.Text = selectedRow.Cells[5].Value.ToString();
+            btnDelete.Enabled = true;
         }
 
         private void btnReset_Click(object sender, EventArgs e)
