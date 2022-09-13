@@ -59,7 +59,7 @@ namespace Digitalkirana.Views
                 }
             else
             {
-                MessageBox.Show("Category Name is missing!");
+                MessageBox.Show("Category Name is missing!", "Missing", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
         }
 

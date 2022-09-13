@@ -52,15 +52,15 @@ namespace Digitalkirana.Views
         {
             if(textBoxUsername.Text==String.Empty && textBoxPassword.Text == String.Empty)
             {
-                MessageBox.Show("Please enter username and password", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please enter username and password", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
             else if (textBoxUsername.Text == String.Empty)
             {
-                MessageBox.Show("Please enter username","Alert",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Please enter username","Alert",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
             }
             else if(textBoxPassword.Text == String.Empty)
             {
-                MessageBox.Show("Please enter password", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please enter password", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
             else
             {
@@ -95,20 +95,16 @@ namespace Digitalkirana.Views
                     }
                     else
                     {
-                        MessageBox.Show("This Login User is currenlty inactive");
+                        MessageBox.Show("This login user is currenlty inactive", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     }
 
                 }
                 else
                 {
-                    MessageBox.Show("Incorrect username or password");
+                    MessageBox.Show("Incorrect username or password", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
             }
         }
 
-        private void Login_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

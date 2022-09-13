@@ -64,7 +64,7 @@ namespace Digitalkirana.Views
             }
             else
             {
-                MessageBox.Show("Some field is missing!!");
+                MessageBox.Show("Some field is missing!!", "Missing", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
         }
 

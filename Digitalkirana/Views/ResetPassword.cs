@@ -24,7 +24,7 @@ namespace Digitalkirana.Views
         {
             if(textBoxNewPassword.Text=="" || textBoxConfirmPassword.Text == "")
             {
-                MessageBox.Show("Please Enter New/Confirm Password");
+                MessageBox.Show("Please Enter New/Confirm Password", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
             else
             {
@@ -36,7 +36,7 @@ namespace Digitalkirana.Views
                 }
                 else
                 {
-                    MessageBox.Show("New password and confirm password does not matched");
+                    MessageBox.Show("New password and confirm password does not matched", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     return;
                 }
             }

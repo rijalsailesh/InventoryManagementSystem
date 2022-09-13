@@ -28,7 +28,7 @@ namespace Digitalkirana.Views
             {
                 if(btnSave.Text == "Add" && textBoxPassword.Text =="")
                 {
-                    MessageBox.Show("Some field is empty");
+                    MessageBox.Show("Some field is missing", "Missing", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     return;
                 }
 
@@ -62,7 +62,7 @@ namespace Digitalkirana.Views
             }
             else
             {
-                MessageBox.Show("Some field is empty.");
+                MessageBox.Show("Some field is missing", "Missing", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
         }
 

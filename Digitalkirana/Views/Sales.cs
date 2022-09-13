@@ -87,7 +87,7 @@ namespace Digitalkirana.Views
             subtotal = subtotal + total;
             if (productName == "")
             {
-                MessageBox.Show("No any product selected");
+                MessageBox.Show("No any product selected", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
             else
             {
@@ -125,12 +125,12 @@ namespace Digitalkirana.Views
                     }
                     else
                     {
-                        MessageBox.Show("Please add quantity");
+                        MessageBox.Show("Please add quantity", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Stock finished");
+                    MessageBox.Show("Out Of Stock", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
             }
         }
@@ -214,13 +214,13 @@ namespace Digitalkirana.Views
                 if (success)
                 {
                     scope.Complete();
-                    MessageBox.Show("Sales transaction successful.");
+                    MessageBox.Show("Sales transaction successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     print();
                     Reset();
                 }
                 else
                 {
-                    MessageBox.Show("Sales transaction failed.");
+                    MessageBox.Show("Sales transaction failed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
