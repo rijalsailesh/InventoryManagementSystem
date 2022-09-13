@@ -103,6 +103,10 @@ namespace Digitalkirana.Views
         private void dataGridViewSupplier_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int rowIndex = e.RowIndex;
+            if (rowIndex < 0)
+            {
+                return;
+            }
             DataGridViewRow selectedRow = dataGridViewSupplier.Rows[rowIndex];
             supplier.Id = Convert.ToInt32(selectedRow.Cells[0].Value);
             textBoxSupplierName.Text = selectedRow.Cells[1].Value.ToString();

@@ -90,6 +90,10 @@ namespace Digitalkirana.Views
         private void dataGridViewUser_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int rowIndex = e.RowIndex;
+            if (rowIndex < 0)
+            {
+                return;
+            }
             DataGridViewRow selectedRow = dataGridViewUser.Rows[rowIndex];
             btnSave.Text = "Update";
             user.Id = Convert.ToInt32(selectedRow.Cells[0].Value);

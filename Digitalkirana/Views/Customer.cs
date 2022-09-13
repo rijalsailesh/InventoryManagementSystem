@@ -105,6 +105,10 @@ namespace Digitalkirana.Views
         private void dataGridViewCustomer_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int rowIndex = e.RowIndex;
+            if (rowIndex < 0)
+            {
+                return;
+            }
             DataGridViewRow selectedRow = dataGridViewCustomer.Rows[rowIndex];
             customer.Id = Convert.ToInt32(selectedRow.Cells[0].Value);
             textBoxCustomerName.Text = selectedRow.Cells[1].Value.ToString();
