@@ -39,6 +39,8 @@
             this.transactionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.productsLbl = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.categoriesLbl = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.usersLbl = new System.Windows.Forms.Label();
@@ -54,11 +56,13 @@
             this.labelUsername = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.productsLbl = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dataGridViewLowStock = new System.Windows.Forms.DataGridView();
             this.menuStripTop.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLowStock)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStripTop
@@ -155,6 +159,30 @@
             this.groupBox1.TabIndex = 22;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Summary";
+            // 
+            // productsLbl
+            // 
+            this.productsLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.productsLbl.AutoSize = true;
+            this.productsLbl.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.productsLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(95)))), ((int)(((byte)(112)))));
+            this.productsLbl.Location = new System.Drawing.Point(197, 131);
+            this.productsLbl.Name = "productsLbl";
+            this.productsLbl.Size = new System.Drawing.Size(70, 23);
+            this.productsLbl.TabIndex = 22;
+            this.productsLbl.Text = "label3";
+            this.productsLbl.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
+            // label11
+            // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(6, 131);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(168, 23);
+            this.label11.TabIndex = 23;
+            this.label11.Text = "No. Of Products:";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // categoriesLbl
             // 
@@ -333,29 +361,33 @@
             this.pictureBox1.TabIndex = 15;
             this.pictureBox1.TabStop = false;
             // 
-            // productsLbl
+            // groupBox2
             // 
-            this.productsLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.productsLbl.AutoSize = true;
-            this.productsLbl.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.productsLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(95)))), ((int)(((byte)(112)))));
-            this.productsLbl.Location = new System.Drawing.Point(197, 131);
-            this.productsLbl.Name = "productsLbl";
-            this.productsLbl.Size = new System.Drawing.Size(70, 23);
-            this.productsLbl.TabIndex = 22;
-            this.productsLbl.Text = "label3";
-            this.productsLbl.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.dataGridViewLowStock);
+            this.groupBox2.Location = new System.Drawing.Point(833, 72);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(362, 265);
+            this.groupBox2.TabIndex = 23;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Low Stocks";
             // 
-            // label11
+            // dataGridViewLowStock
             // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(6, 131);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(168, 23);
-            this.label11.TabIndex = 23;
-            this.label11.Text = "No. Of Products:";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.dataGridViewLowStock.AllowUserToAddRows = false;
+            this.dataGridViewLowStock.AllowUserToDeleteRows = false;
+            this.dataGridViewLowStock.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewLowStock.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridViewLowStock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewLowStock.Location = new System.Drawing.Point(17, 42);
+            this.dataGridViewLowStock.Name = "dataGridViewLowStock";
+            this.dataGridViewLowStock.ReadOnly = true;
+            this.dataGridViewLowStock.RowHeadersVisible = false;
+            this.dataGridViewLowStock.RowHeadersWidth = 51;
+            this.dataGridViewLowStock.RowTemplate.Height = 24;
+            this.dataGridViewLowStock.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewLowStock.Size = new System.Drawing.Size(323, 203);
+            this.dataGridViewLowStock.TabIndex = 0;
             // 
             // AdminDashboard
             // 
@@ -363,6 +395,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1231, 622);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.grossSalesLbl);
             this.Controls.Add(this.label4);
@@ -388,6 +421,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLowStock)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -422,5 +457,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label productsLbl;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.DataGridView dataGridViewLowStock;
     }
 }

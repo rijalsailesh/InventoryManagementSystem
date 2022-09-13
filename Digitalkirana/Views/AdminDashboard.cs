@@ -53,6 +53,7 @@ namespace Digitalkirana.Views
             usersLbl.Text = noOfUsers.ToString();
             productsLbl.Text = noOfProducts.ToString();
             categoriesLbl.Text = noOfCategories.ToString();
+            dataGridViewLowStock.DataSource = productDAL.LowStockProducts();
         }
 
         private void categoryToolStripMenuItem_Click(object sender, EventArgs e)

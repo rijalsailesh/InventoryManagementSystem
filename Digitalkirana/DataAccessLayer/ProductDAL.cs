@@ -333,6 +333,30 @@ namespace Digitalkirana.DataAccessLayer
             return noOfProducts;
         }
         #endregion
+
+        #region Get Low Stock Products
+        public DataTable LowStockProducts()
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                string query = "SELECT Id, ProductName `Product Name` FROM product_tbl WHERE Quantity < 5";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                con.Open();
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dt;
+        }
+        #endregion
     }
 }
 
