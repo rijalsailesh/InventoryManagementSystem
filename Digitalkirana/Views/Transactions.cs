@@ -44,6 +44,10 @@ namespace Digitalkirana.Views
         private void dataGridViewTransactions_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int rowIndex = e.RowIndex;
+            if (rowIndex < 0)
+            {
+                return;
+            }
             DataGridViewRow selectedRow = dataGridViewTransactions.Rows[rowIndex];
             transactionId = Convert.ToInt32(selectedRow.Cells[0].Value);
             btnDetails.Enabled = true;
