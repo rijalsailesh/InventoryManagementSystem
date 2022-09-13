@@ -203,5 +203,33 @@ namespace Digitalkirana.DataAccessLayer
             return noOfUsers;
         }
         #endregion
+
+        #region Check Duplicate Username
+        public bool CheckDuplicateUsername(string username)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                string query = $"SELECT * FROM user_tbl WHERE Username = '{username}'";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                con.Open();
+                da.Fill(dt);
+                if(dt.Rows.Count > 0)
+                {
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return false;
+        }
+        #endregion
     }
 }

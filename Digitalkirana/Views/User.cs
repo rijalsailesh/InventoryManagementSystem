@@ -55,6 +55,12 @@ namespace Digitalkirana.Views
                 }
                 else
                 {
+                    var checkDuplicateUsername = userDAL.CheckDuplicateUsername(textBoxUsername.Text);
+                    if (checkDuplicateUsername)
+                    {
+                        MessageBox.Show("Username already exists. Please enter unique username.","Alert",MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        return;
+                    }
                     userDAL.InsertUser(user);
                 }
                 dataGridViewUser.DataSource = userDAL.SelectAllUsers();
