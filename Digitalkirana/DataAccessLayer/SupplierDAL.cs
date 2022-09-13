@@ -179,5 +179,34 @@ namespace Digitalkirana.DataAccessLayer
             return supplier;
         }
         #endregion
+
+        #region Get Number of Suppliers
+        public int NoOfSuppliers()
+        {
+            int noOfSuppliers = 0;
+            DataTable dt = new DataTable();
+            try
+            {
+                string query = "SELECT COUNT(*) FROM supplier_tbl";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                con.Open();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    noOfSuppliers = Convert.ToInt32(dt.Rows[0][0]);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return noOfSuppliers;
+        }
+        #endregion
     }
 }
