@@ -72,7 +72,7 @@ namespace Digitalkirana.DataAccessLayer
         }
         #endregion
 
-        #region Get Grand Total From Purchase By Username
+        #region Get Today's Grand Total From Purchase By Username
         public Decimal GetTotalPurchaseByUsername(int userId)
         {
             Decimal totalPurchase = 0;
@@ -80,6 +80,38 @@ namespace Digitalkirana.DataAccessLayer
             try
             {
                 string query = $"SELECT GrandTotal FROM `purchase_tbl` WHERE AddedBy = {userId} AND Date = '{DateTime.Now.ToString("yyyy-MM-dd")}'";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                con.Open();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        totalPurchase = totalPurchase + Convert.ToDecimal(dt.Rows[i][0]);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return totalPurchase;
+        }
+        #endregion
+
+        #region Get Today's Grand Total From Purchase
+        public Decimal GetTotalPurchase()
+        {
+            Decimal totalPurchase = 0;
+            DataTable dt = new DataTable();
+            try
+            {
+                string query = $"SELECT GrandTotal FROM `purchase_tbl` WHERE  Date = '{DateTime.Now.ToString("yyyy-MM-dd")}'";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 con.Open();

@@ -75,7 +75,7 @@ namespace Digitalkirana.DataAccessLayer
         #region Get Grand Total From Sales By Username
         public Decimal GetTotalSalesByUsername(int userId)
         {
-            Decimal totalPurchase = 0;
+            Decimal totalSales = 0;
             DataTable dt = new DataTable();
             try
             {
@@ -88,7 +88,7 @@ namespace Digitalkirana.DataAccessLayer
                 {
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
-                        totalPurchase = totalPurchase + Convert.ToDecimal(dt.Rows[i][0]);
+                        totalSales = totalSales + Convert.ToDecimal(dt.Rows[i][0]);
                     }
                 }
             }
@@ -100,7 +100,39 @@ namespace Digitalkirana.DataAccessLayer
             {
                 con.Close();
             }
-            return totalPurchase;
+            return totalSales;
+        }
+        #endregion
+
+        #region Get Today's Grand Total From Sales
+        public Decimal GetTotalSales()
+        {
+            Decimal totalSales= 0;
+            DataTable dt = new DataTable();
+            try
+            {
+                string query = $"SELECT GrandTotal FROM `sales_tbl` WHERE  Date = '{DateTime.Now.ToString("yyyy-MM-dd")}'";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                con.Open();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        totalSales = totalSales + Convert.ToDecimal(dt.Rows[i][0]);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return totalSales;
         }
         #endregion
     }

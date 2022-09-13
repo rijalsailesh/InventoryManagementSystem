@@ -38,10 +38,26 @@
             this.inventoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transactionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.categoriesLbl = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.usersLbl = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.CustomersLbl = new System.Windows.Forms.Label();
+            this.SuppliersLbl = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.grossSalesLbl = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.grossPurchaseLbl = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.labelUsername = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.productsLbl = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.menuStripTop.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,7 +75,7 @@
             this.menuStripTop.Location = new System.Drawing.Point(0, 0);
             this.menuStripTop.Name = "menuStripTop";
             this.menuStripTop.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuStripTop.Size = new System.Drawing.Size(908, 28);
+            this.menuStripTop.Size = new System.Drawing.Size(1231, 28);
             this.menuStripTop.TabIndex = 0;
             this.menuStripTop.Text = "menuStrip1";
             // 
@@ -116,52 +132,244 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(95)))), ((int)(((byte)(112)))));
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 463);
+            this.panel1.Location = new System.Drawing.Point(0, 589);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(908, 33);
+            this.panel1.Size = new System.Drawing.Size(1231, 33);
             this.panel1.TabIndex = 1;
             // 
-            // label1
+            // groupBox1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(653, 45);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 23);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Admin:";
+            this.groupBox1.Controls.Add(this.productsLbl);
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.categoriesLbl);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.usersLbl);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.CustomersLbl);
+            this.groupBox1.Controls.Add(this.SuppliersLbl);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Location = new System.Drawing.Point(55, 113);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(273, 265);
+            this.groupBox1.TabIndex = 22;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Summary";
+            // 
+            // categoriesLbl
+            // 
+            this.categoriesLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.categoriesLbl.AutoSize = true;
+            this.categoriesLbl.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categoriesLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(95)))), ((int)(((byte)(112)))));
+            this.categoriesLbl.Location = new System.Drawing.Point(197, 85);
+            this.categoriesLbl.Name = "categoriesLbl";
+            this.categoriesLbl.Size = new System.Drawing.Size(70, 23);
+            this.categoriesLbl.TabIndex = 20;
+            this.categoriesLbl.Text = "label3";
+            this.categoriesLbl.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
+            // label9
+            // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 85);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(184, 23);
+            this.label9.TabIndex = 21;
+            this.label9.Text = "No. Of Categories";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // usersLbl
+            // 
+            this.usersLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.usersLbl.AutoSize = true;
+            this.usersLbl.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usersLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(95)))), ((int)(((byte)(112)))));
+            this.usersLbl.Location = new System.Drawing.Point(197, 42);
+            this.usersLbl.Name = "usersLbl";
+            this.usersLbl.Size = new System.Drawing.Size(70, 23);
+            this.usersLbl.TabIndex = 18;
+            this.usersLbl.Text = "label3";
+            this.usersLbl.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 42);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(126, 23);
+            this.label6.TabIndex = 19;
+            this.label6.Text = "No. Of Users";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // CustomersLbl
+            // 
+            this.CustomersLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.CustomersLbl.AutoSize = true;
+            this.CustomersLbl.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CustomersLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(95)))), ((int)(((byte)(112)))));
+            this.CustomersLbl.Location = new System.Drawing.Point(197, 222);
+            this.CustomersLbl.Name = "CustomersLbl";
+            this.CustomersLbl.Size = new System.Drawing.Size(70, 23);
+            this.CustomersLbl.TabIndex = 17;
+            this.CustomersLbl.Text = "label3";
+            this.CustomersLbl.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
+            // SuppliersLbl
+            // 
+            this.SuppliersLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.SuppliersLbl.AutoSize = true;
+            this.SuppliersLbl.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SuppliersLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(95)))), ((int)(((byte)(112)))));
+            this.SuppliersLbl.Location = new System.Drawing.Point(197, 174);
+            this.SuppliersLbl.Name = "SuppliersLbl";
+            this.SuppliersLbl.Size = new System.Drawing.Size(70, 23);
+            this.SuppliersLbl.TabIndex = 15;
+            this.SuppliersLbl.Text = "label3";
+            this.SuppliersLbl.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 222);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(180, 23);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "No. Of Customers";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 174);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(163, 23);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "No. Of Suppliers";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // grossSalesLbl
+            // 
+            this.grossSalesLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.grossSalesLbl.AutoSize = true;
+            this.grossSalesLbl.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grossSalesLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(95)))), ((int)(((byte)(112)))));
+            this.grossSalesLbl.Location = new System.Drawing.Point(978, 524);
+            this.grossSalesLbl.Name = "grossSalesLbl";
+            this.grossSalesLbl.Size = new System.Drawing.Size(82, 27);
+            this.grossSalesLbl.TabIndex = 21;
+            this.grossSalesLbl.Text = "label3";
+            this.grossSalesLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(978, 486);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(201, 23);
+            this.label4.TabIndex = 20;
+            this.label4.Text = "Today\'s Gross Sales:";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // grossPurchaseLbl
+            // 
+            this.grossPurchaseLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.grossPurchaseLbl.AutoSize = true;
+            this.grossPurchaseLbl.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grossPurchaseLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(95)))), ((int)(((byte)(112)))));
+            this.grossPurchaseLbl.Location = new System.Drawing.Point(51, 524);
+            this.grossPurchaseLbl.Name = "grossPurchaseLbl";
+            this.grossPurchaseLbl.Size = new System.Drawing.Size(82, 27);
+            this.grossPurchaseLbl.TabIndex = 19;
+            this.grossPurchaseLbl.Text = "label3";
+            this.grossPurchaseLbl.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(51, 486);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(241, 23);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "Today\'s Gross Purchase:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // labelUsername
             // 
-            this.labelUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelUsername.AutoSize = true;
             this.labelUsername.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(95)))), ((int)(((byte)(112)))));
-            this.labelUsername.Location = new System.Drawing.Point(737, 45);
+            this.labelUsername.Location = new System.Drawing.Point(139, 72);
             this.labelUsername.Name = "labelUsername";
             this.labelUsername.Size = new System.Drawing.Size(108, 23);
-            this.labelUsername.TabIndex = 4;
+            this.labelUsername.TabIndex = 17;
             this.labelUsername.Text = "Username";
+            this.labelUsername.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(55, 72);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(78, 23);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "Admin:";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = global::Digitalkirana.Properties.Resources.digital_kirana_transparent;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 31);
+            this.pictureBox1.Location = new System.Drawing.Point(385, 99);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(908, 432);
+            this.pictureBox1.Size = new System.Drawing.Size(442, 432);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabIndex = 15;
             this.pictureBox1.TabStop = false;
+            // 
+            // productsLbl
+            // 
+            this.productsLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.productsLbl.AutoSize = true;
+            this.productsLbl.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.productsLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(95)))), ((int)(((byte)(112)))));
+            this.productsLbl.Location = new System.Drawing.Point(197, 131);
+            this.productsLbl.Name = "productsLbl";
+            this.productsLbl.Size = new System.Drawing.Size(70, 23);
+            this.productsLbl.TabIndex = 22;
+            this.productsLbl.Text = "label3";
+            this.productsLbl.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
+            // label11
+            // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(6, 131);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(168, 23);
+            this.label11.TabIndex = 23;
+            this.label11.Text = "No. Of Products:";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(908, 496);
+            this.ClientSize = new System.Drawing.Size(1231, 622);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.grossSalesLbl);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.grossPurchaseLbl);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.labelUsername);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStripTop);
@@ -177,6 +385,8 @@
             this.Load += new System.EventHandler(this.AdminDashboard_Load);
             this.menuStripTop.ResumeLayout(false);
             this.menuStripTop.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -192,10 +402,25 @@
         private System.Windows.Forms.ToolStripMenuItem inventoryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem transactionsToolStripMenuItem;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label labelUsername;
         private System.Windows.Forms.ToolStripMenuItem suppliersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem customersToolStripMenuItem;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label CustomersLbl;
+        private System.Windows.Forms.Label SuppliersLbl;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label grossSalesLbl;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label grossPurchaseLbl;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelUsername;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label categoriesLbl;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label usersLbl;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label productsLbl;
+        private System.Windows.Forms.Label label11;
     }
 }

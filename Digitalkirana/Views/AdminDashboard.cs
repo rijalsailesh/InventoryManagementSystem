@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Digitalkirana.DataAccessLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +17,13 @@ namespace Digitalkirana.Views
         {
             InitializeComponent();
         }
+        PurchaseDAL purchaseDAL = new PurchaseDAL();
+        SalesDAL salesDAL = new SalesDAL();
+        SupplierDAL supplierDAL = new SupplierDAL();
+        CustomerDAL customerDAL = new CustomerDAL();
+        UserDAL userDAL = new UserDAL();
+        ProductDAL productDAL = new ProductDAL();
+        CategoryDAL categoryDAL = new CategoryDAL();
 
         private void usersToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -26,6 +34,25 @@ namespace Digitalkirana.Views
         private void AdminDashboard_Load(object sender, EventArgs e)
         {
             labelUsername.Text = Login.fullName;
+            loadDisplayData();
+        }
+
+        private void loadDisplayData()
+        {
+            var totalPurchase = purchaseDAL.GetTotalPurchase();
+            var totalSales = salesDAL.GetTotalSales();
+            var noOfSuppliers = supplierDAL.NoOfSuppliers();
+            var noOfCustomers = customerDAL.NoOfCustomers();
+            var noOfUsers = userDAL.NoOfUsers();
+            var noOfProducts = productDAL.NoOfProducts();
+            var noOfCategories = categoryDAL.NoOfCategories();
+            grossPurchaseLbl.Text = totalPurchase.ToString();
+            grossSalesLbl.Text = totalSales.ToString();
+            SuppliersLbl.Text = noOfSuppliers.ToString();
+            CustomersLbl.Text = noOfCustomers.ToString();
+            usersLbl.Text = noOfUsers.ToString();
+            productsLbl.Text = noOfProducts.ToString();
+            categoriesLbl.Text = noOfCategories.ToString();
         }
 
         private void categoryToolStripMenuItem_Click(object sender, EventArgs e)
