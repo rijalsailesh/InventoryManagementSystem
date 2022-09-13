@@ -74,9 +74,17 @@ namespace Digitalkirana.Views
             {
                 return;
             }
-            supplierDAL.DeleteSupplier(supplier);
-            reset();
-            dataGridViewSupplier.DataSource = supplierDAL.SelectAllSuppliers();
+            var checkStatus = supplierDAL.CheckSupplierInPurchase(supplier.Id);
+            if (!checkStatus)
+            {
+                supplierDAL.DeleteSupplier(supplier);
+                dataGridViewSupplier.DataSource = supplierDAL.SelectAllSuppliers();
+                reset();
+            }
+            else
+            {
+                MessageBox.Show("This supplier could not be deleted because it has been used in a purchase", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void textBoxSearch_TextChanged(object sender, EventArgs e)

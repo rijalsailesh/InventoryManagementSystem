@@ -76,9 +76,17 @@ namespace Digitalkirana.Views
             {
                 return;
             }
-            customerDAL.DeleteCustomer(customer);
-            reset();
-            dataGridViewCustomer.DataSource = customerDAL.SelectAllCustomers();
+            var checkStatus = customerDAL.CheckCustomerInSales(customer.Id);
+            if (!checkStatus)
+            {
+                customerDAL.DeleteCustomer(customer);
+                reset();
+                dataGridViewCustomer.DataSource = customerDAL.SelectAllCustomers();
+            }
+            else
+            {
+                MessageBox.Show("This customer could not be deleted because it has been used in a sales", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void textBoxSearch_TextChanged(object sender, EventArgs e)
