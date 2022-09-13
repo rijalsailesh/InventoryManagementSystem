@@ -28,7 +28,7 @@ namespace Digitalkirana.DataAccessLayer
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message,"Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -49,13 +49,13 @@ namespace Digitalkirana.DataAccessLayer
                 int result = cmd.ExecuteNonQuery();
                 if (result == 1)
                 {
-                    MessageBox.Show("Category Added Successfully", "Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Category added successfully", "Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return true;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -77,13 +77,13 @@ namespace Digitalkirana.DataAccessLayer
                 int result = cmd.ExecuteNonQuery();
                 if (result == 1)
                 {
-                    MessageBox.Show("Category Updated Successfully");
+                    MessageBox.Show("Category updated successfully", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return true;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -108,7 +108,7 @@ namespace Digitalkirana.DataAccessLayer
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -129,13 +129,13 @@ namespace Digitalkirana.DataAccessLayer
                 int result = cmd.ExecuteNonQuery();
                 if (result == 1)
                 {
-                    MessageBox.Show("Category Deleted Successfully");
+                    MessageBox.Show("Category deleted successfully", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return true;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -165,7 +165,7 @@ namespace Digitalkirana.DataAccessLayer
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -174,6 +174,5 @@ namespace Digitalkirana.DataAccessLayer
             return noOfCategories;
         }
         #endregion
-
     }
 }
