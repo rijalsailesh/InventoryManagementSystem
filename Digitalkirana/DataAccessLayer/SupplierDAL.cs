@@ -28,7 +28,7 @@ namespace Digitalkirana.DataAccessLayer
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -49,19 +49,19 @@ namespace Digitalkirana.DataAccessLayer
                 int result = cmd.ExecuteNonQuery();
                 if (result == 1)
                 {
-                    MessageBox.Show("Supplier Added Successfully");
+                    MessageBox.Show("Supplier added successfully", "Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return true;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
                 con.Close();
             }
-            MessageBox.Show("Supplier Could not be added");
+            MessageBox.Show("Supplier could not be added", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return false;
         }
         #endregion
@@ -77,19 +77,19 @@ namespace Digitalkirana.DataAccessLayer
                 int result = cmd.ExecuteNonQuery();
                 if (result == 1)
                 {
-                    MessageBox.Show("Supplier Updated Successfully");
+                    MessageBox.Show("Supplier updated successfully", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return true;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
                 con.Close();
             }
-            MessageBox.Show("Supplier Could not be updated");
+            MessageBox.Show("Supplier could not be updated", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return false;
         }
         #endregion
@@ -108,7 +108,7 @@ namespace Digitalkirana.DataAccessLayer
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -129,19 +129,19 @@ namespace Digitalkirana.DataAccessLayer
                 int result = cmd.ExecuteNonQuery();
                 if (result == 1)
                 {
-                    MessageBox.Show("Supplier Deleted Successfully");
+                    MessageBox.Show("Supplier deleted successfully", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return true;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
                 con.Close();
             }
-            MessageBox.Show("Supplier Could not be deleted");
+            MessageBox.Show("Supplier could not be deleted", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return false;
         }
         #endregion
@@ -169,7 +169,7 @@ namespace Digitalkirana.DataAccessLayer
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -199,7 +199,7 @@ namespace Digitalkirana.DataAccessLayer
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {

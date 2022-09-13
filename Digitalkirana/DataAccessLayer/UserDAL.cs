@@ -26,7 +26,7 @@ namespace Digitalkirana.DataAccessLayer
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -48,19 +48,19 @@ namespace Digitalkirana.DataAccessLayer
                 int result = cmd.ExecuteNonQuery();
                 if (result == 1)
                 {
-                    MessageBox.Show("User Added Successfully");
+                    MessageBox.Show("User added successfully", "Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return true;
                 }
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
                 con.Close();
             }
-            MessageBox.Show("User Could not be added");
+            MessageBox.Show("User could not be added", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return false;
         }
         #endregion
@@ -76,19 +76,19 @@ namespace Digitalkirana.DataAccessLayer
                 int result = cmd.ExecuteNonQuery();
                 if (result == 1)
                 {
-                    MessageBox.Show("User Updated Successfully");
+                    MessageBox.Show("User updated successfully", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return true;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
                 con.Close();
             }
-            MessageBox.Show("User Could not be updated");
+            MessageBox.Show("User could not be updated", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return false;
         }
         #endregion
@@ -107,7 +107,7 @@ namespace Digitalkirana.DataAccessLayer
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -129,19 +129,19 @@ namespace Digitalkirana.DataAccessLayer
                 int result = cmd.ExecuteNonQuery();
                 if (result == 1)
                 {
-                    MessageBox.Show("Password has been reset sucessfully.");
+                    MessageBox.Show("Password has been reset sucessfully", "Reset", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return true;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
                 con.Close();
             }
-            MessageBox.Show("Password could not be reset.");
+            MessageBox.Show("Password could not be reset", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return false;
         }
         #endregion
@@ -165,7 +165,7 @@ namespace Digitalkirana.DataAccessLayer
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -194,7 +194,7 @@ namespace Digitalkirana.DataAccessLayer
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
