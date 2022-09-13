@@ -79,7 +79,7 @@ namespace Digitalkirana.DataAccessLayer
             DataTable dt = new DataTable();
             try
             {
-                string query = $"SELECT GrandTotal FROM `purchase_tbl` WHERE AddedBy = {userId}";
+                string query = $"SELECT GrandTotal FROM `purchase_tbl` WHERE AddedBy = {userId} AND Date = '{DateTime.Now.ToString("yyyy-MM-dd")}'";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 con.Open();
