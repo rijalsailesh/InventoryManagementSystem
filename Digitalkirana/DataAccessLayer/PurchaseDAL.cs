@@ -72,7 +72,7 @@ namespace Digitalkirana.DataAccessLayer
         }
         #endregion
 
-        #region
+        #region Get Grand Total From Purchase By Username
         public Decimal GetTotalPurchaseByUsername(int userId)
         {
             Decimal totalPurchase = 0;

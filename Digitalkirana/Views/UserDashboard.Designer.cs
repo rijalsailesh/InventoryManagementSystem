@@ -41,7 +41,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.grossPurchaseLbl = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.grossSalesLbl = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.menuStripTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -59,42 +59,42 @@
             this.menuStripTop.Location = new System.Drawing.Point(0, 0);
             this.menuStripTop.Name = "menuStripTop";
             this.menuStripTop.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuStripTop.Size = new System.Drawing.Size(1030, 30);
+            this.menuStripTop.Size = new System.Drawing.Size(1030, 28);
             this.menuStripTop.TabIndex = 5;
             this.menuStripTop.Text = "menuStrip1";
             // 
             // suppliersToolStripMenuItem
             // 
             this.suppliersToolStripMenuItem.Name = "suppliersToolStripMenuItem";
-            this.suppliersToolStripMenuItem.Size = new System.Drawing.Size(84, 26);
+            this.suppliersToolStripMenuItem.Size = new System.Drawing.Size(84, 24);
             this.suppliersToolStripMenuItem.Text = "Suppliers";
             this.suppliersToolStripMenuItem.Click += new System.EventHandler(this.suppliersToolStripMenuItem_Click);
             // 
             // customersToolStripMenuItem
             // 
             this.customersToolStripMenuItem.Name = "customersToolStripMenuItem";
-            this.customersToolStripMenuItem.Size = new System.Drawing.Size(92, 26);
+            this.customersToolStripMenuItem.Size = new System.Drawing.Size(92, 24);
             this.customersToolStripMenuItem.Text = "Customers";
             this.customersToolStripMenuItem.Click += new System.EventHandler(this.customersToolStripMenuItem_Click);
             // 
             // inventoryToolStripMenuItem
             // 
             this.inventoryToolStripMenuItem.Name = "inventoryToolStripMenuItem";
-            this.inventoryToolStripMenuItem.Size = new System.Drawing.Size(81, 26);
+            this.inventoryToolStripMenuItem.Size = new System.Drawing.Size(81, 24);
             this.inventoryToolStripMenuItem.Text = "Purchase";
             this.inventoryToolStripMenuItem.Click += new System.EventHandler(this.inventoryToolStripMenuItem_Click);
             // 
             // usersToolStripMenuItem
             // 
             this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-            this.usersToolStripMenuItem.Size = new System.Drawing.Size(57, 26);
+            this.usersToolStripMenuItem.Size = new System.Drawing.Size(57, 24);
             this.usersToolStripMenuItem.Text = "Sales";
             this.usersToolStripMenuItem.Click += new System.EventHandler(this.usersToolStripMenuItem_Click);
             // 
             // transactionsToolStripMenuItem
             // 
             this.transactionsToolStripMenuItem.Name = "transactionsToolStripMenuItem";
-            this.transactionsToolStripMenuItem.Size = new System.Drawing.Size(84, 26);
+            this.transactionsToolStripMenuItem.Size = new System.Drawing.Size(84, 24);
             this.transactionsToolStripMenuItem.Text = "Inventory";
             this.transactionsToolStripMenuItem.Click += new System.EventHandler(this.transactionsToolStripMenuItem_Click);
             // 
@@ -144,7 +144,7 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 515);
+            this.label2.Location = new System.Drawing.Point(12, 493);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(241, 23);
             this.label2.TabIndex = 10;
@@ -157,31 +157,31 @@
             this.grossPurchaseLbl.AutoSize = true;
             this.grossPurchaseLbl.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grossPurchaseLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(95)))), ((int)(((byte)(112)))));
-            this.grossPurchaseLbl.Location = new System.Drawing.Point(12, 553);
+            this.grossPurchaseLbl.Location = new System.Drawing.Point(12, 531);
             this.grossPurchaseLbl.Name = "grossPurchaseLbl";
             this.grossPurchaseLbl.Size = new System.Drawing.Size(82, 27);
             this.grossPurchaseLbl.TabIndex = 11;
             this.grossPurchaseLbl.Text = "label3";
             this.grossPurchaseLbl.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
-            // label3
+            // grossSalesLbl
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(95)))), ((int)(((byte)(112)))));
-            this.label3.Location = new System.Drawing.Point(806, 553);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 27);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "label3";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.grossSalesLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.grossSalesLbl.AutoSize = true;
+            this.grossSalesLbl.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grossSalesLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(95)))), ((int)(((byte)(112)))));
+            this.grossSalesLbl.Location = new System.Drawing.Point(789, 531);
+            this.grossSalesLbl.Name = "grossSalesLbl";
+            this.grossSalesLbl.Size = new System.Drawing.Size(82, 27);
+            this.grossSalesLbl.TabIndex = 13;
+            this.grossSalesLbl.Text = "label3";
+            this.grossSalesLbl.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // label4
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(806, 515);
+            this.label4.Location = new System.Drawing.Point(789, 493);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(201, 23);
             this.label4.TabIndex = 12;
@@ -194,7 +194,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1030, 622);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.grossSalesLbl);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.grossPurchaseLbl);
             this.Controls.Add(this.label2);
@@ -234,7 +234,7 @@
         private System.Windows.Forms.ToolStripMenuItem customersToolStripMenuItem;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label grossPurchaseLbl;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label grossSalesLbl;
         private System.Windows.Forms.Label label4;
     }
 }

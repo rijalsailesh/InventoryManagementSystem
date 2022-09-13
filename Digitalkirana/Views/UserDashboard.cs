@@ -19,6 +19,7 @@ namespace Digitalkirana.Views
         }
 
         PurchaseDAL purchaseDAL = new PurchaseDAL();
+        SalesDAL salesDAL = new SalesDAL();
         UserDAL userDAL = new UserDAL();
 
         private void UserDashboard_Load(object sender, EventArgs e)
@@ -31,7 +32,9 @@ namespace Digitalkirana.Views
         {
             int userId = userDAL.getUserId(Login.username);
             var totalPurchase = purchaseDAL.GetTotalPurchaseByUsername(userId);
+            var totalSales = salesDAL.GetTotalSalesByUsername(userId);
             grossPurchaseLbl.Text = totalPurchase.ToString();
+            grossSalesLbl.Text = totalSales.ToString();
         }
 
         private void inventoryToolStripMenuItem_Click(object sender, EventArgs e)
