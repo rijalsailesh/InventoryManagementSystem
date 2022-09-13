@@ -71,5 +71,37 @@ namespace Digitalkirana.DataAccessLayer
             return dt;
         }
         #endregion
+
+        #region
+        public Decimal GetTotalPurchaseByUsername(int userId)
+        {
+            Decimal totalPurchase = 0;
+            DataTable dt = new DataTable();
+            try
+            {
+                string query = $"SELECT GrandTotal FROM `purchase_tbl` WHERE AddedBy = {userId}";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                con.Open();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        totalPurchase = totalPurchase + Convert.ToDecimal(dt.Rows[i][0]);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return totalPurchase;
+        }
+        #endregion
     }
 }

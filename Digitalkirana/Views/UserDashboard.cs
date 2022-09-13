@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Digitalkirana.DataAccessLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,9 +18,20 @@ namespace Digitalkirana.Views
             InitializeComponent();
         }
 
+        PurchaseDAL purchaseDAL = new PurchaseDAL();
+        UserDAL userDAL = new UserDAL();
+
         private void UserDashboard_Load(object sender, EventArgs e)
         {
             labelUsername.Text = Login.fullName;
+            loadDisplayData();
+        }
+
+        private void loadDisplayData()
+        {
+            int userId = userDAL.getUserId(Login.username);
+            var totalPurchase = purchaseDAL.GetTotalPurchaseByUsername(userId);
+            grossPurchaseLbl.Text = totalPurchase.ToString();
         }
 
         private void inventoryToolStripMenuItem_Click(object sender, EventArgs e)
@@ -51,5 +63,6 @@ namespace Digitalkirana.Views
             Inventory inventory = new Inventory();
             inventory.ShowDialog();
         }
+
     }
 }
