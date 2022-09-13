@@ -80,6 +80,11 @@ namespace Digitalkirana.Views
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            var result = MessageBox.Show("Do you really want to delete?", "Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.Cancel)
+            {
+                return;
+            }
             categoryDAL.DeleteCategory(category);
             reset();
             dataGridViewCategory.DataSource = categoryDAL.SelectAllCategories();
@@ -100,6 +105,11 @@ namespace Digitalkirana.Views
 
         private void btnReset_Click(object sender, EventArgs e)
         {
+            var result = MessageBox.Show("Do you really want to reset?", "Reset", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.Cancel)
+            {
+                return;
+            }
             reset();
         }
     }

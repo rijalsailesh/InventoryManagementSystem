@@ -119,11 +119,21 @@ namespace Digitalkirana.Views
 
         private void btnReset_Click(object sender, EventArgs e)
         {
+            var result = MessageBox.Show("Do you really want to reset?", "Reset", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.Cancel)
+            {
+                return;
+            }
             reset();
         }
 
         private void btnResetPassword_Click(object sender, EventArgs e)
         {
+            var result = MessageBox.Show("Do you really want to reset password?", "Reset Password", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.Cancel)
+            {
+                return;
+            }
             ResetPassword resetPassword = new ResetPassword(user.Id);
             resetPassword.ShowDialog();
         }

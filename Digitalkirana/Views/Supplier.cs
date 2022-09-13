@@ -69,6 +69,11 @@ namespace Digitalkirana.Views
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            var result = MessageBox.Show("Do you really want to delete?", "Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.Cancel)
+            {
+                return;
+            }
             supplierDAL.DeleteSupplier(supplier);
             reset();
             dataGridViewSupplier.DataSource = supplierDAL.SelectAllSuppliers();
