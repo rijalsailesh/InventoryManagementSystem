@@ -118,5 +118,15 @@ namespace Digitalkirana.Views
             btnSave.Text = "Update";
             btnDelete.Enabled = true;
         }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Do you really want to reset?", "Reset", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.Cancel)
+            {
+                return;
+            }
+            reset();
+        }
     }
 }

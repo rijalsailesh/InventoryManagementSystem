@@ -43,6 +43,7 @@
             this.textBoxSupplierName = new System.Windows.Forms.TextBox();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnReset = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSupplier)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -51,7 +52,7 @@
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(13, 323);
+            this.label8.Location = new System.Drawing.Point(13, 381);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(83, 23);
             this.label8.TabIndex = 25;
@@ -62,9 +63,9 @@
             this.btnDelete.BackColor = System.Drawing.Color.Crimson;
             this.btnDelete.Enabled = false;
             this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(673, 204);
+            this.btnDelete.Location = new System.Drawing.Point(673, 207);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(273, 41);
+            this.btnDelete.Size = new System.Drawing.Size(273, 49);
             this.btnDelete.TabIndex = 5;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
@@ -74,9 +75,9 @@
             // 
             this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(95)))), ((int)(((byte)(112)))));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(673, 150);
+            this.btnSave.Location = new System.Drawing.Point(673, 146);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(273, 41);
+            this.btnSave.Size = new System.Drawing.Size(273, 48);
             this.btnSave.TabIndex = 4;
             this.btnSave.Text = "Add";
             this.btnSave.UseVisualStyleBackColor = false;
@@ -96,7 +97,7 @@
             this.textBoxAddress.Location = new System.Drawing.Point(21, 156);
             this.textBoxAddress.Multiline = true;
             this.textBoxAddress.Name = "textBoxAddress";
-            this.textBoxAddress.Size = new System.Drawing.Size(590, 89);
+            this.textBoxAddress.Size = new System.Drawing.Size(590, 161);
             this.textBoxAddress.TabIndex = 3;
             // 
             // dataGridViewSupplier
@@ -109,7 +110,7 @@
             this.dataGridViewSupplier.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewSupplier.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridViewSupplier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewSupplier.Location = new System.Drawing.Point(13, 366);
+            this.dataGridViewSupplier.Location = new System.Drawing.Point(13, 424);
             this.dataGridViewSupplier.Name = "dataGridViewSupplier";
             this.dataGridViewSupplier.ReadOnly = true;
             this.dataGridViewSupplier.RowHeadersVisible = false;
@@ -117,7 +118,7 @@
             this.dataGridViewSupplier.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridViewSupplier.RowTemplate.Height = 24;
             this.dataGridViewSupplier.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewSupplier.Size = new System.Drawing.Size(968, 198);
+            this.dataGridViewSupplier.Size = new System.Drawing.Size(968, 244);
             this.dataGridViewSupplier.TabIndex = 7;
             this.dataGridViewSupplier.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSupplier_CellClick);
             // 
@@ -172,7 +173,7 @@
             // textBoxSearch
             // 
             this.textBoxSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxSearch.Location = new System.Drawing.Point(102, 320);
+            this.textBoxSearch.Location = new System.Drawing.Point(102, 378);
             this.textBoxSearch.Name = "textBoxSearch";
             this.textBoxSearch.Size = new System.Drawing.Size(879, 32);
             this.textBoxSearch.TabIndex = 6;
@@ -181,6 +182,7 @@
             // groupBox1
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox1.Controls.Add(this.btnReset);
             this.groupBox1.Controls.Add(this.btnDelete);
             this.groupBox1.Controls.Add(this.btnSave);
             this.groupBox1.Controls.Add(this.label7);
@@ -191,18 +193,30 @@
             this.groupBox1.Controls.Add(this.textBoxPhone);
             this.groupBox1.Controls.Add(this.textBoxEmail);
             this.groupBox1.Controls.Add(this.textBoxSupplierName);
-            this.groupBox1.Location = new System.Drawing.Point(13, 12);
+            this.groupBox1.Location = new System.Drawing.Point(13, 16);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(968, 275);
+            this.groupBox1.Size = new System.Drawing.Size(968, 332);
             this.groupBox1.TabIndex = 23;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Supplier\'s Details";
+            // 
+            // btnReset
+            // 
+            this.btnReset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(95)))), ((int)(((byte)(112)))));
+            this.btnReset.ForeColor = System.Drawing.Color.White;
+            this.btnReset.Location = new System.Drawing.Point(673, 269);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(273, 48);
+            this.btnReset.TabIndex = 16;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = false;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // Supplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(995, 576);
+            this.ClientSize = new System.Drawing.Size(995, 680);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.dataGridViewSupplier);
             this.Controls.Add(this.textBoxSearch);
@@ -238,5 +252,6 @@
         private System.Windows.Forms.TextBox textBoxSupplierName;
         private System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnReset;
     }
 }
