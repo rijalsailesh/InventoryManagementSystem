@@ -107,7 +107,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ResetPassword";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ResetPassword";
+            this.Text = "Reset Password";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

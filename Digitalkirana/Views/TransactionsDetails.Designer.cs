@@ -87,7 +87,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "TransactionsDetails";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "PurchaseDetails";
+            this.Text = "Transactions Details";
             this.Load += new System.EventHandler(this.TransactionsDetails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPurchaseDetails)).EndInit();
             this.ResumeLayout(false);
