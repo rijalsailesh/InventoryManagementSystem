@@ -124,46 +124,39 @@ namespace Digitalkirana.Views
             }
             else
             {
-                if (textBoxInventory.Value >= textBoxQuantity.Value)
+                if (textBoxQuantity.Value > 0)
                 {
-                    if (textBoxQuantity.Value > 0)
+                    if (dataGridViewAddedProducts.Rows.Count > 0)
                     {
-                        if (dataGridViewAddedProducts.Rows.Count > 0)
+                        for (int i = 0; i < dataGridViewAddedProducts.Rows.Count; i++)
                         {
-                            for (int i = 0; i < dataGridViewAddedProducts.Rows.Count; i++)
+                            if (productId == dataGridViewAddedProducts.Rows[i].Cells["ID"].Value.ToString())
                             {
-                                if (productId == dataGridViewAddedProducts.Rows[i].Cells["ID"].Value.ToString())
-                                {
-                                    productIdFound = true;
-                                    dataGridViewAddedProducts.Rows[i].Cells["quantity"].Value = Convert.ToDecimal(dataGridViewAddedProducts.Rows[i].Cells["quantity"].Value.ToString()) + textBoxQuantity.Value;
-                                    break;
-                                }
-                                else
-                                {
-                                    productIdFound = false;
-                                }
+                                productIdFound = true;
+                                dataGridViewAddedProducts.Rows[i].Cells["quantity"].Value = Convert.ToDecimal(dataGridViewAddedProducts.Rows[i].Cells["quantity"].Value.ToString()) + textBoxQuantity.Value;
+                                break;
+                            }
+                            else
+                            {
+                                productIdFound = false;
                             }
                         }
-                        if (!productIdFound)
-                        {
-                            productDt.Rows.Add(productId, productName, rate, quantity, total);
-                            dataGridViewAddedProducts.DataSource = productDt;
-                        }
-                        textBoxProductSearch.Clear();
-                        textBoxProductName.Clear();
-                        textBoxInventory.Value = 0;
-                        textBoxRate.Value = 0;
-                        textBoxQuantity.Value = 0;
-                        textboxSubtotal.Value = subtotal;
                     }
-                    else
+                    if (!productIdFound)
                     {
-                        MessageBox.Show("Please add quantity", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        productDt.Rows.Add(productId, productName, rate, quantity, total);
+                        dataGridViewAddedProducts.DataSource = productDt;
                     }
+                    textBoxProductSearch.Clear();
+                    textBoxProductName.Clear();
+                    textBoxInventory.Value = 0;
+                    textBoxRate.Value = 0;
+                    textBoxQuantity.Value = 0;
+                    textboxSubtotal.Value = subtotal;
                 }
                 else
                 {
-                    MessageBox.Show("Out of stock", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    MessageBox.Show("Please add quantity", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
             }
         }
