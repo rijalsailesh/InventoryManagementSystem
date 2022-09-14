@@ -384,7 +384,63 @@ namespace Digitalkirana.DataAccessLayer
             }
             return false;
         }
-        #endregion  
+        #endregion
+
+        #region Check Product in Product Details 
+        public bool CheckProductInPurchaseDetails(string id)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                string query = $"SELECT * FROM purchase_details_tbl WHERE ProductId = {id}";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                con.Open();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return false;
+        }
+        #endregion
+
+        #region Check Product in Sales Details 
+        public bool CheckProductInSalesDetails(string id)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                string query = $"SELECT * FROM sales_details_tbl WHERE ProductId = {id}";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                con.Open();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return false;
+        }
+        #endregion
     }
 }
 

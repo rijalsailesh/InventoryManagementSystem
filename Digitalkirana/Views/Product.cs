@@ -97,9 +97,17 @@ namespace Digitalkirana.Views
             {
                 return;
             }
-            productDAL.DeleteProduct(productId);
-            reset();
-            dataGridViewProduct.DataSource = productDAL.SelectAllProducts();
+            var checkStatus = productDAL.CheckProductInPurchaseDetails(productId) || productDAL.CheckProductInSalesDetails(productId);
+            if (!checkStatus)
+            {
+                productDAL.DeleteProduct(productId);
+                reset();
+                dataGridViewProduct.DataSource = productDAL.SelectAllProducts();
+            }
+            else
+            {
+                MessageBox.Show("This product could not be deleted because it has been used in a purchase/sales", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void textBoxSearch_TextChanged(object sender, EventArgs e)
