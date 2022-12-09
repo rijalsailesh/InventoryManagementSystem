@@ -72,6 +72,30 @@ namespace Digitalkirana.DataAccessLayer
         }
         #endregion
 
+        #region Select Purchase Transactions
+        public DataTable SelectTodaysPurchaseTransactions()
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                string query = $"SELECT p.Id `Purchase ID`, s.SupplierName `Supplier Name`, p.GrandTotal `Grand Total`, p.Tax, p.Discount, p.Date, u.FullName `Added By` FROM purchase_tbl p INNER JOIN supplier_tbl s on p.SupplierId = s.Id INNER JOIN user_tbl u on u.Id = p.AddedBy where p.Date = '{DateTime.Now.ToString("yyyy-MM-dd")}'";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                con.Open();
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dt;
+        }
+        #endregion
+
         #region Get Today's Grand Total From Purchase By Username
         public Decimal GetTotalPurchaseByUsername(int userId)
         {

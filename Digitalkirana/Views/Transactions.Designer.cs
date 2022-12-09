@@ -33,6 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxTransaction = new System.Windows.Forms.ComboBox();
             this.btnDetails = new System.Windows.Forms.Button();
+            this.showAllBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTransactions)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,7 +77,7 @@
             "Purchase"});
             this.comboBoxTransaction.Location = new System.Drawing.Point(219, 34);
             this.comboBoxTransaction.Name = "comboBoxTransaction";
-            this.comboBoxTransaction.Size = new System.Drawing.Size(323, 31);
+            this.comboBoxTransaction.Size = new System.Drawing.Size(287, 31);
             this.comboBoxTransaction.TabIndex = 0;
             this.comboBoxTransaction.SelectedIndexChanged += new System.EventHandler(this.comboBoxTransaction_SelectedIndexChanged);
             // 
@@ -93,11 +94,25 @@
             this.btnDetails.UseVisualStyleBackColor = false;
             this.btnDetails.Click += new System.EventHandler(this.btnDetails_Click);
             // 
+            // showAllBtn
+            // 
+            this.showAllBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(95)))), ((int)(((byte)(112)))));
+            this.showAllBtn.Enabled = false;
+            this.showAllBtn.ForeColor = System.Drawing.Color.White;
+            this.showAllBtn.Location = new System.Drawing.Point(512, 28);
+            this.showAllBtn.Name = "showAllBtn";
+            this.showAllBtn.Size = new System.Drawing.Size(158, 41);
+            this.showAllBtn.TabIndex = 28;
+            this.showAllBtn.Text = "Show All";
+            this.showAllBtn.UseVisualStyleBackColor = false;
+            this.showAllBtn.Click += new System.EventHandler(this.showAllBtn_Click);
+            // 
             // Transactions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1128, 588);
+            this.Controls.Add(this.showAllBtn);
             this.Controls.Add(this.btnDetails);
             this.Controls.Add(this.comboBoxTransaction);
             this.Controls.Add(this.label1);
@@ -121,5 +136,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBoxTransaction;
         private System.Windows.Forms.Button btnDetails;
+        private System.Windows.Forms.Button showAllBtn;
     }
 }

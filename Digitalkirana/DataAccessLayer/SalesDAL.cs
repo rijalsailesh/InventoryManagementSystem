@@ -72,6 +72,30 @@ namespace Digitalkirana.DataAccessLayer
         }
         #endregion
 
+        #region Select Sales Transactions
+        public DataTable SelectTodaysSalesTransactions()
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                string query = $"SELECT s.Id `Sales ID`, c.CustomerName `Customer Name`, s.GrandTotal `Grand Total`, s.Tax, s.Discount, s.Date, u.FullName `Added By` FROM sales_tbl s INNER JOIN customer_tbl c on s.CustomerId = c.Id INNER JOIN user_tbl u on u.Id = s.AddedBy where s.Date = '{DateTime.Now.ToString("yyyy-mm-dd")}'";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                con.Open();
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dt;
+        }
+        #endregion
+
         #region Get Grand Total From Sales By Username
         public Decimal GetTotalSalesByUsername(int userId)
         {

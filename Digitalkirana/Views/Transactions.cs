@@ -1,12 +1,5 @@
 ﻿using Digitalkirana.DataAccessLayer;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Digitalkirana.Views
@@ -30,13 +23,14 @@ namespace Digitalkirana.Views
 
         private void comboBoxTransaction_SelectedIndexChanged(object sender, EventArgs e)
         {
+            showAllBtn.Enabled = true;
             if(comboBoxTransaction.SelectedIndex == 0)
             {
-                dataGridViewTransactions.DataSource = salesDAL.SelectSalesTransactions();
+                dataGridViewTransactions.DataSource = salesDAL.SelectTodaysSalesTransactions();
             }
             else if(comboBoxTransaction.SelectedIndex== 1)
             {
-                dataGridViewTransactions.DataSource = purchaseDAL.SelectPurchaseTransactions();
+                dataGridViewTransactions.DataSource = purchaseDAL.SelectTodaysPurchaseTransactions();
             }
             
         }
@@ -72,5 +66,16 @@ namespace Digitalkirana.Views
             }
         }
 
+        private void showAllBtn_Click(object sender, EventArgs e)
+        {
+            if(comboBoxTransaction.SelectedIndex == 0)
+            {
+                dataGridViewTransactions.DataSource = salesDAL.SelectSalesTransactions();
+            }
+            else if(comboBoxTransaction.SelectedIndex == 1)
+            {
+                dataGridViewTransactions.DataSource = purchaseDAL.SelectPurchaseTransactions();
+            }
+        }
     }
 }

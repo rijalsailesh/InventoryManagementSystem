@@ -1,11 +1,8 @@
 ﻿using Digitalkirana.BusinessLogicLayer;
-using Digitalkirana.Views;
 using MySqlConnector;
 using System;
-using System.Configuration;
 using System.Data;
 using System.Windows.Forms;
-
 namespace Digitalkirana.DataAccessLayer
 {
     public class UserDAL
